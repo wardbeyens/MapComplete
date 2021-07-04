@@ -121,6 +121,10 @@ export default class LayerConfig {
                 const key = kv.substring(0, index);
                 const code = kv.substring(index + 1);
                 
+                if(key.endsWith(":")){
+                    throw context+": calculated tag with key "+key+" ends with a semicolon. The correct operator is '=', not ':='"
+                }
+                
                 this.calculatedTags.push([key, code])
             }
         }

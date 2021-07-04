@@ -109,7 +109,7 @@ export default class TagRenderingConfig {
                 if (mapping.then === undefined) {
                     throw `${context}.mapping[${i}]: Invalid mapping: if without body`
                 }
-                if (mapping.ifnot !== undefined && !this.multiAnswer) {
+                if (mapping.ifnot !== undefined && !json.multiAnswer) {
                     throw `${context}.mapping[${i}]: Invalid mapping: ifnot defined, but the tagrendering is not a multianswer`
                 }
 
@@ -134,7 +134,7 @@ export default class TagRenderingConfig {
                     then: Translations.T(mapping.then, `{mappingContext}.then`),
                     hideInAnswer: hideInAnswer
                 };
-                if (this.question) {
+                if (json.question) {
                     if (hideInAnswer !== true && mp.if !== undefined && !mp.if.isUsableAsAnswer()) {
                         throw `${context}.mapping[${i}].if: This value cannot be used to answer a question, probably because it contains a regex or an OR. Either change it or set 'hideInAnswer'`
                     }
