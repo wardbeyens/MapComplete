@@ -118,27 +118,30 @@ export default class TagRenderingQuestion extends Combine {
             })
 
 
-        function allIfNotsExcept(excludeIndex: number) : TagsFilter[]{
+        function extraTagsFor(mappingIndex: number) : TagsFilter[]{
+            if(configuration.multiAnswer){
+                // If multianswer: the configuration will be read later on
+                return []
+            }
             if(configuration.mappings === undefined){
                 return []
             }
-            if(configuration.multiAnswer){
-                // The multianswer will do the ifnot configuration themself
-                return []
-            }
-            return Utils.NoNull(configuration.mappings?.map((m,i) => excludeIndex === i ? undefined:  m.ifnot))
+            
+            const ifNots = configuration.mappings?.map((m,i) => mappingIndex === i ? undefined:  m.ifnot) 
+            ifNots.push(configuration.mappings[mappingIndex].extraTags)
+            return Utils.NoNull(ifNots)
         }
         const ff = TagRenderingQuestion.GenerateFreeform(configuration, applicableUnit, tagsSource.data);
         const hasImages = mappings.filter(mapping => mapping.then.ExtractImages().length > 0).length > 0
 
         if (mappings.length < 8 || configuration.multiAnswer || hasImages) {
-            inputEls = (mappings ?? []).map((mapping,i) => TagRenderingQuestion.GenerateMappingElement(tagsSource, mapping, allIfNotsExcept(i)));
+            inputEls = (mappings ?? []).map((mapping,i) => TagRenderingQuestion.GenerateMappingElement(tagsSource, mapping, extraTagsFor(i)));
             inputEls = Utils.NoNull(inputEls);
         } else {
             const dropdown: InputElement<TagsFilter> = new DropDown("",
                 mappings.map((mapping, i) => {
                     return {
-                        value: new And([mapping.if, ...allIfNotsExcept(i)]),
+                        value: new And([mapping.if, ...extraTagsFor(i)]),
                         shown: Translations.WT(mapping.then).Clone()
                     }
                 })
@@ -178,6 +181,7 @@ export default class TagRenderingQuestion extends Combine {
                 return t0?.isEquivalent(t1) ?? false
             },
             (indices) => {
+                // Convert the list of selected indexes into the the tags to save
                 if (indices.length === 0) {
                     return undefined;
                 }
@@ -194,11 +198,24 @@ export default class TagRenderingQuestion extends Combine {
                     oppositeTags.push(notSelected);
                 }
                 tags.push(TagUtils.FlattenMultiAnswer(oppositeTags));
+
+                for (let i = 0; i < configuration.mappings.length; i++){
+                    let mapping = configuration.mappings[i];
+                    if(mapping.extraTags === undefined){
+                        continue
+                    }
+                    if (indices.indexOf(i) < 0) {
+                        continue;
+                    }
+                    tags.push(mapping.extraTags)
+                }
+
                 const actualTags = TagUtils.FlattenMultiAnswer(tags);
                 console.log("Converted ", indices.join(","), "into", actualTags.asHumanString(false, false, {}), "with elems", elements)
                 return actualTags;
             },
             (tags: TagsFilter) => {
+                // Convert the tags of the object into the indices that should be selected
                 // {key --> values[]}
                 const presentTags = TagUtils.SplitKeys([tags]);
                 const indices: number[] = []

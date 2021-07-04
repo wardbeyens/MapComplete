@@ -35,6 +35,7 @@ export default class TagRenderingConfig {
         readonly ifnot?: TagsFilter,
         readonly then: Translation
         readonly hideInAnswer: boolean | TagsFilter
+        readonly extraTags?: TagsFilter
     }[]
     readonly roaming: boolean;
 
@@ -105,19 +106,16 @@ export default class TagRenderingConfig {
 
             this.mappings = json.mappings.map((mapping, i) => {
 
-
+                const ctx = `${context}.mapping[${i}]`;
                 if (mapping.then === undefined) {
-                    throw `${context}.mapping[${i}]: Invalid mapping: if without body`
-                }
-                if (mapping.ifnot !== undefined && !json.multiAnswer) {
-                    throw `${context}.mapping[${i}]: Invalid mapping: ifnot defined, but the tagrendering is not a multianswer`
+                    throw `${ctx}: Invalid mapping: if without body`
                 }
 
                 if (mapping.if === undefined) {
-                    throw `${context}.mapping[${i}]: Invalid mapping: "if" is not defined, but the tagrendering is not a multianswer`
+                    throw `: Invalid mapping: "if" is not defined, but the tagrendering is not a multianswer`
                 }
                 if (typeof mapping.if !== "string" && mapping.if["length"] !== undefined) {
-                    throw `${context}.mapping[${i}]: Invalid mapping: "if" is defined as an array. Use {"and": <your conditions>} or {"or": <your conditions>} instead`
+                    throw `${ctx}: Invalid mapping: "if" is defined as an array. Use {"and": <your conditions>} or {"or": <your conditions>} instead`
                 }
 
 
@@ -125,22 +123,28 @@ export default class TagRenderingConfig {
                 if (typeof mapping.hideInAnswer === "boolean") {
                     hideInAnswer = mapping.hideInAnswer;
                 } else if (mapping.hideInAnswer !== undefined) {
-                    hideInAnswer = FromJSON.Tag(mapping.hideInAnswer, `${context}.mapping[${i}].hideInAnswer`);
+                    hideInAnswer = FromJSON.Tag(mapping.hideInAnswer, `${ctx}.hideInAnswer`);
                 }
-                const mappingContext = `${context}.mapping[${i}]`
+
+                let extraTags: TagsFilter = undefined;
+                if (mapping.addExtraTags !== undefined) {
+                    extraTags = new And(mapping.addExtraTags.map((tg, i) => FromJSON.SimpleTag(tg, `${ctx}.addExtraTags[${i}]`)))
+                }
+
                 const mp = {
-                    if: FromJSON.Tag(mapping.if, `${mappingContext}.if`),
-                    ifnot: (mapping.ifnot !== undefined ? FromJSON.Tag(mapping.ifnot, `${mappingContext}.ifnot`) : undefined),
+                    if: FromJSON.Tag(mapping.if, `${ctx}.if`),
+                    ifnot: (mapping.ifnot !== undefined ? FromJSON.Tag(mapping.ifnot, `${ctx}.ifnot`) : undefined),
                     then: Translations.T(mapping.then, `{mappingContext}.then`),
-                    hideInAnswer: hideInAnswer
+                    hideInAnswer: hideInAnswer,
+                    extraTags: extraTags
                 };
                 if (json.question) {
                     if (hideInAnswer !== true && mp.if !== undefined && !mp.if.isUsableAsAnswer()) {
-                        throw `${context}.mapping[${i}].if: This value cannot be used to answer a question, probably because it contains a regex or an OR. Either change it or set 'hideInAnswer'`
+                        throw `${ctx}.if: This value cannot be used to answer a question, probably because it contains a regex or an OR. Either change it or set 'hideInAnswer'`
                     }
 
                     if (hideInAnswer !== true && !(mp.ifnot?.isUsableAsAnswer() ?? true)) {
-                        throw `${context}.mapping[${i}].ifnot: This value cannot be used to answer a question, probably because it contains a regex or an OR. Either change it or set 'hideInAnswer'`
+                        throw `${ctx}.ifnot: This value cannot be used to answer a question, probably because it contains a regex or an OR. Either change it or set 'hideInAnswer'`
                     }
                 }
 
@@ -332,20 +336,20 @@ export default class TagRenderingConfig {
      * Note: this might be hidden by conditions
      */
     public hasMinimap(): boolean {
-        const translations : Translation[]= Utils.NoNull([this.render, ...(this.mappings ?? []).map(m => m.then)]);
+        const translations: Translation[] = Utils.NoNull([this.render, ...(this.mappings ?? []).map(m => m.then)]);
         for (const translation of translations) {
             for (const key in translation.translations) {
-                if(!translation.translations.hasOwnProperty(key)){
+                if (!translation.translations.hasOwnProperty(key)) {
                     continue
                 }
                 const template = translation.translations[key]
                 const parts = SubstitutedTranslation.ExtractSpecialComponents(template)
-                const hasMiniMap = parts.filter(part =>part.special !== undefined ).some(special => special.special.func.funcName === "minimap")
-                if(hasMiniMap){
+                const hasMiniMap = parts.filter(part => part.special !== undefined).some(special => special.special.func.funcName === "minimap")
+                if (hasMiniMap) {
                     return true;
                 }
             }
         }
         return false;
-    } 
+    }
 }

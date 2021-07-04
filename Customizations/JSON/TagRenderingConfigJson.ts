@@ -130,7 +130,6 @@ export interface TagRenderingConfigJson {
          */
         hideInAnswer?: boolean | string | AndOrTagConfigJson,
         /**
-         * Only applicable if 'multiAnswer' is set.
          * This is for situations such as:
          * `accepts:coins=no` where one can select all the possible payment methods. However, we want to make explicit that some options _were not_ selected.
          * This can be done with `ifnot`
@@ -138,6 +137,11 @@ export interface TagRenderingConfigJson {
          * If this is important to your usecase, consider using multiple radiobutton-fields without `multiAnswer`
          */
         ifnot?: AndOrTagConfigJson | string
+
+        /**
+         * Some extra tags which are set if this option is selected and saved. Useful to do some data cleaning.
+         */
+        addExtraTags?: string[]
         
     }[]
 
