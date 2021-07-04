@@ -1,1 +1,23 @@
-{}
+{
+    "charging_station": {
+        "name": "充電ステーション",
+        "title": {
+            "render": "充電ステーション"
+        },
+        "description": "充電ステーション",
+        "tagRenderings": {
+            "5": {
+                "question": "この充電ステーションはいつオープンしますか?"
+            },
+            "6": {
+                "render": "{network}",
+                "question": "この充電ステーションの運営チェーンはどこですか?",
+                "mappings": {
+                    "0": {
+                        "then": "大規模な運営チェーンの一部ではない"
+                    }
+                }
+            }
+        }
+    }
+}

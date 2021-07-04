@@ -690,6 +690,92 @@
             }
         }
     },
+    "charging_station": {
+        "name": "Charging stations",
+        "title": {
+            "render": "Charging station"
+        },
+        "description": "A charging station",
+        "tagRenderings": {
+            "1": {
+                "question": "Is this charging station meant for cars or bicycles?",
+                "mappings": {
+                    "0": {
+                        "then": "This is a charging station for <b>both bicycles and cars</b>"
+                    },
+                    "1": {
+                        "then": "This is a charging station exclusively for <b>bicycles</b>"
+                    },
+                    "2": {
+                        "then": "This is a charging station exclusively for <b>electric cars and similar vehicles</b>"
+                    },
+                    "3": {
+                        "then": "This is a charging station exclusively for <b>electric cars</b>"
+                    },
+                    "4": {
+                        "then": "This is a charging station for <b>both electric cars and bicycles</b>"
+                    }
+                }
+            },
+            "2": {
+                "render": "{capacity} vehicles can be charged here at the same time",
+                "question": "How much vehicles can be charged here at the same time?"
+            },
+            "3": {
+                "mappings": {
+                    "0": {
+                        "then": "Authentication by a membership card"
+                    },
+                    "1": {
+                        "then": "Authentication by an app"
+                    },
+                    "2": {
+                        "then": "Authentication via phone call is available"
+                    },
+                    "3": {
+                        "then": "Authentication via phone call is available"
+                    },
+                    "4": {
+                        "then": "Authentication via NFC is available"
+                    },
+                    "5": {
+                        "then": "Authentication via Money Card is available"
+                    },
+                    "6": {
+                        "then": "Authentication via debit card is available"
+                    },
+                    "7": {
+                        "then": "No authentication is needed"
+                    }
+                }
+            },
+            "4": {
+                "render": "Authenticate by calling or SMS'ing to <a href='tel:{authentication:phone_call:number}'>{authentication:phone_call:number}</a>"
+            },
+            "5": {
+                "question": "When is this charging station opened?",
+                "mappings": {
+                    "0": {
+                        "then": "24/7 opened (including holidays)"
+                    }
+                }
+            },
+            "6": {
+                "render": "{network}",
+                "question": "What network of this charging station under?",
+                "mappings": {
+                    "0": {
+                        "then": "Not part of a bigger network"
+                    }
+                }
+            }
+        },
+        "presets": {
+            "0": {
+                "title": "Charging station"
+            }
+        }
+    },
     "defibrillator": {
         "name": "Defibrillators",
         "title": {
