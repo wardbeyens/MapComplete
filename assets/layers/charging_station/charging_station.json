@@ -40,7 +40,13 @@
         },
         {
           "if": "motorcar=yes",
-          "ifnot": "motorcar=no",
+          "extraTags": "car=",
+          "ifnot": {
+            "and": [
+              "car=",
+              "motorcar=no"
+            ]
+          },
           "then": {
             "en": "<b>Cars</b> can be charged here"
           }
@@ -114,6 +120,17 @@
         "key": "capacity",
         "type": "pnat"
       }
+    },
+    {
+      "#": "Sockets + socket counts",
+      "question": "Which plug types are available here?",
+      "multiAnswer": true,
+      "mappings": [
+        {
+          "if": "socket:chademo=yes",
+          "then": "<img src='https://upload.wikimedia.org/wikipedia/commons/e/ec/Chademo_type4.svg'/> <b>Chademo</b> (type 4)"
+        }
+      ]
     },
     {
       "#": "Authentication",

@@ -39,6 +39,7 @@
   "startZoom": 1,
   "widenFactor": 0.05,
   "socialImage": "",
+  "defaultBackgroundId": "CartoDB.Voyager",
   "layers": [
     "charging_station"
   ],
