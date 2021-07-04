@@ -346,15 +346,6 @@
                         "mappings": {
                             "0": {
                                 "then": "大規模な運営チェーンの一部ではない"
-                            },
-                            "1": {
-                                "then": "AeroVironment"
-                            },
-                            "2": {
-                                "then": "Blink"
-                            },
-                            "3": {
-                                "then": "eVgo"
                             }
                         }
                     }

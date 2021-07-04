@@ -1,16 +1,35 @@
 {
   "id": "charging_stations",
   "title": {
-    "en": "Charging stations"
+    "en": "Charging stations",
+    "id": "Stasiun pengisian daya",
+    "it": "Stazioni di ricarica",
+    "ja": "充電ステーション",
+    "ru": "Зарядные станции",
+    "zh_Hant": "充電站"
   },
   "shortDescription": {
-    "en": "A worldwide map of charging stations"
+    "en": "A worldwide map of charging stations",
+    "it": "Una mappa mondiale delle stazioni di ricarica",
+    "ja": "充電ステーションの世界地図",
+    "ru": "Карта зарядных станций по всему миру",
+    "zh_Hant": "全世界的充電站地圖"
   },
   "description": {
-    "en": "On this open map, one can find and mark information about charging stations"
+    "en": "On this open map, one can find and mark information about charging stations",
+    "it": "Su questa mappa aperta, puoi individuare le stazioni di ricarica o aggiungere informazioni",
+    "ja": "このオープンマップでは充電ステーションに関する情報を見つけてマークすることができます",
+    "ru": "На этой карте вы можно найти и отметить информацию о зарядных станциях",
+    "zh_Hant": "在這份開放地圖上，你可以尋找與標示充電站的資訊"
   },
   "language": [
-    "en"
+    "en",
+    "id",
+    "it",
+    "ja",
+    "ru",
+    "zh_Hant",
+    "nb_NO"
   ],
   "maintainer": "",
   "icon": "./assets/themes/charging_stations/logo.svg",
@@ -24,7 +43,12 @@
     {
       "id": "charging_stations",
       "name": {
-        "en": "Charging stations"
+        "en": "Charging stations",
+        "it": "Stazioni di ricarica",
+        "ja": "充電ステーション",
+        "nb_NO": "Ladestasjoner",
+        "ru": "Зарядные станции",
+        "zh_Hant": "充電站"
       },
       "minzoom": 10,
       "source": {
@@ -36,18 +60,28 @@
       },
       "title": {
         "render": {
-          "en": "Charging station"
+          "en": "Charging station",
+          "it": "Stazione di ricarica",
+          "ja": "充電ステーション",
+          "nb_NO": "Ladestasjon",
+          "ru": "Зарядная станция",
+          "zh_Hant": "充電站"
         }
       },
       "description": {
-        "en": "A charging station"
+        "en": "A charging station",
+        "it": "Una stazione di ricarica",
+        "ja": "充電ステーション",
+        "nb_NO": "En ladestasjon",
+        "ru": "Зарядная станция",
+        "zh_Hant": "充電站"
       },
       "tagRenderings": [
         "images",
         {
           "#": "Type",
           "question": {
-            "en":"Is this charging station meant for cars or bicycles?"
+            "en": "Is this charging station meant for cars or bicycles?"
           },
           "mappings": [
             {
@@ -202,7 +236,12 @@
             "type": "opening_hours"
           },
           "question": {
-            "en": "When is this charging station opened?"
+            "en": "When is this charging station opened?",
+            "it": "Quali sono gli orari di apertura di questa stazione di ricarica?",
+            "ja": "この充電ステーションはいつオープンしますか?",
+            "nb_NO": "Når åpnet denne ladestasjonen?",
+            "ru": "В какое время работает эта зарядная станция?",
+            "zh_Hant": "何時是充電站開放使用的時間？"
           },
           "mappings": [
             {
@@ -216,10 +255,19 @@
         {
           "#": "Network",
           "render": {
-            "en": "{network}"
+            "en": "{network}",
+            "it": "{network}",
+            "ja": "{network}",
+            "nb_NO": "{network}",
+            "ru": "{network}",
+            "zh_Hant": "{network}"
           },
           "question": {
-            "en": "What network of this charging station under?"
+            "en": "What network of this charging station under?",
+            "it": "A quale rete appartiene questa stazione di ricarica?",
+            "ja": "この充電ステーションの運営チェーンはどこですか?",
+            "ru": "К какой сети относится эта станция?",
+            "zh_Hant": "充電站所屬的網路是？"
           },
           "freeform": {
             "key": "network"
@@ -232,7 +280,11 @@
                 ]
               },
               "then": {
-                "en": "Not part of a bigger network"
+                "en": "Not part of a bigger network",
+                "it": "Non appartiene a una rete",
+                "ja": "大規模な運営チェーンの一部ではない",
+                "ru": "Не является частью более крупной сети",
+                "zh_Hant": "不屬於大型網路"
               }
             },
             {
