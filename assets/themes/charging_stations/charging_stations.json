@@ -46,7 +46,9 @@
         "images",
         {
           "#": "Type",
-          "question": "Is this charging station meant for cars or bicycles?",
+          "question": {
+            "en":"Is this charging station meant for cars or bicycles?"
+          },
           "mappings": [
             {
               "if": {
