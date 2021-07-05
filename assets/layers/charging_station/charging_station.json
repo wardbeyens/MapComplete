@@ -128,7 +128,28 @@
       "mappings": [
         {
           "if": "socket:chademo=yes",
-          "then": "<img src='https://upload.wikimedia.org/wikipedia/commons/e/ec/Chademo_type4.svg'/> <b>Chademo</b> (type 4)"
+          "ifnot": "socket:chademo=no",
+          "then": "<img src='assets/layers/charging_station/Chademo_type4.svg'/> <b>Chademo</b> (type 4)"
+        },
+        {
+          "if": "socket:type1_cable=yes",
+          "ifnot": "socket:type1_cable=no",
+          "then": "<img src='assets/layers/charging_station/Type1_J1772.svg'/> <b>Type 1 with cable</b> (J1772)"
+        },
+        {
+          "if": "socket:type1=yes",
+          "ifnot": "socket:type1=no",
+          "then": "<img src='assets/layers/charging_station/Type1_J1772.svg'/> <b>Type 1 <i>without</i> cable</b> (J1772)"
+        },
+        {
+          "if": "socket:type1_combo=yes",
+          "ifnot": "socket:type1_combo=no",
+          "then": "<img src='assets/layers/charging_station/Type1-ccs.svg'/> <b>Type 1 CCS</b> (aka Type 1 Combo)"
+        },
+        {
+          "if": "socket:tesla_supercharger=yes",
+          "ifnot": "socket:tesla_supercharger=no",
+          "then": "<img src='assets/layers/charging_station/Tesla-hpwc-model-s.svg'/> <b>Tesla Supercharger</b>"
         }
       ]
     },
