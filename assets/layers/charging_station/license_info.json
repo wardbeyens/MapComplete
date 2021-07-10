@@ -1,5 +1,24 @@
 [
   {
+    "path": "CEE7_4F.svg",
+    "license": "MIT",
+    "authors": [
+      "Gabor111a"
+    ],
+    "sources": [
+      "https://commons.wikimedia.org/wiki/File:CEE7_Type4.svg",
+      "https://github.com/openchargemap/ocm-app/issues/22"
+    ]
+  },
+  {
+    "path": "TypeE.svg",
+    "license": "MIT",
+    "authors": [
+      "pietervdvn"
+    ],
+    "sources": []
+  },
+  {
     "path": "Type1_J1772.svg",
     "license": "CC-BY-SA 4.0",
     "authors": [

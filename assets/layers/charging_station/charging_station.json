@@ -127,29 +127,51 @@
       "multiAnswer": true,
       "mappings": [
         {
+          "if": "socket:schuko=yes",
+          "ifnot": "socket:schuko=no",
+          "then": "<img style='width:3rem'  src='./assets/layers/charging_station/CEE7_4F.svg'/> <b>Schuko wall plug</b> without ground pin (CEE7/4 type F)",
+          "condition": {
+            "or": [
+              "_country=be",
+              "_country=fr",
+              "_country=ma",
+              "_country=tn",
+              "_country=pl",
+              "_country=cz",
+              "_country=sk",
+              "_country=mo"
+            ]
+          }
+        },
+        {
+          "if": "socket:typee=yes",
+          "ifnot": "socket:typee=no",
+          "then": "<img style='width:3rem'  src='./assets/layers/charging_station/TypeE.svg'/> <b>European wall plug</b> with ground pin (CEE7/4 type E)"
+        },
+        {
           "if": "socket:chademo=yes",
           "ifnot": "socket:chademo=no",
-          "then": "<img src='assets/layers/charging_station/Chademo_type4.svg'/> <b>Chademo</b> (type 4)"
+          "then": "<img style='width:3rem'  src='./assets/layers/charging_station/Chademo_type4.svg'/> <b>Chademo</b> (type 4)"
         },
         {
           "if": "socket:type1_cable=yes",
           "ifnot": "socket:type1_cable=no",
-          "then": "<img src='assets/layers/charging_station/Type1_J1772.svg'/> <b>Type 1 with cable</b> (J1772)"
+          "then": "<img style='width:3rem'  src='./assets/layers/charging_station/Type1_J1772.svg'/> <b>Type 1 with cable</b> (J1772)"
         },
         {
           "if": "socket:type1=yes",
           "ifnot": "socket:type1=no",
-          "then": "<img src='assets/layers/charging_station/Type1_J1772.svg'/> <b>Type 1 <i>without</i> cable</b> (J1772)"
+          "then": "<img style='width:3rem'  src='./assets/layers/charging_station/Type1_J1772.svg'/> <b>Type 1 <i>without</i> cable</b> (J1772)"
         },
         {
           "if": "socket:type1_combo=yes",
           "ifnot": "socket:type1_combo=no",
-          "then": "<img src='assets/layers/charging_station/Type1-ccs.svg'/> <b>Type 1 CCS</b> (aka Type 1 Combo)"
+          "then": "<img style='width:3rem'  src='./assets/layers/charging_station/Type1-ccs.svg'/> <b>Type 1 CCS</b> (aka Type 1 Combo)"
         },
         {
           "if": "socket:tesla_supercharger=yes",
           "ifnot": "socket:tesla_supercharger=no",
-          "then": "<img src='assets/layers/charging_station/Tesla-hpwc-model-s.svg'/> <b>Tesla Supercharger</b>"
+          "then": "<img style='width:3rem'  src='./assets/layers/charging_station/Tesla-hpwc-model-s.svg'/> <b>Tesla Supercharger</b>"
         }
       ]
     },
@@ -259,7 +281,7 @@
     {
       "#": "Network",
       "render": {
-        "en": "{network}"
+        "en": "Part of the network <b>{network}</b>"
       },
       "question": {
         "en": "Is this charging station part of a network?"
@@ -301,6 +323,25 @@
             ]
           },
           "then": "eVgo"
+        }
+      ]
+    },
+    {
+      "#": "Operator",
+      "question": "Who is the operator of this charging station?",
+      "render": "This charging station is operated by {operator}",
+      "freeform": {
+        "key": "operator"
+      },
+      "mappings": [
+        {
+          "if": "operator=",
+          "then": "Actually, {operator} is the network",
+          "condition": "network=",
+          "addExtraTags": [
+            "network:={operator}",
+            "operator="
+          ]
         }
       ]
     }

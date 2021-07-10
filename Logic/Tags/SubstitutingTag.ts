@@ -20,6 +20,7 @@ export default class SubstitutingTag implements TagsFilter {
 
     public static substituteString(template: string, dict: any): string {
         for (const k in dict) {
+            console.log("Template: ", template, "key:" , k, "dict", dict[k])
             template = template.replace(new RegExp("\\{" + k + "\\}", 'g'), dict[k])
         }
         return template.replace(/{.*}/g, "");

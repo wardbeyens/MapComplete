@@ -11,7 +11,7 @@ export class FromJSON {
 
     public static SimpleTag(json: string, context?: string): Tag {
         const tag = Utils.SplitFirst(json, "=");
-        if(tag.length !== 2){
+        if (tag.length !== 2) {
             throw `Invalid tag: no (or too much) '=' found (in ${context ?? "unkown context"})`
         }
         return new Tag(tag[0], tag[1]);
@@ -54,11 +54,14 @@ export class FromJSON {
                     new RegExp("^" + split[1] + "$")
                 );
             }
-            if(tag.indexOf(":=") >= 0){
+            if (tag.indexOf(":=") >= 0) {
                 const split = Utils.SplitFirst(tag, ":=");
+                if (split[1].match("\{.*\}") === null) {
+                    throw `${context}: you used a substituting tag without an actual substitution, use {key}`
+                }
                 return new SubstitutingTag(split[0], split[1]);
             }
-            
+
             if (tag.indexOf("!=") >= 0) {
                 const split = Utils.SplitFirst(tag, "!=");
                 if (split[1] === "*") {

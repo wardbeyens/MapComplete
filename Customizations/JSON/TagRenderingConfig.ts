@@ -128,7 +128,7 @@ export default class TagRenderingConfig {
 
                 let extraTags: TagsFilter = undefined;
                 if (mapping.addExtraTags !== undefined) {
-                    extraTags = new And(mapping.addExtraTags.map((tg, i) => FromJSON.SimpleTag(tg, `${ctx}.addExtraTags[${i}]`)))
+                    extraTags = new And(mapping.addExtraTags.map((tg, i) => FromJSON.Tag(tg, `${ctx}.addExtraTags[${i}]`)))
                 }
 
                 const mp = {

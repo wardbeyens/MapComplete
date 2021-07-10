@@ -9,13 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 744.09448819 1052.3622047"
+   width="142.32359mm"
+   height="119.50872mm"
+   viewBox="0 0 504.2962 423.4561"
    id="svg2"
    version="1.1"
-   inkscape:version="0.91 r13725"
-   sodipodi:docname="tesla-hpwc-model-s.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="Tesla-hpwc-model-s.svg"
    inkscape:export-filename="/Users/sss/Desktop/EV Plugs/tesla-hpwc-model-s.png"
    inkscape:export-xdpi="600.09003"
    inkscape:export-ydpi="600.09003">
@@ -29,8 +29,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="223.42916"
-     inkscape:cy="597.28341"
+     inkscape:cx="-95.934435"
+     inkscape:cy="240.84328"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -42,7 +42,9 @@
      inkscape:window-maximized="0">
     <inkscape:grid
        type="xygrid"
-       id="grid4198" />
+       id="grid4198"
+       originx="-112.84082"
+       originy="-334.16263" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -59,7 +61,8 @@
   <g
      inkscape:groupmode="layer"
      id="layer2"
-     inkscape:label="Layer 2">
+     inkscape:label="Layer 2"
+     transform="translate(-112.84082,-294.7435)">
     <path
        style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 184.85792,610.92554 c 5.34247,-9.4116 20.61454,5.50266 32.32488,3.03046 11.71034,-2.4722 21.39574,-12.73143 34.34519,-19.1929 36.3074,-19.01022 81.45928,-28.17606 119.198,-28.28426 50.78584,1.91459 74.27116,7.41743 116.16754,29.29441 11.09057,5.78459 22.31528,18.45539 31.31473,20.20305 8.99945,1.74766 30.5459,-16.67466 37.37564,-6.06091 8.54045,13.27229 -26.26396,39.39595 -26.26396,39.39595 l -52.52794,30.30457 -67.68022,19.1929 -79.80205,1.01016 -58.58885,-15.15229 -55.55839,-32.32488 c 0,0 -38.74931,-26.53954 -30.30457,-41.41626 z"
@@ -70,7 +73,8 @@
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(-112.84082,-294.7435)">
     <ellipse
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:30;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path4200"
@@ -137,7 +141,7 @@
        cy="625.19025"
        cx="473.55237"
        id="ellipse4236"
-       style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:14.23218822;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:14.23218822;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        rx="23.71863"
        ry="23.213554" />
     <ellipse
@@ -150,7 +154,7 @@
     <ellipse
        ry="23.213554"
        rx="23.71863"
-       style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:14.23218822;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:14.23218822;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="ellipse4244"
        cx="260.61938"
        cy="625.06769" />
