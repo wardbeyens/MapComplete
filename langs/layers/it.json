@@ -702,12 +702,7 @@
             },
             "6": {
                 "render": "{network}",
-                "question": "A quale rete appartiene questa stazione di ricarica?",
-                "mappings": {
-                    "0": {
-                        "then": "Non appartiene a una rete"
-                    }
-                }
+                "question": "A quale rete appartiene questa stazione di ricarica?"
             }
         }
     },

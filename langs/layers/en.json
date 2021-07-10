@@ -698,30 +698,31 @@
         "description": "A charging station",
         "tagRenderings": {
             "1": {
-                "question": "Is this charging station meant for cars or bicycles?",
+                "question": "Which vehicles are allowed to charge here?",
                 "mappings": {
                     "0": {
-                        "then": "This is a charging station for <b>both bicycles and cars</b>"
+                        "then": "<b>bicycles</b> can be charged here"
                     },
                     "1": {
-                        "then": "This is a charging station exclusively for <b>bicycles</b>"
+                        "then": "<b>Cars</b> can be charged here"
                     },
                     "2": {
-                        "then": "This is a charging station exclusively for <b>electric cars and similar vehicles</b>"
+                        "then": "<b>Scooters</b> can be charged here"
                     },
                     "3": {
-                        "then": "This is a charging station exclusively for <b>electric cars</b>"
+                        "then": "<b>Heavy good vehicles</b> (such as trucks) can be charged here"
                     },
                     "4": {
-                        "then": "This is a charging station for <b>both electric cars and bicycles</b>"
+                        "then": "<b>Buses</b> can be charged here"
                     }
                 }
             },
-            "2": {
+            "3": {
                 "render": "{capacity} vehicles can be charged here at the same time",
                 "question": "How much vehicles can be charged here at the same time?"
             },
-            "3": {
+            "5": {
+                "question": "What kind of authentication is available at the charging station?",
                 "mappings": {
                     "0": {
                         "then": "Authentication by a membership card"
@@ -749,10 +750,11 @@
                     }
                 }
             },
-            "4": {
-                "render": "Authenticate by calling or SMS'ing to <a href='tel:{authentication:phone_call:number}'>{authentication:phone_call:number}</a>"
+            "6": {
+                "render": "Authenticate by calling or SMS'ing to <a href='tel:{authentication:phone_call:number}'>{authentication:phone_call:number}</a>",
+                "question": "What's the phone number for authentication call or SMS?"
             },
-            "5": {
+            "7": {
                 "question": "When is this charging station opened?",
                 "mappings": {
                     "0": {
@@ -760,9 +762,9 @@
                     }
                 }
             },
-            "6": {
-                "render": "{network}",
-                "question": "What network of this charging station under?",
+            "8": {
+                "render": "Part of the network <b>{network}</b>",
+                "question": "Is this charging station part of a network?",
                 "mappings": {
                     "0": {
                         "then": "Not part of a bigger network"

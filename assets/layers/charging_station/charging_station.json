@@ -1,7 +1,12 @@
 {
   "id": "charging_station",
   "name": {
-    "en": "Charging stations"
+    "en": "Charging stations",
+    "it": "Stazioni di ricarica",
+    "ja": "充電ステーション",
+    "nb_NO": "Ladestasjoner",
+    "ru": "Зарядные станции",
+    "zh_Hant": "充電站"
   },
   "minzoom": 10,
   "source": {
@@ -13,11 +18,21 @@
   },
   "title": {
     "render": {
-      "en": "Charging station"
+      "en": "Charging station",
+      "it": "Stazione di ricarica",
+      "ja": "充電ステーション",
+      "nb_NO": "Ladestasjon",
+      "ru": "Зарядная станция",
+      "zh_Hant": "充電站"
     }
   },
   "description": {
-    "en": "A charging station"
+    "en": "A charging station",
+    "it": "Una stazione di ricarica",
+    "ja": "充電ステーション",
+    "nb_NO": "En ladestasjon",
+    "ru": "Зарядная станция",
+    "zh_Hant": "充電站"
   },
   "calculatedTags": [
     "motorcar=feat.properties.motorcar ?? feat.properties.car"
@@ -178,7 +193,12 @@
     {
       "#": "Authentication",
       "question": {
-        "en": "What kind of authentication is available at the charging station?"
+        "en": "What kind of authentication is available at the charging station?",
+        "it": "Quali sono gli orari di apertura di questa stazione di ricarica?",
+        "ja": "この充電ステーションはいつオープンしますか?",
+        "nb_NO": "Når åpnet denne ladestasjonen?",
+        "ru": "В какое время работает эта зарядная станция?",
+        "zh_Hant": "何時是充電站開放使用的時間？"
       },
       "multiAnswer": true,
       "mappings": [
@@ -243,10 +263,19 @@
     {
       "#": "Auth phone",
       "render": {
-        "en": "Authenticate by calling or SMS'ing to <a href='tel:{authentication:phone_call:number}'>{authentication:phone_call:number}</a>"
+        "en": "Authenticate by calling or SMS'ing to <a href='tel:{authentication:phone_call:number}'>{authentication:phone_call:number}</a>",
+        "it": "{network}",
+        "ja": "{network}",
+        "nb_NO": "{network}",
+        "ru": "{network}",
+        "zh_Hant": "{network}"
       },
       "question": {
-        "en": "What's the phone number for authentication call or SMS?"
+        "en": "What's the phone number for authentication call or SMS?",
+        "it": "A quale rete appartiene questa stazione di ricarica?",
+        "ja": "この充電ステーションの運営チェーンはどこですか?",
+        "ru": "К какой сети относится эта станция?",
+        "zh_Hant": "充電站所屬的網路是？"
       },
       "freeform": {
         "key": "authentication:phone_call:number",
@@ -257,6 +286,26 @@
           "authentication:phone_call=yes",
           "authentication:short_message=yes"
         ]
+      },
+      "it": {
+        "0": {
+          "then": "Non appartiene a una rete"
+        }
+      },
+      "ja": {
+        "0": {
+          "then": "大規模な運営チェーンの一部ではない"
+        }
+      },
+      "ru": {
+        "0": {
+          "then": "Не является частью более крупной сети"
+        }
+      },
+      "zh_Hant": {
+        "0": {
+          "then": "不屬於大型網路"
+        }
       }
     },
     {
