@@ -13,6 +13,9 @@ import SharedTagRenderings from "../../Customizations/SharedTagRenderings";
 import BaseUIElement from "../BaseUIElement";
 import {VariableUiElement} from "../Base/VariableUIElement";
 import DeleteWizard from "./DeleteWizard";
+import TagRenderingGroup from "../../Customizations/JSON/TagRenderingGroup";
+import {FixedUiElement} from "../Base/FixedUiElement";
+import TagRenderingGroupDisplay from "./TagRenderingGroupDisplay";
 
 export default class FeatureInfoBox extends ScrollableFullScreen {
 
@@ -55,7 +58,11 @@ export default class FeatureInfoBox extends ScrollableFullScreen {
 
         let questionBoxIsUsed = false;
         const renderings: BaseUIElement[] = layerConfig.tagRenderings.map(tr => {
-            if (tr.question === null) {
+            if(tr instanceof TagRenderingGroup){
+                return new TagRenderingGroupDisplay(tr, tags, layerConfig.units)
+            }
+            
+            if (tr.IsQuestionBoxElement()) {
                 // This is the question box!
                 questionBoxIsUsed = true;
                 return questionBox;

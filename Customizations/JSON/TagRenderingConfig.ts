@@ -8,21 +8,22 @@ import {TagUtils} from "../../Logic/Tags/TagUtils";
 import {And} from "../../Logic/Tags/And";
 import {TagsFilter} from "../../Logic/Tags/TagsFilter";
 import {SubstitutedTranslation} from "../../UI/SubstitutedTranslation";
+import TagRenderingProperties from "../../Models/TagRenderingProperties";
 
 
 /***
  * The parsed version of TagRenderingConfigJSON
  * Identical data, but with some methods and validation
  */
-export default class TagRenderingConfig {
+export default class TagRenderingConfig implements TagRenderingProperties {
 
-    readonly render?: Translation;
-    readonly question?: Translation;
-    readonly condition?: TagsFilter;
+    public readonly render?: Translation;
+    public readonly question?: Translation;
+    public readonly condition?: TagsFilter;
 
-    readonly configuration_warnings: string[] = []
+    public readonly configuration_warnings: string[] = []
 
-    readonly freeform?: {
+    public readonly freeform?: {
         readonly key: string,
         readonly type: string,
         readonly addExtraTags: TagsFilter[];
@@ -30,16 +31,16 @@ export default class TagRenderingConfig {
         readonly default?: string
     };
 
-    readonly multiAnswer: boolean;
+    public readonly multiAnswer: boolean;
 
-    readonly mappings?: {
+    public readonly mappings?: {
         readonly if: TagsFilter,
         readonly ifnot?: TagsFilter,
         readonly then: Translation
         readonly hideInAnswer: boolean | TagsFilter
         readonly extraTags?: TagsFilter
     }[]
-    readonly roaming: boolean;
+    public readonly roaming: boolean;
 
     constructor(json: string | TagRenderingConfigJson, conditionIfRoaming: TagsFilter, context?: string) {
 
@@ -251,7 +252,15 @@ export default class TagRenderingConfig {
 
         return false;
     }
+    
+    public ContainsQuestion(): boolean {
+        return this.question !== undefined;
+    }
 
+    /**
+     * A very special case
+     * @constructor
+     */
     public IsQuestionBoxElement(): boolean {
         return this.question === null && this.condition === null;
     }

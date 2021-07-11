@@ -7,6 +7,8 @@ import Combine from "../Base/Combine";
 import BaseUIElement from "../BaseUIElement";
 import {Unit} from "../../Customizations/JSON/Denomination";
 import {VariableUiElement} from "../Base/VariableUIElement";
+import TagRenderingGroup from "../../Customizations/JSON/TagRenderingGroup";
+import TagRenderingGroupDisplay from "./TagRenderingGroupDisplay";
 
 
 /**
@@ -14,34 +16,38 @@ import {VariableUiElement} from "../Base/VariableUIElement";
  */
 export default class QuestionBox extends VariableUiElement {
 
-    constructor(tagsSource: UIEventSource<any>, tagRenderings: TagRenderingConfig[], units: Unit[]) {
+    constructor(tagsSource: UIEventSource<any>, tagRenderings: (TagRenderingConfig | TagRenderingGroup)[], units: Unit[]) {
         const skippedQuestions: UIEventSource<number[]> = new UIEventSource<number[]>([])
 
-        tagRenderings = tagRenderings
-            .filter(tr => tr.question !== undefined)
-            .filter(tr => tr.question !== null);
-
+        tagRenderings = tagRenderings.filter(tr => tr.ContainsQuestion())
+        
         super(tagsSource.map(tags => {
                 if (tags === undefined) {
                     return undefined;
                 }
 
                 const tagRenderingQuestions = tagRenderings
-                    .map((tagRendering, i) => new TagRenderingQuestion(tagsSource, tagRendering,
-                        {
-                            units: units,
-                            afterSave: () => {
-                                // We save
-                                skippedQuestions.ping();
-                            },
-                            cancelButton: Translations.t.general.skip.Clone()
-                                .SetClass("btn btn-secondary mr-3")
-                                .onClick(() => {
-                                    skippedQuestions.data.push(i);
-                                    skippedQuestions.ping();
-                                })
+                    .map((tagRendering, i) => {
+                        
+                        if(tagRendering["group"] !== undefined){
+                            return new TagRenderingGroupDisplay(<TagRenderingGroup>tagRendering, tagsSource, units, true)
                         }
-                    ));
+                        return new TagRenderingQuestion(tagsSource, <TagRenderingConfig>tagRendering,
+                            {
+                                units: units,
+                                afterSave: () => {
+                                    // We save
+                                    skippedQuestions.ping();
+                                },
+                                cancelButton: Translations.t.general.skip.Clone()
+                                    .SetClass("btn btn-secondary mr-3")
+                                    .onClick(() => {
+                                        skippedQuestions.data.push(i);
+                                        skippedQuestions.ping();
+                                    })
+                            }
+                        );
+                    });
 
                 const skippedQuestionsButton = Translations.t.general.skippedQuestions.Clone()
                     .onClick(() => {

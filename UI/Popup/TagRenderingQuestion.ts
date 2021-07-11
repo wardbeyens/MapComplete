@@ -39,7 +39,7 @@ export default class TagRenderingQuestion extends Combine {
                     afterSave?: () => void,
                     cancelButton?: BaseUIElement,
                     saveButtonConstr?: (src: UIEventSource<TagsFilter>) => BaseUIElement,
-                    bottomText?: (src: UIEventSource<TagsFilter>) => BaseUIElement
+                    bottomText?: (src: UIEventSource<TagsFilter>) => BaseUIElement,
                 }
     ) {
         if (configuration === undefined) {
