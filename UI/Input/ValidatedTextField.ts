@@ -90,7 +90,7 @@ export default class ValidatedTextField {
                 str = "" + str;
                 return str !== undefined && str.indexOf(".") < 0 && !isNaN(Number(str))
             },
-            undefined,
+            str => "" + Number(str),
             undefined,
             "numeric"),
         ValidatedTextField.tp(
@@ -100,7 +100,7 @@ export default class ValidatedTextField {
                 str = "" + str;
                 return str !== undefined && str.indexOf(".") < 0 && !isNaN(Number(str)) && Number(str) >= 0
             },
-            undefined,
+            str => "" + Number(str),
             undefined,
             "numeric"),
         ValidatedTextField.tp(
@@ -110,7 +110,7 @@ export default class ValidatedTextField {
                 str = "" + str;
                 return str !== undefined && str.indexOf(".") < 0 && !isNaN(Number(str)) && Number(str) > 0
             },
-            undefined,
+            str => "" + Number(str),
             undefined,
             "numeric"),
         ValidatedTextField.tp(
@@ -133,21 +133,21 @@ export default class ValidatedTextField {
             "float",
             "A decimal",
             (str) => !isNaN(Number(str)),
-            undefined,
+            str => "" + Number(str),
             undefined,
             "decimal"),
         ValidatedTextField.tp(
             "pfloat",
             "A positive decimal (incl zero)",
             (str) => !isNaN(Number(str)) && Number(str) >= 0,
-            undefined,
+            str => "" + Number(str),
             undefined,
             "decimal"),
         ValidatedTextField.tp(
             "email",
             "An email adress",
             (str) => EmailValidator.validate(str),
-            undefined,
+            str => "" + Number(str),
             undefined,
             "email"),
         ValidatedTextField.tp(

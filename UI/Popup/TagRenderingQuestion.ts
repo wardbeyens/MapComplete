@@ -39,7 +39,8 @@ export default class TagRenderingQuestion extends Combine {
                     afterSave?: () => void,
                     cancelButton?: BaseUIElement,
                     saveButtonConstr?: (src: UIEventSource<TagsFilter>) => BaseUIElement,
-                    bottomText?: (src: UIEventSource<TagsFilter>) => BaseUIElement
+                    bottomText?: (src: UIEventSource<TagsFilter>) => BaseUIElement,
+                    inputElement?: InputElement<TagsFilter>
                 }
     ) {
         if (configuration === undefined) {
@@ -51,7 +52,7 @@ export default class TagRenderingQuestion extends Combine {
             .SetClass("question-text");
 
 
-        const inputElement: InputElement<TagsFilter> = TagRenderingQuestion.GenerateInputElement(configuration, applicableUnit, tags)
+        const inputElement: InputElement<TagsFilter> = options.inputElement ?? TagRenderingQuestion.GenerateInputElement(configuration, applicableUnit, tags)
         const save = () => {
             const selection = inputElement.GetValue().data;
             if (selection) {
@@ -106,7 +107,7 @@ export default class TagRenderingQuestion extends Combine {
 
     }
 
-    private static GenerateInputElement(configuration: TagRenderingConfig, applicableUnit: Unit, tagsSource: UIEventSource<any>): InputElement<TagsFilter> {
+    public static GenerateInputElement(configuration: TagRenderingConfig, applicableUnit: Unit, tagsSource: UIEventSource<any>): InputElement<TagsFilter> {
         let inputEls: InputElement<TagsFilter>[];
 
         const mappings = (configuration.mappings ?? [])

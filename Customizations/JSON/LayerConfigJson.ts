@@ -1,6 +1,7 @@
 import {TagRenderingConfigJson} from "./TagRenderingConfigJson";
 import {AndOrTagConfigJson} from "./TagConfigJson";
 import {DeleteConfigJson} from "./DeleteConfigJson";
+import TagRenderingGroupJson from "./TagRenderingGroupJson";
 
 /**
  * Configuration for a single layer
@@ -231,7 +232,7 @@ export interface LayerConfigJson {
      * A special value is 'questions', which indicates the location of the questions box. If not specified, it'll be appended to the bottom of the featureInfobox.
      *
      */
-    tagRenderings?: (string | TagRenderingConfigJson) [],
+    tagRenderings?: (string | TagRenderingConfigJson | TagRenderingGroupJson) [],
 
     /**
      * This block defines under what circumstances the delete dialog is shown for objects of this layer.

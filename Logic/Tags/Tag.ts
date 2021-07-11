@@ -47,12 +47,8 @@ export class Tag extends TagsFilter {
         return [`["${this.key}"="${this.value}"]`];
     }
 
-    substituteValues(tags: any) {
-        return new Tag(this.key, TagUtils.ApplyTemplate(this.value as string, tags));
-    }
-
     asHumanString(linkToWiki?: boolean, shorten?: boolean) {
-        let v = this.value;
+        let v = this.value ?? "";
         if (shorten) {
             v = Utils.EllipsesAfter(v, 25);
         }

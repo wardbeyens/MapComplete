@@ -13,6 +13,8 @@ import SharedTagRenderings from "../../Customizations/SharedTagRenderings";
 import BaseUIElement from "../BaseUIElement";
 import {VariableUiElement} from "../Base/VariableUIElement";
 import DeleteWizard from "./DeleteWizard";
+import TagRenderingGroup from "../../Customizations/JSON/TagRenderingGroup";
+import TagRenderingGroupDisplay from "./TagRenderingGroupDisplay";
 
 export default class FeatureInfoBox extends ScrollableFullScreen {
 
@@ -36,7 +38,7 @@ export default class FeatureInfoBox extends ScrollableFullScreen {
             .SetClass("break-words font-bold sm:p-0.5 md:p-1 sm:p-1.5 md:p-2");
         const titleIcons = new Combine(
             layerConfig.titleIcons.map(icon => new TagRenderingAnswer(tags, icon,
-                "block w-8 h-8 align-baseline box-content sm:p-0.5")
+                {contentClasses:"block w-8 h-8 align-baseline box-content sm:p-0.5"})
             ))
             .SetClass("flex flex-row flex-wrap pt-0.5 sm:pt-1 items-center mr-2")
 
@@ -55,7 +57,11 @@ export default class FeatureInfoBox extends ScrollableFullScreen {
 
         let questionBoxIsUsed = false;
         const renderings: BaseUIElement[] = layerConfig.tagRenderings.map(tr => {
-            if (tr.question === null) {
+            if(tr instanceof TagRenderingGroup){
+                return new TagRenderingGroupDisplay(tr, tags, layerConfig.units)
+            }
+            
+            if (tr.IsQuestionBoxElement()) {
                 // This is the question box!
                 questionBoxIsUsed = true;
                 return questionBox;

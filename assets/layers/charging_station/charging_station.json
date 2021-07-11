@@ -137,56 +137,30 @@
       }
     },
     {
-      "#": "Sockets + socket counts",
-      "question": "Which plug types are available here?",
-      "multiAnswer": true,
-      "mappings": [
+      "question": {
+        "en": "Which charging stations are available here?"
+      },
+      "overrideAll": {
+        "freeform": {
+          "type": "float",
+          "inline": true,
+          "default": "0"
+        }
+      },
+      "group": [
         {
-          "if": "socket:schuko=yes",
-          "ifnot": "socket:schuko=no",
-          "then": "<img style='width:3rem'  src='./assets/layers/charging_station/CEE7_4F.svg'/> <b>Schuko wall plug</b> without ground pin (CEE7/4 type F)",
-          "condition": {
-            "or": [
-              "_country=be",
-              "_country=fr",
-              "_country=ma",
-              "_country=tn",
-              "_country=pl",
-              "_country=cz",
-              "_country=sk",
-              "_country=mo"
-            ]
+          "render": "There are {socket:schuko} schuko's here",
+          "question": "How many schukos are here?",
+          "freeform": {
+            "key": "socket:schuko"
           }
         },
         {
-          "if": "socket:typee=yes",
-          "ifnot": "socket:typee=no",
-          "then": "<img style='width:3rem'  src='./assets/layers/charging_station/TypeE.svg'/> <b>European wall plug</b> with ground pin (CEE7/4 type E)"
-        },
-        {
-          "if": "socket:chademo=yes",
-          "ifnot": "socket:chademo=no",
-          "then": "<img style='width:3rem'  src='./assets/layers/charging_station/Chademo_type4.svg'/> <b>Chademo</b> (type 4)"
-        },
-        {
-          "if": "socket:type1_cable=yes",
-          "ifnot": "socket:type1_cable=no",
-          "then": "<img style='width:3rem'  src='./assets/layers/charging_station/Type1_J1772.svg'/> <b>Type 1 with cable</b> (J1772)"
-        },
-        {
-          "if": "socket:type1=yes",
-          "ifnot": "socket:type1=no",
-          "then": "<img style='width:3rem'  src='./assets/layers/charging_station/Type1_J1772.svg'/> <b>Type 1 <i>without</i> cable</b> (J1772)"
-        },
-        {
-          "if": "socket:type1_combo=yes",
-          "ifnot": "socket:type1_combo=no",
-          "then": "<img style='width:3rem'  src='./assets/layers/charging_station/Type1-ccs.svg'/> <b>Type 1 CCS</b> (aka Type 1 Combo)"
-        },
-        {
-          "if": "socket:tesla_supercharger=yes",
-          "ifnot": "socket:tesla_supercharger=no",
-          "then": "<img style='width:3rem'  src='./assets/layers/charging_station/Tesla-hpwc-model-s.svg'/> <b>Tesla Supercharger</b>"
+          "render": "There are {socket:typee} typeee's here",
+          "question": "How many typeee are here?",
+          "freeform": {
+            "key": "socket:typee"
+          }
         }
       ]
     },

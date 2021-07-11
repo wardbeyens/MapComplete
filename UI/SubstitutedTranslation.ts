@@ -15,11 +15,14 @@ export class SubstitutedTranslation extends VariableUiElement {
         translation: Translation,
         tagsSource: UIEventSource<any>,
         mapping: Map<string, BaseUIElement> = undefined) {
+        
+        if(translation === undefined){
+            throw "No translation passed into a substituted translation"
+        }
 
         const extraMappings: SpecialVisualization[] = [];
 
         mapping?.forEach((value, key) => {
-            console.log("KV:", key, value)
             extraMappings.push(
                 {
                     funcName: key,
@@ -72,12 +75,6 @@ export class SubstitutedTranslation extends VariableUiElement {
             style: string
         }
     }[] {
-
-        if (extraMappings.length > 0) {
-
-            console.log("Extra mappings are", extraMappings)
-        }
-
         for (const knownSpecial of SpecialVisualizations.specialVisualizations.concat(extraMappings)) {
 
             // Note: the '.*?' in the regex reads as 'any character, but in a non-greedy way'

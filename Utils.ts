@@ -117,10 +117,17 @@ export class Utils {
         if (str === undefined || str === null) {
             return undefined;
         }
+        if(typeof str === "number"){
+            return ""+str
+        }
         if (str.length <= l) {
             return str;
         }
-        return str.substr(0, l - 3) + "...";
+        if(str.substring === undefined){
+            console.error(str)
+            throw "str.substring is undefined for "+str.constructor.name
+        }
+        return str.substring(0, l - 3) + "...";
     }
 
     public static Dedup(arr: string[]): string[] {

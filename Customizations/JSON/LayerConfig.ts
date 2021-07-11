@@ -18,6 +18,8 @@ import {Tag} from "../../Logic/Tags/Tag";
 import BaseUIElement from "../../UI/BaseUIElement";
 import {Unit} from "./Denomination";
 import DeleteConfig from "./DeleteConfig";
+import TagRenderingGroup from "./TagRenderingGroup";
+import TagRenderingGroupJson from "./TagRenderingGroupJson";
 
 export default class LayerConfig {
 
@@ -56,7 +58,7 @@ export default class LayerConfig {
         description?: Translation,
     }[];
 
-    tagRenderings: TagRenderingConfig [];
+    tagRenderings: (TagRenderingConfig | TagRenderingGroup) [];
 
     constructor(json: LayerConfigJson,
                 units?:Unit[],
@@ -167,13 +169,14 @@ export default class LayerConfig {
          * Converts a list of tagRenderingCOnfigJSON in to TagRenderingConfig
          * A string is interpreted as a name to call
          */
-        function trs(tagRenderings?: (string | TagRenderingConfigJson)[], readOnly = false) {
+        function trs(tagRenderings?: (string | TagRenderingConfigJson | TagRenderingGroupJson)[], readOnly = false) : (TagRenderingGroup | TagRenderingConfig)[] {
             if (tagRenderings === undefined) {
                 return [];
             }
 
             return Utils.NoNull(tagRenderings.map(
                 (renderingJson, i) => {
+                    const ctx = `${context}.tagrendering[${i}]`;
                     if (typeof renderingJson === "string") {
 
                         if (renderingJson === "questions") {
@@ -198,7 +201,12 @@ export default class LayerConfig {
                         
                         throw `Predefined tagRendering ${renderingJson} not found in ${context}.\n    Try one of ${(keys.join(", "))}\n    If you intent to output this text literally, use {\"render\": <your text>} instead"}`;
                     }
-                    return new TagRenderingConfig(renderingJson, self.source.osmTags, `${context}.tagrendering[${i}]`);
+                    
+                    if(renderingJson["group"] !== undefined){
+                        return new TagRenderingGroup(<TagRenderingGroupJson>renderingJson, ctx)
+                    }
+
+                    return new TagRenderingConfig(<TagRenderingConfigJson>renderingJson, self.source.osmTags, ctx);
                 }));
         }
 
@@ -215,7 +223,7 @@ export default class LayerConfig {
             }
         }
 
-        this.titleIcons = trs(titleIcons, true);
+        this.titleIcons = trs(titleIcons, true).map(tr => <TagRenderingConfig>tr);
 
 
         this.title = tr("title", undefined);
@@ -299,7 +307,7 @@ export default class LayerConfig {
 
     } {
 
-        const tagRenderings = this.tagRenderings.filter(tr => tr.roaming);
+        const tagRenderings = this.tagRenderings.filter(tr => tr["roaming"] ?? false).map(tr => <TagRenderingConfig>tr);
         const titleIcons = this.titleIcons.filter(tr => tr.roaming);
         const iconOverlays = this.iconOverlays.filter(io => io.then.roaming)
 

@@ -8,21 +8,22 @@ import {TagUtils} from "../../Logic/Tags/TagUtils";
 import {And} from "../../Logic/Tags/And";
 import {TagsFilter} from "../../Logic/Tags/TagsFilter";
 import {SubstitutedTranslation} from "../../UI/SubstitutedTranslation";
+import TagRenderingProperties from "../../Models/TagRenderingProperties";
 
 
 /***
  * The parsed version of TagRenderingConfigJSON
  * Identical data, but with some methods and validation
  */
-export default class TagRenderingConfig {
+export default class TagRenderingConfig implements TagRenderingProperties {
 
-    readonly render?: Translation;
-    readonly question?: Translation;
-    readonly condition?: TagsFilter;
+    public readonly render?: Translation;
+    public readonly question?: Translation;
+    public readonly condition?: TagsFilter;
 
-    readonly configuration_warnings: string[] = []
+    public readonly configuration_warnings: string[] = []
 
-    readonly freeform?: {
+    public readonly freeform?: {
         readonly key: string,
         readonly type: string,
         readonly addExtraTags: TagsFilter[];
@@ -30,16 +31,16 @@ export default class TagRenderingConfig {
         readonly default?: string
     };
 
-    readonly multiAnswer: boolean;
+    public readonly multiAnswer: boolean;
 
-    readonly mappings?: {
+    public readonly mappings?: {
         readonly if: TagsFilter,
         readonly ifnot?: TagsFilter,
         readonly then: Translation
         readonly hideInAnswer: boolean | TagsFilter
         readonly extraTags?: TagsFilter
     }[]
-    readonly roaming: boolean;
+    public readonly roaming: boolean;
 
     constructor(json: string | TagRenderingConfigJson, conditionIfRoaming: TagsFilter, context?: string) {
 
@@ -69,13 +70,11 @@ export default class TagRenderingConfig {
             this.condition = condition;
         }
         if (json.freeform) {
-
-
             this.freeform = {
                 key: json.freeform.key,
                 type: json.freeform.type ?? "string",
                 addExtraTags: json.freeform.addExtraTags?.map((tg, i) =>
-                    FromJSON.Tag(tg, `${context}.extratag[${i}]`)) ?? [],
+                    FromJSON.Tag(tg, `${context}.freeform.extratag[${i}]`)) ?? [],
                 inline: json.freeform.inline ?? false,
                 default: json.freeform.default
 
@@ -88,7 +87,9 @@ export default class TagRenderingConfig {
                 throw `Freeform.key is undefined or the empty string - this is not allowed; either fill out something or remove the freeform block alltogether. Error in ${context}`
             }
 
-
+            if (this.freeform.default !== undefined && typeof this.freeform.default !== "string") {
+                throw `${context}.freeform.default should be a string intead of a ${typeof this.freeform.default}`
+            }
             if (ValidatedTextField.AllTypes[this.freeform.type] === undefined) {
                 const knownKeys = ValidatedTextField.tpList.map(tp => tp.name).join(", ");
                 throw `Freeform.key ${this.freeform.key} is an invalid type. Known keys are ${knownKeys}`
@@ -252,6 +253,14 @@ export default class TagRenderingConfig {
         return false;
     }
 
+    public ContainsQuestion(): boolean {
+        return this.question !== undefined;
+    }
+
+    /**
+     * A very special case
+     * @constructor
+     */
     public IsQuestionBoxElement(): boolean {
         return this.question === null && this.condition === null;
     }
@@ -259,12 +268,10 @@ export default class TagRenderingConfig {
     /**
      * Gets all the render values. Will return multiple render values if 'multianswer' is enabled.
      * The result will equal [GetRenderValue] if not 'multiAnswer'
-     * @param tags
-     * @constructor
      */
-    public GetRenderValues(tags: any): Translation[] {
+    public GetRenderValues(tags: any, hideIfDefault: boolean = false): Translation[] {
         if (!this.multiAnswer) {
-            return [this.GetRenderValue(tags)]
+            return [this.GetRenderValue(tags, hideIfDefault)]
         }
 
         // A flag to check that the freeform key isn't matched multiple times 
@@ -289,7 +296,8 @@ export default class TagRenderingConfig {
 
 
         if (!freeformKeyUsed
-            && tags[this.freeform.key] !== undefined) {
+            && tags[this.freeform.key] !== undefined
+            && !(hideIfDefault && tags[this.freeform.key] === this.freeform.default)) {
             applicableMappings.push(this.render)
         }
         return applicableMappings
@@ -300,7 +308,7 @@ export default class TagRenderingConfig {
      * Not compatible with multiAnswer - use GetRenderValueS instead in that case
      * @constructor
      */
-    public GetRenderValue(tags: any): Translation {
+    public GetRenderValue(tags: any, hideIfDefault: boolean = false): Translation {
         if (this.mappings !== undefined && !this.multiAnswer) {
             for (const mapping of this.mappings) {
                 if (mapping.if === undefined) {
@@ -317,7 +325,8 @@ export default class TagRenderingConfig {
             return this.render;
         }
 
-        if (tags[this.freeform.key] !== undefined) {
+        if (tags[this.freeform.key] !== undefined &&
+            !(hideIfDefault && tags[this.freeform.key] === this.freeform.default)) {
             return this.render;
         }
         return undefined;
