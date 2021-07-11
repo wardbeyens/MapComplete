@@ -311,7 +311,7 @@ export default class LayerConfig {
 
     }
 
-    public GenerateLeafletStyle(tags: UIEventSource<any>, clickable: boolean, widthHeight= "100%"):
+    public GenerateLeafletStyle(tags: UIEventSource<any>, clickable: boolean):
         {
             icon:
                 {
