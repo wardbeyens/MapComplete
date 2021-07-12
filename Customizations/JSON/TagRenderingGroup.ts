@@ -20,6 +20,7 @@ export default class TagRenderingGroup implements TagRenderingProperties{
             if(json.overrideAll){
                 tagRenderingConfigJson = Utils.Merge(json.overrideAll, tagRenderingConfigJson)
             }
+            tagRenderingConfigJson.question = tagRenderingConfigJson.question ??json.question;
             const tagRendering = new TagRenderingConfig(tagRenderingConfigJson, undefined, `${context}group[${i}]`)
             this.group.push(tagRendering)
         }

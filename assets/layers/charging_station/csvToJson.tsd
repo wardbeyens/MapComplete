@@ -1,0 +1,41 @@
+import {readFileSync} from "fs";
+import {Utils} from "../../../Utils";
+
+// SMall script to output the properties of the types.csv as json to add in the tagRenderingGroup. Should be copied manually
+function run() {
+    const entries: string[] = Utils.NoNull(readFileSync("types.csv", "utf8").split("\n").map(str => str.trim()))
+    entries.shift()
+
+    const result = []
+
+    for (const entry of entries) {
+        const [key, image, description, whitelist] = entry.split(",").map(str => str.trim())
+        if (key === "") {
+            continue;
+        }
+        const json = {
+            render: `{${key}} <img style='width:3rem' src='./assets/layers/charging_station/${image}'/> ${description}`,
+            freeform: {
+                key: key
+            }
+        }
+
+        if (whitelist) {
+            const countries = whitelist.split(";").map(country => "_country=" + country)
+            json["condition"] = {
+                or: countries
+            }
+        }
+
+        result.push(json)
+
+    }
+
+    console.log(JSON.stringify(result, null, "  "))
+}
+
+try {
+    run()
+} catch (e) {
+    console.error(e)
+}

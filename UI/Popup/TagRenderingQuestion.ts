@@ -115,6 +115,7 @@ export default class TagRenderingQuestion extends Combine {
                 if (mapping.hideInAnswer === true) {
                     return false;
                 }
+                // TODO This is broken when a mapping should suddenly be shown/hidden!
                 return !(typeof (mapping.hideInAnswer) !== "boolean" && mapping.hideInAnswer.matchesProperties(tagsSource.data));
 
             })

@@ -282,6 +282,7 @@ export default class TagRenderingConfig implements TagRenderingProperties {
             if (mapping.if === undefined) {
                 return mapping.then;
             }
+            
             if (TagUtils.MatchesMultiAnswer(mapping.if, tags)) {
                 if (!freeformKeyUsed) {
                     if (mapping.if.usedKeys().indexOf(this.freeform.key) >= 0) {
@@ -325,7 +326,8 @@ export default class TagRenderingConfig implements TagRenderingProperties {
             return this.render;
         }
 
-        if (tags[this.freeform.key] !== undefined &&
+        const freeformValue = tags[this.freeform.key] ?? ""
+        if (freeformValue !== "" &&
             !(hideIfDefault && tags[this.freeform.key] === this.freeform.default)) {
             return this.render;
         }
