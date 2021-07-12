@@ -20,14 +20,14 @@ export default class TagRenderingGroupDisplay extends Toggle {
 
     constructor(group: TagRenderingGroup, tags: UIEventSource<any>, units: Unit[], forceQuestion = false, cancelButtonConstrr: () => BaseUIElement = undefined) {
 
-        if(forceQuestion && cancelButtonConstrr === undefined){
+        if (forceQuestion && cancelButtonConstrr === undefined) {
             throw "You'll want a cancelButtonConstructor to when forcing the question mode"
         }
-        
+
         const showQuestion = new UIEventSource<boolean>(forceQuestion)
 
         const answers = new Combine([group.header, ...group.group.map(tr => new TagRenderingAnswer(tags, tr, {
-                hideIfDefault: true
+            hideIfDefault: true
         }))])
         const isShown = tags.map(tagsData => forceQuestion || !group.group.some(tr => !tr.IsKnown(tagsData)))
         const fusedConfiguration = new TagRenderingConfig({

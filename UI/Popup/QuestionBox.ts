@@ -28,7 +28,6 @@ export default class QuestionBox extends VariableUiElement {
 
                 const tagRenderingQuestions = tagRenderings
                     .map((tagRendering, i) => {
-                       
                         if(tagRendering["group"] !== undefined){
                             const cancelButton = () => Translations.t.general.skip.Clone()
                                 .SetClass("btn btn-secondary mr-3")

@@ -252,7 +252,7 @@ export default class TagRenderingConfig implements TagRenderingProperties {
 
         return false;
     }
-
+    
     public ContainsQuestion(): boolean {
         return this.question !== undefined;
     }
