@@ -158,7 +158,7 @@ export default class TagRenderingConfig implements TagRenderingProperties {
         }
 
         if (this.question && this.freeform?.key === undefined && this.mappings === undefined) {
-            throw `${context}: A question is defined, but no mappings nor freeform (key) are. The question is ${this.question.txt} at ${context}`
+            throw `${context}: A question is defined, but no mappings nor freeform (key) are. The question is ${this.question.txt} (${this.render}) at ${context}`
         }
 
         if (this.freeform && this.render === undefined) {

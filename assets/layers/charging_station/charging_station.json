@@ -149,7 +149,7 @@
       },
       "group": [
         {
-          "render": "{socket:schuko} <img style='width:3rem' src='./assets/layers/charging_station/CEE7_4F.svg'/> <b>Schuko wall plug</b> without ground pin (CEE7/4 type F)",
+          "render": "<span style='background: red'>{socket:schuko}</span> <img style='width:3rem' src='./assets/layers/charging_station/CEE7_4F.svg'/> <b>Schuko wall plug</b> without ground pin (CEE7/4 type F)",
           "freeform": {
             "key": "socket:schuko"
           },

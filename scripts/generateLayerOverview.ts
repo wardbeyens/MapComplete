@@ -6,7 +6,6 @@ import LayoutConfig from "../Customizations/JSON/LayoutConfig";
 import {LayerConfigJson} from "../Customizations/JSON/LayerConfigJson";
 import {LayoutConfigJson} from "../Customizations/JSON/LayoutConfigJson";
 import AllKnownLayers from "../Customizations/AllKnownLayers";
-
 // This scripts scans 'assets/layers/*.json' for layer definition files and 'assets/themes/*.json' for theme definition files.
 // It spits out an overview of those to be used to load them
 
@@ -25,6 +24,9 @@ class LayerOverviewUtils {
         const themeFiles: LayoutConfigJson[] = ScriptUtils.getThemeFiles().map(x => x.parsed);
 
         console.log("Discovered", layerFiles.length, "layers and", themeFiles.length, "themes\n")
+        if(layerFiles.length + themeFiles.length === 0){
+            throw "Panic: no themes and layers loaded!"
+        }
         return {
             layers: layerFiles,
             themes: themeFiles
@@ -160,5 +162,6 @@ class LayerOverviewUtils {
         }
     }
 }
+
 
 new LayerOverviewUtils().main(process.argv)
