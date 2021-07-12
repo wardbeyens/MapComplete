@@ -1,4 +1,4 @@
-import {readFileSync} from "fs";
+import {readFileSync, writeFileSync} from "fs";
 import {Utils} from "../../../Utils";
 
 // SMall script to output the properties of the types.csv as json to add in the tagRenderingGroup. Should be copied manually
@@ -14,7 +14,7 @@ function run() {
             continue;
         }
         const json = {
-            render: `{${key}} <img style='width:3rem' src='./assets/layers/charging_station/${image}'/> ${description}`,
+            render: `<img style='width:3rem; margin-left: 1rem; margin-right: 1rem' src='./assets/layers/charging_station/${image}'/> <span class='text-3xl'>{${key}}</span> ${description}`,
             freeform: {
                 key: key
             }
@@ -31,7 +31,10 @@ function run() {
 
     }
 
-    console.log(JSON.stringify(result, null, "  "))
+    const stringified = JSON.stringify(result, null, "  ")
+    let proto = readFileSync("charging_station.proto.json", "utf8")
+    proto = proto.replace("$$$", stringified)
+    writeFileSync("charging_station.json", proto)
 }
 
 try {

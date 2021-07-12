@@ -100,6 +100,7 @@ export default class ScriptUtils {
     public static getLayerFiles(): { parsed: LayerConfigJson, path: string }[] {
         return ScriptUtils.readDirRecSync("./assets/layers")
             .filter(path => path.indexOf(".json") > 0)
+            .filter(path => path.indexOf(".proto.json") < 0)
             .filter(path => path.indexOf("license_info.json") < 0)
             .map(path => {
                 try {
