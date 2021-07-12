@@ -1,166 +1,106 @@
-import {OsmObject} from "./Logic/Osm/OsmObject";
-import DeleteButton from "./UI/Popup/DeleteWizard";
-import Combine from "./UI/Base/Combine";
-import State from "./State";
-import DeleteWizard from "./UI/Popup/DeleteWizard";
-import {UIEventSource} from "./Logic/UIEventSource";
-import {Tag} from "./Logic/Tags/Tag";
-import {QueryParameters} from "./Logic/Web/QueryParameters";
-import {Translation} from "./UI/i18n/Translation";
-/*import ValidatedTextField from "./UI/Input/ValidatedTextField";
-import Combine from "./UI/Base/Combine";
-import {VariableUiElement} from "./UI/Base/VariableUIElement";
-import {UIEventSource} from "./Logic/UIEventSource";
-import TagRenderingConfig from "./Customizations/JSON/TagRenderingConfig";
-import State from "./State";
-import TagRenderingQuestion from "./UI/Popup/TagRenderingQuestion";
-import {SlideShow} from "./UI/Image/SlideShow";
-import {FixedUiElement} from "./UI/Base/FixedUiElement";
-import Img from "./UI/Base/Img";
-import {AttributedImage} from "./UI/Image/AttributedImage";
-import {Imgur} from "./Logic/ImageProviders/Imgur";
+import { UIEventSource } from "./Logic/UIEventSource";
+import { FixedUiElement } from "./UI/Base/FixedUiElement";
 import Minimap from "./UI/Base/Minimap";
-import Loc from "./Models/Loc";
-import AvailableBaseLayers from "./Logic/Actors/AvailableBaseLayers";
-import ShowDataLayer from "./UI/ShowDataLayer";
-import LayoutConfig from "./Customizations/JSON/LayoutConfig";
-import {AllKnownLayouts} from "./Customizations/AllKnownLayouts";
+
+var debug = {};
+
+//LEAFLET TRYOUT
+//var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+
+// L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+//     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+//     maxZoom: 18,
+//     id: 'mapbox/streets-v11',
+//     tileSize: 512,
+//     zoomOffset: -1,
+//     accessToken: 'your.mapbox.access.token'
+// }).addTo(mymap);
+
+//`{minimap()}`, `{minimap(17, id, _list_of_embedded_feature_ids_calculated_by_calculated_tag):height:10rem; border: 2px solid black}`
+
+const mymap = new Minimap
+mymap.SetStyle("h-1/3")
+mymap.AttachTo("maindiv")
 
 
-function TestSlideshow() {
-    const elems = new UIEventSource([
-        new FixedUiElement("A"),
-        new FixedUiElement("qmsldkfjqmlsdkjfmqlskdjfmqlksdf").SetClass("text-xl"),
-        new Img("https://i.imgur.com/8lIQ5Hv.jpg"),
-        new AttributedImage("https://i.imgur.com/y5XudzW.jpg", Imgur.singleton),
-        new Img("https://www.grunge.com/img/gallery/the-real-reason-your-cat-sleeps-so-much/intro-1601496900.webp")
-    ])
-    new SlideShow(elems).AttachTo("maindiv")
-}
+//VECTOR TILES
+var map = L.map('mapid').setView([-5, 27.4], 5); // africa
 
-function TestTagRendering() {
-    State.state = new State(undefined)
-    const tagsSource = new UIEventSource({
-        id: "node/1"
-    })
-    new TagRenderingQuestion(
-        tagsSource,
-        new TagRenderingConfig({
-            multiAnswer: false,
-            freeform: {
-                key: "valve"
-            },
-            question: "What valves are supported?",
-            render: "This pump supports {valve}",
-            mappings: [
-                {
-                    if: "valve=dunlop",
-                    then: "This pump supports dunlop"
-                },
-                {
-                    if: "valve=shrader",
-                    then: "shrader is supported",
-                }
-            ],
-            
-        }, undefined, "test"),
-        []
-    ).AttachTo("maindiv")
-    new VariableUiElement(tagsSource.map(tags => tags["valves"])).SetClass("alert").AttachTo("extradiv")
-}
+L.tileLayer('http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+  maxZoom: 18,
+  id: 'examples.map-i86knfo3'
+}).addTo(map);
 
-function TestAllInputMethods() {
+// var mvtSource = new L.TileLayer.MVTSource({
+//   url: "http://spatialserver.spatialdev.com/services/vector-tiles/GAUL_FSP/{z}/{x}/{y}.pbf",
+//   debug: true,
+//   clickableLayers: ["GAUL0"],
+//   getIDForLayerFeature: function(feature) {
+//     return feature.properties.id;
+//   },
 
-    new Combine(ValidatedTextField.tpList.map(tp => {
-        const tf = ValidatedTextField.InputForType(tp.name);
+//   /**
+//    * The filter function gets called when iterating though each vector tile feature (vtf). You have access
+//    * to every property associated with a given feature (the feature, and the layer). You can also filter
+//    * based of the context (each tile that the feature is drawn onto).
+//    *
+//    * Returning false skips over the feature and it is not drawn.
+//    *
+//    * @param feature
+//    * @returns {boolean}
+//    */
+//   filter: function(feature, context) {
+//     if (feature.layer.name === 'GAUL0') {
+//       return true;
+//     }
+//     return false;
+//   },
 
-        return new Combine([tf, new VariableUiElement(tf.GetValue()).SetClass("alert")]);
-    })).AttachTo("maindiv")
-}
+//   style: function (feature) {
+//     var style = {};
 
-function TestMiniMap() {
+//     var type = feature.type;
+//     switch (type) {
+//       case 1: //'Point'
+//         style.color = 'rgba(49,79,79,1)';
+//         style.radius = 5;
+//         style.selected = {
+//           color: 'rgba(255,255,0,0.5)',
+//           radius: 6
+//         };
+//         break;
+//       case 2: //'LineString'
+//         style.color = 'rgba(161,217,155,0.8)';
+//         style.size = 3;
+//         style.selected = {
+//           color: 'rgba(255,25,0,0.5)',
+//           size: 4
+//         };
+//         break;
+//       case 3: //'Polygon'
+//         style.color = fillColor;
+//         style.outline = {
+//           color: strokeColor,
+//           size: 1
+//         };
+//         style.selected = {
+//           color: 'rgba(255,140,0,0.3)',
+//           outline: {
+//             color: 'rgba(255,140,0,1)',
+//             size: 2
+//           }
+//         };
+//         break;
+//     }
+//     return style;
+//   }
 
-    const location = new UIEventSource<Loc>({
-        lon: 4.84771728515625,
-        lat: 51.17920846421931,
-        zoom: 14
-    })
-    const map0 = new Minimap({
-        location: location,
-        allowMoving: true,
-        background: new AvailableBaseLayers(location).availableEditorLayers.map(layers => layers[2])
-    })
-    map0.SetStyle("width: 500px; height: 250px; overflow: hidden; border: 2px solid red")
-        .AttachTo("maindiv")
+// });
+// debug.mvtSource = mvtSource;
 
-    const layout = AllKnownLayouts.layoutsList[1]
-    State.state = new State(layout)
-    console.log("LAYOUT is", layout.id)
+// //Globals that we can change later.
+// var fillColor = 'rgba(149,139,255,0.4)';
+// var strokeColor = 'rgb(20,20,20)';
 
-    const feature = {
-            "type": "Feature",
-            _matching_layer_id: "bike_repair_station",
-            "properties": {
-                id: "node/-1",
-                "amenity": "bicycle_repair_station"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    4.84771728515625,
-                    51.17920846421931
-                ]
-            }
-        }
-
-    ;
-
-    State.state.allElements.addOrGetElement(feature)
-
-    const featureSource = new UIEventSource([{
-        freshness: new Date(),
-        feature: feature
-    }])
-
-    new ShowDataLayer(
-        featureSource,
-        map0.leafletMap,
-        new UIEventSource<LayoutConfig>(layout)
-    )
-
-    const map1 = new Minimap({
-            location: location,
-            allowMoving: true,
-            background: new AvailableBaseLayers(location).availableEditorLayers.map(layers => layers[5])
-        },
-    )
-
-    map1.SetStyle("width: 500px; height: 250px; overflow: hidden; border : 2px solid black")
-        .AttachTo("extradiv")
-
-
-    new ShowDataLayer(
-        featureSource,
-        map1.leafletMap,
-        new UIEventSource<LayoutConfig>(layout)
-    )
-
-    featureSource.ping()
-}
-//*/
-QueryParameters.GetQueryParameter("test", "true").setData("true")
-State.state= new State(undefined)
-const id = "node/5414688303"
-State.state.allElements.addElementById(id, new UIEventSource<any>({id: id}))
-new Combine([
-    new DeleteWizard(id, {
-        noDeleteOptions: [
-            {
-                if:[ new Tag("access","private")],
-                then: new Translation({
-                    en: "Very private! Delete now or me send lawfull lawyer"
-                })
-            }
-        ]
-    }),
-]).AttachTo("maindiv")
+// //Add layer
+// map.addLayer(mvtSource);
