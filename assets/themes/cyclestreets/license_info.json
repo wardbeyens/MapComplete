@@ -1,8 +1,6 @@
 [
   {
-    "authors": [
-      "The RedBurn"
-    ],
+    "authors": ["The RedBurn"],
     "path": "F111.svg",
     "license": "CC0",
     "sources": [
@@ -10,9 +8,7 @@
     ]
   },
   {
-    "authors": [
-      "The RedBurn"
-    ],
+    "authors": ["The RedBurn"],
     "path": "F113.svg",
     "license": "CC0",
     "sources": [

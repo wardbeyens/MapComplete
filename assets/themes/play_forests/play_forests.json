@@ -9,9 +9,7 @@
   "description": {
     "nl": "Een speelbos is een zone in een bos die vrij toegankelijk is voor spelende kinderen. Deze wordt  in bossen van het Agentschap Natuur en bos altijd aangeduid met het overeenkomstige bord."
   },
-  "language": [
-    "nl"
-  ],
+  "language": ["nl"],
   "maintainer": "",
   "icon": "./assets/layers/play_forest/icon.svg",
   "version": "0",
@@ -21,8 +19,6 @@
   "hideFromOverview": true,
   "widenFactor": 0.05,
   "socialImage": "",
-  "layers": [
-    "play_forest"
-  ],
+  "layers": ["play_forest"],
   "roamingRenderings": []
 }

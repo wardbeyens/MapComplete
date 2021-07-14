@@ -1,8 +1,6 @@
 [
   {
-    "authors": [
-      "Scott de Jonge"
-    ],
+    "authors": ["Scott de Jonge"],
     "path": "playground.svg",
     "license": "CC-BY 3.0",
     "sources": [

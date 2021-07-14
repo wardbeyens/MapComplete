@@ -10,10 +10,7 @@
   "minzoom": 13,
   "source": {
     "osmTags": {
-      "and": [
-        "leisure=playground",
-        "playground!=forest"
-      ]
+      "and": ["leisure=playground", "playground!=forest"]
     }
   },
   "calculatedTags": [
@@ -444,10 +441,7 @@
   "iconOverlays": [
     {
       "if": {
-        "and": [
-          "opening_hours!=24/7",
-          "opening_hours~*"
-        ]
+        "and": ["opening_hours!=24/7", "opening_hours~*"]
       },
       "then": "isOpen",
       "badge": true
@@ -482,9 +476,7 @@
   },
   "presets": [
     {
-      "tags": [
-        "leisure=playground"
-      ],
+      "tags": ["leisure=playground"],
       "title": {
         "nl": "Speeltuin",
         "en": "Playground",

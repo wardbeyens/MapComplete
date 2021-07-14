@@ -19,15 +19,7 @@
     "en": "<a href='https://nl.wikipedia.org/wiki/Geveltuin' target=_blank>Facade gardens</a>, green facades and trees in the city not only bring peace and quiet, but also a more beautiful city, greater biodiversity, a cooling effect and better air quality. <br/> Klimaan VZW and Mechelen Klimaatneutraal want to map existing and new facade gardens as an example for people who want to build their own garden or for city walkers who love nature.<br/>More info about the project at <a href='https://klimaan.be/' target=_blank>klimaan.be</a>.",
     "ja": "<a href='https://nl.wikipedia.org/wiki/Geveltuin' target=_blank>ファサード庭園</a>、都市の緑のファサードと樹木は、平和と静けさをもたらすだけでなく、より美しい都市、より大きな生物多様性、冷却効果、より良い大気質をもたらす。<br/>KlimaanのVZWとMechelenのKlimaatneutraalは、自分で庭を作りたい人や自然を愛する都市の歩行者のために、既存のファサード庭園と新しいファサード庭園のマッピングしたいと考えています。<br/>このプロジェクトに関する詳細情報は<a href='https://klimaan.be/' target=_blank>klimaan</a>にあります。"
   },
-  "language": [
-    "nl",
-    "en",
-    "ja",
-    "zh_Hant",
-    "it",
-    "nb_NO",
-    "ru"
-  ],
+  "language": ["nl", "en", "ja", "zh_Hant", "it", "nb_NO", "ru"],
   "maintainer": "joost schouppe; stla",
   "icon": "./assets/themes/facadegardens/geveltuin.svg",
   "version": "0",
@@ -48,10 +40,7 @@
       "minzoom": 12,
       "source": {
         "osmTags": {
-          "and": [
-            "leisure=garden",
-            "garden:type=facade_garden"
-          ]
+          "and": ["leisure=garden", "garden:type=facade_garden"]
         }
       },
       "title": {
@@ -122,9 +111,7 @@
           "mappings": [
             {
               "if": {
-                "and": [
-                  "direct_sunlight=yes"
-                ]
+                "and": ["direct_sunlight=yes"]
               },
               "then": {
                 "nl": "Het is een volle zon tuintje",
@@ -135,9 +122,7 @@
             },
             {
               "if": {
-                "and": [
-                  "direct_sunlight=partial"
-                ]
+                "and": ["direct_sunlight=partial"]
               },
               "then": {
                 "nl": "Het is een halfschaduw tuintje",
@@ -149,9 +134,7 @@
             },
             {
               "if": {
-                "and": [
-                  "direct_sunlight=no"
-                ]
+                "and": ["direct_sunlight=no"]
               },
               "then": {
                 "nl": "Het is een schaduw tuintje",
@@ -177,9 +160,7 @@
           "mappings": [
             {
               "if": {
-                "and": [
-                  "rain_barrel=yes"
-                ]
+                "and": ["rain_barrel=yes"]
               },
               "then": {
                 "nl": "Er is een regenton",
@@ -190,9 +171,7 @@
             },
             {
               "if": {
-                "and": [
-                  "rain_barrel=no"
-                ]
+                "and": ["rain_barrel=no"]
               },
               "then": {
                 "nl": "Er is geen regenton",
@@ -226,9 +205,7 @@
           "mappings": [
             {
               "if": {
-                "and": [
-                  "edible=yes"
-                ]
+                "and": ["edible=yes"]
               },
               "then": {
                 "nl": "Er staan eetbare planten",
@@ -239,9 +216,7 @@
             },
             {
               "if": {
-                "and": [
-                  "edible=no"
-                ]
+                "and": ["edible=no"]
               },
               "then": {
                 "nl": "Er staan geen eetbare planten",
@@ -330,25 +305,19 @@
         "mappings": [
           {
             "if": {
-              "and": [
-                "direct_sunlight=yes"
-              ]
+              "and": ["direct_sunlight=yes"]
             },
             "then": "circle:white;./assets/themes/facadegardens/zon.svg"
           },
           {
             "if": {
-              "and": [
-                "direct_sunlight=partial"
-              ]
+              "and": ["direct_sunlight=partial"]
             },
             "then": "circle:white;./assets/themes/facadegardens/halfzon.svg"
           },
           {
             "if": {
-              "and": [
-                "direct_sunlight=no"
-              ]
+              "and": ["direct_sunlight=no"]
             },
             "then": "circle:white;./assets/themes/facadegardens/schaduw.svg"
           }
@@ -365,10 +334,7 @@
       },
       "presets": [
         {
-          "tags": [
-            "leisure=garden",
-            "garden:type=facade_garden"
-          ],
+          "tags": ["leisure=garden", "garden:type=facade_garden"],
           "title": {
             "nl": "geveltuintje",
             "en": "facade garden",

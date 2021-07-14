@@ -21,13 +21,7 @@
     "ja": "このマップには、OpenStreetMapが知っているすべてのマップが表示されます。通常は、エリア、都市、または地域を示す情報ボード上の大きなマップが表示されます。たとえば、ビルボードの背面にある観光マップ、自然保護区のマップ、地域内のサイクリングネットワークのマップなどです。)<br/><br/>マップがない場合は、このマップをOpenStreetMapに簡単にマップできます。",
     "zh_Hant": "在這份地圖你可以找到所在在開放街圖上已知的地圖 - 特別是顯示地區、城市、區域的資訊版面上的大型地圖，例如佈告欄背面的旅遊地圖，自然保護區的地圖，區域的單車網路地圖，...)<br/><br/>如果有缺少的地圖，你可以輕易在開放街圖上新增這地圖。"
   },
-  "language": [
-    "en",
-    "nl",
-    "fr",
-    "ja",
-    "zh_Hant"
-  ],
+  "language": ["en", "nl", "fr", "ja", "zh_Hant"],
   "maintainer": "MapComplete",
   "icon": "./assets/themes/maps/logo.svg",
   "version": "0",
@@ -36,8 +30,6 @@
   "startZoom": 1,
   "widenFactor": 0.05,
   "socialImage": "",
-  "layers": [
-    "map"
-  ],
+  "layers": ["map"],
   "roamingRenderings": []
 }

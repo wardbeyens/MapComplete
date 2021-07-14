@@ -56,19 +56,14 @@
         "de": "Fahrrad-Reinigungsdienst",
         "zh_Hant": "單車清理服務"
       },
-      "tags": [
-        "amenity=bicycle_wash"
-      ]
+      "tags": ["amenity=bicycle_wash"]
     }
   ],
   "color": "#6bc4f7",
   "iconOverlays": [
     {
       "if": {
-        "and": [
-          "service:bicycle:cleaning~*",
-          "amenity!=bike_wash"
-        ]
+        "and": ["service:bicycle:cleaning~*", "amenity!=bike_wash"]
       },
       "then": {
         "render": "./assets/layers/bike_cleaning/bike_cleaning_icon.svg",
@@ -91,9 +86,7 @@
       "condition": "amenity!=bike_wash",
       "freeform": {
         "key": "service:bicycle:cleaning:charge",
-        "addExtraTags": [
-          "service:bicycle:cleaning:fee=yes"
-        ]
+        "addExtraTags": ["service:bicycle:cleaning:fee=yes"]
       },
       "mappings": [
         {
@@ -118,9 +111,7 @@
       "condition": "amenity=bike_wash",
       "freeform": {
         "key": "charge",
-        "addExtraTags": [
-          "fee=yes"
-        ]
+        "addExtraTags": ["fee=yes"]
       },
       "mappings": [
         {

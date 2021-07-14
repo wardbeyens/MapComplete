@@ -2,16 +2,7 @@
   "id": "bookcases",
   "maintainer": "MapComplete",
   "version": "2020-08-29",
-  "language": [
-    "en",
-    "nl",
-    "de",
-    "fr",
-    "ru",
-    "ja",
-    "zh_Hant",
-    "it"
-  ],
+  "language": ["en", "nl", "de", "fr", "ru", "ja", "zh_Hant", "it"],
   "title": {
     "en": "Open Bookcase Map",
     "nl": "Open Boekenruilkastenkaart",
@@ -39,7 +30,5 @@
   "startZoom": 1,
   "widenFactor": 0.05,
   "roamingRenderings": [],
-  "layers": [
-    "public_bookcase"
-  ]
+  "layers": ["public_bookcase"]
 }

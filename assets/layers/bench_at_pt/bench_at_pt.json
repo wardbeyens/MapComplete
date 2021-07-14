@@ -17,10 +17,7 @@
   "minzoom": 14,
   "source": {
     "osmTags": {
-      "or": [
-        "bench=yes",
-        "bench=stand_up_bench"
-      ]
+      "or": ["bench=yes", "bench=stand_up_bench"]
     }
   },
   "title": {
@@ -64,9 +61,7 @@
       },
       {
         "if": {
-          "and": [
-            "amenity=shelter"
-          ]
+          "and": ["amenity=shelter"]
         },
         "then": {
           "en": "Bench in shelter",
@@ -120,9 +115,7 @@
         "addExtraTags": []
       },
       "condition": {
-        "and": [
-          "bench=stand_up_bench"
-        ]
+        "and": ["bench=stand_up_bench"]
       }
     }
   ],

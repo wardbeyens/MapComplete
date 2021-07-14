@@ -41,10 +41,7 @@
   "iconOverlays": [
     {
       "if": {
-        "or": [
-          "operational_status=broken",
-          "operational_status=closed"
-        ]
+        "or": ["operational_status=broken", "operational_status=closed"]
       },
       "then": "close:#c33",
       "badge": true
@@ -53,10 +50,7 @@
   "iconSize": "50,50,bottom",
   "source": {
     "osmTags": {
-      "and": [
-        "amenity=vending_machine",
-        "vending~.*bicycle_tube.*"
-      ]
+      "and": ["amenity=vending_machine", "vending~.*bicycle_tube.*"]
     }
   },
   "minzoom": 13,

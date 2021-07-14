@@ -1,12 +1,9 @@
-
-Opening a pull request on MapComplete
-=====================================
+# Opening a pull request on MapComplete
 
 Hey! Thanks for opening a pull request on Mapcomplete! This probably means you want to add a new theme - if so, please follow the checklist below.
 If this pull request is for some other issue, please ignore the template.
 
-Adding your new theme
----------------------
+## Adding your new theme
 
 Thanks for taking the time to create your theme and to add it to the main repository!
 

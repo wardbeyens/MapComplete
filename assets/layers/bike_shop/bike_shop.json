@@ -17,10 +17,7 @@
         "shop=bicycle",
         {
           "#": "A bicycle rental with a network is something such as villo, bluebike, ... We don't want them",
-          "and": [
-            "amenity=bicycle_rental",
-            "network="
-          ]
+          "and": ["amenity=bicycle_rental", "network="]
         },
         {
           "#": "if sport is defined and is not bicycle, it is retrackted; if bicycle retail/repair is marked as 'no', it is retracted too.",
@@ -30,20 +27,13 @@
             "service:bicycle:retail!=no",
             "service:bicycle:repair!=no",
             {
-              "or": [
-                "sport=bicycle",
-                "sport=cycling",
-                "sport="
-              ]
+              "or": ["sport=bicycle", "sport=cycling", "sport="]
             }
           ]
         },
         {
           "#": "Any shop with any bicycle service",
-          "and": [
-            "shop~*",
-            "service:bicycle:.*~~.*"
-          ]
+          "and": ["shop~*", "service:bicycle:.*~~.*"]
         }
       ]
     }
@@ -61,9 +51,7 @@
     "mappings": [
       {
         "if": {
-          "and": [
-            "shop=sports"
-          ]
+          "and": ["shop=sports"]
         },
         "then": {
           "en": "Sport gear shop <i>{name}</i>",
@@ -76,10 +64,7 @@
       },
       {
         "if": {
-          "and": [
-            "shop!~.*bicycle.*",
-            "shop~*"
-          ]
+          "and": ["shop!~.*bicycle.*", "shop~*"]
         },
         "then": "Other shop"
       },
@@ -87,10 +72,7 @@
         "if": {
           "and": [
             {
-              "or": [
-                "service:bicycle:rental=yes",
-                "amenity=bicycle_rental"
-              ]
+              "or": ["service:bicycle:rental=yes", "amenity=bicycle_rental"]
             }
           ]
         },
@@ -105,10 +87,7 @@
       },
       {
         "if": {
-          "and": [
-            "service:bicycle:retail!~yes",
-            "service:bicycle:repair=yes"
-          ]
+          "and": ["service:bicycle:retail!~yes", "service:bicycle:repair=yes"]
         },
         "then": {
           "en": "Bike repair <i>{name}</i>",
@@ -122,9 +101,7 @@
       },
       {
         "if": {
-          "and": [
-            "service:bicycle:repair!~yes"
-          ]
+          "and": ["service:bicycle:repair!~yes"]
         },
         "then": {
           "en": "Bike shop <i>{name}</i>",
@@ -156,10 +133,7 @@
     },
     {
       "condition": {
-        "or": [
-          "service:bicycle:pump=yes",
-          "service:bicycle:pump=separate"
-        ]
+        "or": ["service:bicycle:pump=yes", "service:bicycle:pump=separate"]
       },
       "render": "<img src='./assets/layers/bike_shop/pump.svg'/>"
     },
@@ -180,11 +154,7 @@
     "images",
     {
       "condition": {
-        "and": [
-          "shop~*",
-          "shop!~bicycle",
-          "shop!~sports"
-        ]
+        "and": ["shop~*", "shop!~bicycle", "shop!~sports"]
       },
       "render": {
         "en": "This shop is specialized in selling {shop} and does bicycle related activities",
@@ -612,9 +582,7 @@
         "de": "Fahrradwerkstatt/geschäft",
         "it": "Negozio/riparatore di bici"
       },
-      "tags": [
-        "shop=bicycle"
-      ]
+      "tags": ["shop=bicycle"]
     }
   ],
   "icon": {

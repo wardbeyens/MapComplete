@@ -1,8 +1,6 @@
 [
   {
-    "authors": [
-      "Tobias Zwick"
-    ],
+    "authors": ["Tobias Zwick"],
     "path": "bench_poi.svg",
     "license": "CC-BY-SA 4.0",
     "sources": [
@@ -11,9 +9,7 @@
     ]
   },
   {
-    "authors": [
-      "Tobias Zwick"
-    ],
+    "authors": ["Tobias Zwick"],
     "path": "bench_public_transport.svg",
     "license": "CC-BY-SA 4.0",
     "sources": [

@@ -46,10 +46,7 @@
         "it": "Bici fantasma",
         "fr": "Vélo fantôme"
       },
-      "tags": [
-        "historic=memorial",
-        "memorial=ghost_bike"
-      ]
+      "tags": ["historic=memorial", "memorial=ghost_bike"]
     }
   ],
   "tagRenderings": [

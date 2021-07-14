@@ -26,10 +26,7 @@
   "iconOverlays": [
     {
       "if": {
-        "or": [
-          "operational_status=broken",
-          "operational_status=closed"
-        ]
+        "or": ["operational_status=broken", "operational_status=closed"]
       },
       "then": "close:#c33",
       "badge": true
@@ -38,11 +35,7 @@
   "iconSize": "40,40,bottom",
   "source": {
     "osmTags": {
-      "and": [
-        "amenity=drinking_water",
-        "access!=permissive",
-        "access!=private"
-      ]
+      "and": ["amenity=drinking_water", "access!=permissive", "access!=private"]
     }
   },
   "calculatedTags": [
@@ -62,9 +55,7 @@
         "it": "Acqua potabile",
         "ru": "Питьевая вода"
       },
-      "tags": [
-        "amenity=drinking_water"
-      ]
+      "tags": ["amenity=drinking_water"]
     }
   ],
   "color": "#6bc4f7",

@@ -9,9 +9,7 @@
   "description": {
     "nl": "Speelplekken in de Antwerpse Zuidrand. Een project van Provincie Antwerpen, in samenwerking met Createlli, Sportpret en OpenStreetMap België"
   },
-  "language": [
-    "nl"
-  ],
+  "language": ["nl"],
   "maintainer": "MapComplete",
   "icon": "./assets/themes/speelplekken/logo.svg",
   "hideFromOverview": true,
@@ -126,11 +124,7 @@
       "description": "Walking routes by 'provincie Antwerpen'",
       "source": {
         "osmTags": {
-          "and": [
-            "type=route",
-            "route=foot",
-            "operator~[pP]rovincie Antwerpen"
-          ]
+          "and": ["type=route", "route=foot", "operator~[pP]rovincie Antwerpen"]
         },
         "geoJson": "https://pietervdvn.github.io/speelplekken_cache/speelplekken_{layer}_{z}_{x}_{y}.geojson",
         "geoJsonZoomLevel": 14,

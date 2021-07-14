@@ -17,15 +17,7 @@
     "zh_Hant": "在這份地圖上，公共可及的飲水點可以顯示出來，也能輕易的增加",
     "it": "Questa mappa mostra tutti i luoghi in cui è disponibile acqua potabile ed è possibile aggiungerne di nuovi"
   },
-  "language": [
-    "en",
-    "nl",
-    "fr",
-    "ru",
-    "ja",
-    "zh_Hant",
-    "it"
-  ],
+  "language": ["en", "nl", "fr", "ru", "ja", "zh_Hant", "it"],
   "maintainer": "MapComplete",
   "icon": "./assets/themes/drinking_water/logo.svg",
   "version": "0",
@@ -34,8 +26,6 @@
   "startLon": 4.351697,
   "startZoom": 16,
   "widenFactor": 0.05,
-  "layers": [
-    "drinking_water"
-  ],
+  "layers": ["drinking_water"],
   "roamingRenderings": []
 }

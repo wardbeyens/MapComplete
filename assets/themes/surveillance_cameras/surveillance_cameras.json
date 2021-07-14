@@ -18,12 +18,7 @@
     "ja": "このオープンマップでは、監視カメラを確認できます。",
     "zh_Hant": "在這份開放地圖，你可以找到監視鏡頭。"
   },
-  "language": [
-    "en",
-    "nl",
-    "ja",
-    "zh_Hant"
-  ],
+  "language": ["en", "nl", "ja", "zh_Hant"],
   "maintainer": "",
   "icon": "./assets/themes/surveillance_cameras/logo.svg",
   "version": "0",
@@ -33,9 +28,6 @@
   "widenFactor": 0.05,
   "socialImage": "",
   "defaultBackgroundId": "osm",
-  "layers": [
-    "direction",
-    "surveillance_camera"
-  ],
+  "layers": ["direction", "surveillance_camera"],
   "roamingRenderings": []
 }

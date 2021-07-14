@@ -31,10 +31,7 @@
   "titleIcons": [
     {
       "condition": {
-        "or": [
-          "service:bicycle:pump=yes",
-          "service:bicycle:pump=separate"
-        ]
+        "or": ["service:bicycle:pump=yes", "service:bicycle:pump=separate"]
       },
       "render": "<img src='./assets/layers/bike_shop/pump.svg'/>"
     },
@@ -107,17 +104,12 @@
       },
       "freeform": {
         "key": "charge",
-        "addExtraTags": [
-          "fee=yes"
-        ]
+        "addExtraTags": ["fee=yes"]
       },
       "mappings": [
         {
           "if": {
-            "and": [
-              "fee=no",
-              "charge="
-            ]
+            "and": ["fee=no", "charge="]
           },
           "then": {
             "en": "Lending a bicycle is free",
@@ -134,10 +126,7 @@
         },
         {
           "if": {
-            "and": [
-              "fee=yes",
-              "charge=€20warranty + €20/year"
-            ]
+            "and": ["fee=yes", "charge=€20warranty + €20/year"]
           },
           "then": {
             "en": "Lending a bicycle costs €20/year and €20 warranty",
@@ -220,9 +209,7 @@
         "zh_Hant": "自行車圖書館 ( Fietsbibliotheek)",
         "it": "Bici in prestito"
       },
-      "tags": [
-        "amenity=bicycle_library"
-      ],
+      "tags": ["amenity=bicycle_library"],
       "description": {
         "nl": "Een fietsbieb heeft een collectie fietsen die leden mogen lenen",
         "en": "A bicycle library has a collection of bikes which can be lent",

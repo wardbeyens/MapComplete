@@ -9,9 +9,7 @@
     ],
     "path": "pump.svg",
     "license": "CC-BY-SA",
-    "sources": [
-      "https://osoc.be/editions/2020/cyclofix"
-    ]
+    "sources": ["https://osoc.be/editions/2020/cyclofix"]
   },
   {
     "authors": [
@@ -23,9 +21,7 @@
     ],
     "path": "repair_shop.svg",
     "license": "CC-BY-SA",
-    "sources": [
-      "https://osoc.be/editions/2020/cyclofix"
-    ]
+    "sources": ["https://osoc.be/editions/2020/cyclofix"]
   },
   {
     "authors": [
@@ -37,9 +33,7 @@
     ],
     "path": "shop.svg",
     "license": "CC-BY-SA",
-    "sources": [
-      "https://osoc.be/editions/2020/cyclofix"
-    ]
+    "sources": ["https://osoc.be/editions/2020/cyclofix"]
   },
   {
     "authors": [
@@ -51,8 +45,6 @@
     ],
     "path": "tools.svg",
     "license": "CC-BY-SA",
-    "sources": [
-      "https://osoc.be/editions/2020/cyclofix"
-    ]
+    "sources": ["https://osoc.be/editions/2020/cyclofix"]
   }
 ]

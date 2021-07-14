@@ -13,9 +13,7 @@
   "minzoom": 17,
   "source": {
     "osmTags": {
-      "and": [
-        "amenity=bicycle_parking"
-      ]
+      "and": ["amenity=bicycle_parking"]
     }
   },
   "icon": {
@@ -37,9 +35,7 @@
         "it": "Parcheggio bici",
         "zh_Hant": "單車停車場"
       },
-      "tags": [
-        "amenity=bicycle_parking"
-      ]
+      "tags": ["amenity=bicycle_parking"]
     }
   ],
   "title": {
@@ -273,10 +269,7 @@
         "zh_Hant": "這個停車場是否有車棚？如果是室內停車場也請選擇\"遮蔽\"。"
       },
       "condition": {
-        "and": [
-          "bicycle_parking!=shed",
-          "location!=underground"
-        ]
+        "and": ["bicycle_parking!=shed", "location!=underground"]
       },
       "mappings": [
         {

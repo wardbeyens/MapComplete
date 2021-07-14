@@ -10,10 +10,7 @@
   "minzoom": 16,
   "source": {
     "osmTags": {
-      "or": [
-        "camera:direction~*",
-        "direction~*"
-      ]
+      "or": ["camera:direction~*", "direction~*"]
     }
   },
   "doNotDownload": true,

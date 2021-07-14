@@ -3,50 +3,42 @@ Contains tweaks for small screens
 */
 
 @media only screen and (min-width: 769px) {
-
-    .only-on-mobile {
-        display: none !important;
-    }
+  .only-on-mobile {
+    display: none !important;
+  }
 }
 @media only screen and (max-width: 768px), only screen and (max-height: 768px) {
+  .hidden-on-mobile {
+    display: none !important;
+  }
 
+  #centermessage {
+    top: 30%;
+    left: 15%;
+    width: 60%;
+  }
 
-    .hidden-on-mobile {
-        display: none !important;
-    }
+  .add-popup-all-buttons {
+    /* Buttons in the 'add new point' have a default of 50vh maxheight which is ugly in the new context*/
+    max-height: unset !important;
+  }
 
-    #centermessage {
-        top: 30%;
-        left: 15%;
-        width: 60%;
+  #messagesboxmobile {
+    display: block;
 
-    }
-
-    .add-popup-all-buttons {
-        /* Buttons in the 'add new point' have a default of 50vh maxheight which is ugly in the new context*/
-        max-height: unset !important;
-    }
-
-    #messagesboxmobile {
-        display: block;
-
-        position: absolute;
-        z-index: 10000;
-        width: 100vw;
-        height: 100vh;
-    }
+    position: absolute;
+    z-index: 10000;
+    width: 100vw;
+    height: 100vh;
+  }
 }
 
 @media only screen and (max-width: 768px) {
-    .leaflet-control-attribution{
-        display: none;
-    }
-    
-    .leaflet-popup {
-        display: none;
-    }
+  .leaflet-control-attribution {
+    display: none;
+  }
+
+  .leaflet-popup {
+    display: none;
+  }
 }
-
-
-
-

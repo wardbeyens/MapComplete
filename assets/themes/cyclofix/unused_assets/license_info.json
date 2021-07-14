@@ -9,9 +9,7 @@
     ],
     "path": "place_with_pump.svg",
     "license": "CC-BY-SA",
-    "sources": [
-      "https://osoc.be/editions/2020/cyclofix"
-    ]
+    "sources": ["https://osoc.be/editions/2020/cyclofix"]
   },
   {
     "authors": [
@@ -23,9 +21,7 @@
     ],
     "path": "non_bike_repair_shop.svg",
     "license": "CC-BY-SA",
-    "sources": [
-      "https://osoc.be/editions/2020/cyclofix"
-    ]
+    "sources": ["https://osoc.be/editions/2020/cyclofix"]
   },
   {
     "authors": [
@@ -37,8 +33,6 @@
     ],
     "path": "non_bike_shop.svg",
     "license": "CC-BY-SA",
-    "sources": [
-      "https://osoc.be/editions/2020/cyclofix"
-    ]
+    "sources": ["https://osoc.be/editions/2020/cyclofix"]
   }
 ]

@@ -21,13 +21,7 @@
     "ja": "この地図では遊び場を見つけ情報を追加することができます",
     "zh_Hant": "在這份地圖上，你可以尋找遊樂場以及其相關資訊"
   },
-  "language": [
-    "nl",
-    "en",
-    "fr",
-    "ja",
-    "zh_Hant"
-  ],
+  "language": ["nl", "en", "fr", "ja", "zh_Hant"],
   "maintainer": "",
   "icon": "./assets/themes/playgrounds/playground.svg",
   "version": "0",
@@ -36,8 +30,6 @@
   "startZoom": 13,
   "widenFactor": 0.05,
   "socialImage": "",
-  "layers": [
-    "playground"
-  ],
+  "layers": ["playground"],
   "roamingRenderings": []
 }

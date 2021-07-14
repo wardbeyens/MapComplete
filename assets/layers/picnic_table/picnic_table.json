@@ -87,9 +87,7 @@
   },
   "presets": [
     {
-      "tags": [
-        "leisure=picnic_table"
-      ],
+      "tags": ["leisure=picnic_table"],
       "title": {
         "en": "Picnic table",
         "nl": "Picnic-tafel",

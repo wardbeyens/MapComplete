@@ -22,17 +22,7 @@
     "ja": "すべてのテーマの使用可能なすべてのレイヤーに基づいて個人用テーマを作成する",
     "zh_Hant": "從所有可用的主題圖層創建個人化主題"
   },
-  "language": [
-    "en",
-    "nl",
-    "es",
-    "ca",
-    "gl",
-    "fr",
-    "de",
-    "ja",
-    "zh_Hant"
-  ],
+  "language": ["en", "nl", "es", "ca", "gl", "fr", "de", "ja", "zh_Hant"],
   "maintainer": "MapComplete",
   "icon": "./assets/svg/addSmall.svg",
   "version": "0",

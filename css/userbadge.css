@@ -1,49 +1,47 @@
-
-
 .userstats {
-    display: flex;
-    align-items: center;
-    margin-top: 0.2em;
-    margin-bottom: 0.2em;
+  display: flex;
+  align-items: center;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
 }
 
 .userstats a {
-    display: block ruby;
-    padding-right: 0.2em;
-    margin-bottom: 0.2em;
+  display: block ruby;
+  padding-right: 0.2em;
+  margin-bottom: 0.2em;
 }
 
 .userstats span {
-    display: block ruby;
-    padding-right: 0.2em;
-    margin-bottom: 0.2em;
+  display: block ruby;
+  padding-right: 0.2em;
+  margin-bottom: 0.2em;
 }
 
 .userstats svg {
-    width: 1em;
-    height: 1em;
-    border-radius: 0;
-    display: block;
+  width: 1em;
+  height: 1em;
+  border-radius: 0;
+  display: block;
 }
 
 .userstats img {
-    width: 1em;
-    height: 1em;
-    border-radius: 0;
-    display: block;
+  width: 1em;
+  height: 1em;
+  border-radius: 0;
+  display: block;
 }
 
 .userbadge-login {
-    font-weight: bold;
-    font-size: large;
-    background-color: var(--subtle-detail-color) !important;
-    color: var(--subtle-detail-color-contrast);
-    height:3em;
+  font-weight: bold;
+  font-size: large;
+  background-color: var(--subtle-detail-color) !important;
+  color: var(--subtle-detail-color-contrast);
+  height: 3em;
 
-    display: inline-block;
-    text-align: center;
-    margin: 0;
+  display: inline-block;
+  text-align: center;
+  margin: 0;
 
-    min-width: 20em;
-    pointer-events: all;
+  min-width: 20em;
+  pointer-events: all;
 }

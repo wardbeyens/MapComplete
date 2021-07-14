@@ -24,14 +24,7 @@
     "ja": "このテーマでは、ライブデータのある自転車監視ステーションを示します",
     "zh_Hant": "這個主題顯示單車監視站的即時資料"
   },
-  "language": [
-    "en",
-    "nl",
-    "it",
-    "ru",
-    "ja",
-    "zh_Hant"
-  ],
+  "language": ["en", "nl", "it", "ru", "ja", "zh_Hant"],
   "hideFromOverview": true,
   "maintainer": "",
   "icon": "./assets/layers/bike_monitoring_station/monitoring_station.svg",
@@ -41,9 +34,7 @@
   "startZoom": 14,
   "widenFactor": 0.05,
   "socialImage": "",
-  "layers": [
-    "bike_monitoring_station"
-  ],
+  "layers": ["bike_monitoring_station"],
   "roamingRenderings": [],
   "defaultBackgroundId": "Stadia.AlidadeSmoothDark"
 }

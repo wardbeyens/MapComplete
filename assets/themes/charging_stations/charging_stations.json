@@ -23,16 +23,7 @@
     "zh_Hant": "在這份開放地圖上，你可以尋找與標示充電站的資訊",
     "it": "Su questa mappa aperta, puoi individuare le stazioni di ricarica o aggiungere informazioni"
   },
-  "language": [
-    "en",
-    "id",
-    "ru",
-    "ja",
-    "zh_Hant",
-    "it",
-    "nl",
-    "nb_NO"
-  ],
+  "language": ["en", "id", "ru", "ja", "zh_Hant", "it", "nl", "nb_NO"],
   "maintainer": "",
   "icon": "./assets/themes/charging_stations/logo.svg",
   "version": "0",
@@ -56,9 +47,7 @@
       "minzoom": 10,
       "source": {
         "osmTags": {
-          "and": [
-            "amenity=charging_station"
-          ]
+          "and": ["amenity=charging_station"]
         }
       },
       "title": {
@@ -89,49 +78,32 @@
           "mappings": [
             {
               "if": {
-                "and": [
-                  "motorcar=yes",
-                  "bicycle=yes"
-                ]
+                "and": ["motorcar=yes", "bicycle=yes"]
               },
               "then": "This is a charging station for <b>both bicycles and cars</b>"
             },
             {
               "if": {
-                "and": [
-                  "motorcar=",
-                  "car=",
-                  "bicycle=yes"
-                ]
+                "and": ["motorcar=", "car=", "bicycle=yes"]
               },
               "then": "This is a charging station exclusively for <b>bicycles</b>"
             },
             {
               "if": {
-                "and": [
-                  "motorcar=yes",
-                  "car=",
-                  "bicycle="
-                ]
+                "and": ["motorcar=yes", "car=", "bicycle="]
               },
               "then": "This is a charging station exclusively for <b>electric cars and similar vehicles</b>"
             },
             {
               "if": {
-                "and": [
-                  "car=yes",
-                  "bicycle="
-                ]
+                "and": ["car=yes", "bicycle="]
               },
               "then": "This is a charging station exclusively for <b>electric cars</b>",
               "hideInAnswer": true
             },
             {
               "if": {
-                "and": [
-                  "car=yes",
-                  "bicycle=yes"
-                ]
+                "and": ["car=yes", "bicycle=yes"]
               },
               "then": "This is a charging station for <b>both electric cars and bicycles</b>",
               "hideInAnswer": true
@@ -244,9 +216,7 @@
           "mappings": [
             {
               "if": {
-                "and": [
-                  "no:network=yes"
-                ]
+                "and": ["no:network=yes"]
               },
               "then": {
                 "en": "Not part of a bigger network",
@@ -258,9 +228,7 @@
             },
             {
               "if": {
-                "and": [
-                  "network=AeroVironment"
-                ]
+                "and": ["network=AeroVironment"]
               },
               "then": {
                 "en": "AeroVironment",
@@ -272,9 +240,7 @@
             },
             {
               "if": {
-                "and": [
-                  "network=Blink"
-                ]
+                "and": ["network=Blink"]
               },
               "then": {
                 "en": "Blink",
@@ -286,9 +252,7 @@
             },
             {
               "if": {
-                "and": [
-                  "network=eVgo"
-                ]
+                "and": ["network=eVgo"]
               },
               "then": {
                 "en": "eVgo",
@@ -311,10 +275,7 @@
           },
           {
             "if": {
-              "or": [
-                "car=yes",
-                "motorcar=yes"
-              ]
+              "or": ["car=yes", "motorcar=yes"]
             },
             "then": "pin:#fff;./assets/themes/charging_stations/car.svg"
           }
@@ -326,10 +287,7 @@
             "and": [
               "bicycle=yes",
               {
-                "or": [
-                  "motorcar=yes",
-                  "car=yes"
-                ]
+                "or": ["motorcar=yes", "car=yes"]
               }
             ]
           },
@@ -348,9 +306,7 @@
       },
       "presets": [
         {
-          "tags": [
-            "amenity=charging_station"
-          ],
+          "tags": ["amenity=charging_station"],
           "title": "Charging station"
         }
       ],

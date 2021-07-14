@@ -11,10 +11,7 @@
   "minzoom": 12,
   "source": {
     "osmTags": {
-      "and": [
-        "man_made=monitoring_station",
-        "monitoring:bicycle=yes"
-      ]
+      "and": ["man_made=monitoring_station", "monitoring:bicycle=yes"]
     }
   },
   "title": {
@@ -56,10 +53,7 @@
     {
       "render": "<b>{live({url},{url:format},hour)}</b> cyclists last hour<br/><b>{live({url},{url:format},day)}</b> cyclists today<br/><b>{live({url},{url:format},year)}</b> cyclists this year<br/>",
       "condition": {
-        "and": [
-          "url~*",
-          "url:format~*"
-        ]
+        "and": ["url~*", "url:format~*"]
       }
     }
   ],

@@ -1,23 +1,15 @@
 [
   {
-    "authors": [
-      "De Fietsambassade"
-    ],
+    "authors": ["De Fietsambassade"],
     "path": "fietsambassade_gent_logo.svg",
     "license": "Logo; All rights reserved",
-    "sources": [
-      "https://fietsambassade.gent.be"
-    ]
+    "sources": ["https://fietsambassade.gent.be"]
   },
   {
-    "authors": [
-      "De Fietsambassade"
-    ],
+    "authors": ["De Fietsambassade"],
     "path": "fietsambassade_gent_logo_small.svg",
     "license": "Logo; All rights reserved",
-    "sources": [
-      "https://fietsambassade.gent.be"
-    ]
+    "sources": ["https://fietsambassade.gent.be"]
   },
   {
     "authors": [
@@ -29,8 +21,6 @@
     ],
     "path": "logo.svg",
     "license": "CC-BY-SA",
-    "sources": [
-      "https://osoc.be/editions/2020/cyclofix"
-    ]
+    "sources": ["https://osoc.be/editions/2020/cyclofix"]
   }
 ]

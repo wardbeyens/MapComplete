@@ -49,9 +49,7 @@
         "ru": "Туалет",
         "it": "Servizi igienici"
       },
-      "tags": [
-        "amenity=toilets"
-      ],
+      "tags": ["amenity=toilets"],
       "description": {
         "en": "A publicly accessible toilet or restroom",
         "de": "Eine öffentlich zugängliche Toilette",
@@ -70,10 +68,7 @@
         "it": "Servizi igienici accessibili per persone in sedia a rotelle",
         "ru": "Туалет с доступом для пользователей кресел-колясок"
       },
-      "tags": [
-        "amenity=toilets",
-        "wheelchair=yes"
-      ],
+      "tags": ["amenity=toilets", "wheelchair=yes"],
       "description": {
         "en": "A restroom which has at least one wheelchair-accessible toilet",
         "de": "Eine Toilettenanlage mit mindestens einer rollstuhlgerechten Toilette",

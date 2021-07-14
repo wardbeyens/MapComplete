@@ -9,9 +9,7 @@
   "description": {
     "nl": "Op deze kaart vindt je boomgaarden en fruitbomen"
   },
-  "language": [
-    "nl"
-  ],
+  "language": ["nl"],
   "maintainer": "",
   "icon": "./assets/themes/fruit_trees/fruit_tree.svg",
   "version": "0",
@@ -30,9 +28,7 @@
       "minzoom": 12,
       "source": {
         "osmTags": {
-          "and": [
-            "landuse=orchard"
-          ]
+          "and": ["landuse=orchard"]
         }
       },
       "title": {
@@ -40,9 +36,7 @@
           "nl": "Boomgaard"
         }
       },
-      "tagRenderings": [
-        "images"
-      ],
+      "tagRenderings": ["images"],
       "hideUnderlayingFeaturesMinPercentage": 0,
       "icon": {
         "render": "./assets/themes/buurtnatuur/forest.svg"
@@ -79,9 +73,7 @@
       "minzoom": 12,
       "source": {
         "osmTags": {
-          "and": [
-            "natural=tree"
-          ]
+          "and": ["natural=tree"]
         }
       },
       "title": {
@@ -115,9 +107,7 @@
             "key": "taxon"
           },
           "condition": {
-            "and": [
-              "species:nl~*"
-            ]
+            "and": ["species:nl~*"]
           }
         },
         {
@@ -158,9 +148,7 @@
       },
       "presets": [
         {
-          "tags": [
-            "natural=tree"
-          ],
+          "tags": ["natural=tree"],
           "title": {
             "nl": "Boom"
           },

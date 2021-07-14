@@ -11,9 +11,7 @@
   "minzoom": 12,
   "source": {
     "osmTags": {
-      "and": [
-        "information=board"
-      ]
+      "and": ["information=board"]
     }
   },
   "title": {
@@ -26,9 +24,7 @@
       "ru": "Информационный щит"
     }
   },
-  "tagRenderings": [
-    "images"
-  ],
+  "tagRenderings": ["images"],
   "hideUnderlayingFeaturesMinPercentage": 0,
   "icon": {
     "render": "./assets/layers/information_board/board.svg"
@@ -44,10 +40,7 @@
   },
   "presets": [
     {
-      "tags": [
-        "tourism=information",
-        "information=board"
-      ],
+      "tags": ["tourism=information", "information=board"],
       "title": {
         "nl": "Informatiebord",
         "en": "Information board",

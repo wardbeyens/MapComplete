@@ -1,8 +1,6 @@
 [
   {
-    "authors": [
-      "Stijn Wens"
-    ],
+    "authors": ["Stijn Wens"],
     "path": "bicycle.svg",
     "license": "CC0",
     "sources": [

@@ -56,9 +56,7 @@
         "it": "Defibrillatore",
         "ru": "Дефибриллятор"
       },
-      "tags": [
-        "emergency=defibrillator"
-      ]
+      "tags": ["emergency=defibrillator"]
     }
   ],
   "tagRenderings": [
@@ -204,9 +202,7 @@
         "key": "defibrillator"
       },
       "condition": {
-        "and": [
-          "access=no"
-        ]
+        "and": ["access=no"]
       },
       "mappings": [
         {
@@ -241,9 +237,7 @@
         "it": "A che piano si trova questo defibrillatore?"
       },
       "condition": {
-        "and": [
-          "indoor=yes"
-        ]
+        "and": ["indoor=yes"]
       },
       "freeform": {
         "key": "level",
@@ -358,9 +352,7 @@
       "mappings": [
         {
           "if": {
-            "and": [
-              "wheelchair=designated"
-            ]
+            "and": ["wheelchair=designated"]
           },
           "then": {
             "nl": "Deze defibrillator is speciaal aangepast voor gebruikers van een rolstoel",
@@ -372,9 +364,7 @@
         },
         {
           "if": {
-            "and": [
-              "wheelchair=yes"
-            ]
+            "and": ["wheelchair=yes"]
           },
           "then": {
             "nl": "Deze defibrillator is vlot bereikbaar met een rolstoel",
@@ -386,9 +376,7 @@
         },
         {
           "if": {
-            "and": [
-              "wheelchair=limited"
-            ]
+            "and": ["wheelchair=limited"]
           },
           "then": {
             "nl": "Je kan er raken met een rolstoel, maar het is niet makkelijk",
@@ -400,9 +388,7 @@
         },
         {
           "if": {
-            "and": [
-              "wheelchair=no"
-            ]
+            "and": ["wheelchair=no"]
           },
           "then": {
             "nl": "Niet rolstoeltoegankelijk",

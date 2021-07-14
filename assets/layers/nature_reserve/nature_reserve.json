@@ -6,10 +6,7 @@
   "minzoom": 12,
   "source": {
     "osmTags": {
-      "or": [
-        "leisure=nature_reserve",
-        "boundary=protected_area"
-      ]
+      "or": ["leisure=nature_reserve", "boundary=protected_area"]
     }
   },
   "title": {
@@ -19,9 +16,7 @@
     "mappings": [
       {
         "if": {
-          "and": [
-            "name:nl~*"
-          ]
+          "and": ["name:nl~*"]
         },
         "then": {
           "nl": "{name:nl}"
@@ -29,9 +24,7 @@
       },
       {
         "if": {
-          "and": [
-            "name~*"
-          ]
+          "and": ["name~*"]
         },
         "then": {
           "nl": "{name}"
@@ -58,10 +51,7 @@
       "mappings": [
         {
           "if": {
-            "and": [
-              "access=yes",
-              "fee="
-            ]
+            "and": ["access=yes", "fee="]
           },
           "then": {
             "nl": "Vrij toegankelijk"
@@ -69,10 +59,7 @@
         },
         {
           "if": {
-            "and": [
-              "access=no",
-              "fee="
-            ]
+            "and": ["access=no", "fee="]
           },
           "then": {
             "nl": "Niet toegankelijk"
@@ -80,10 +67,7 @@
         },
         {
           "if": {
-            "and": [
-              "access=private",
-              "fee="
-            ]
+            "and": ["access=private", "fee="]
           },
           "then": {
             "nl": "Niet toegankelijk, want privégebied"
@@ -91,10 +75,7 @@
         },
         {
           "if": {
-            "and": [
-              "access=permissive",
-              "fee="
-            ]
+            "and": ["access=permissive", "fee="]
           },
           "then": {
             "nl": "Toegankelijk, ondanks dat het privegebied is"
@@ -102,10 +83,7 @@
         },
         {
           "if": {
-            "and": [
-              "access=guided",
-              "fee="
-            ]
+            "and": ["access=guided", "fee="]
           },
           "then": {
             "nl": "Enkel toegankelijk met een gids of tijdens een activiteit"
@@ -113,10 +91,7 @@
         },
         {
           "if": {
-            "and": [
-              "access=yes",
-              "fee=yes"
-            ]
+            "and": ["access=yes", "fee=yes"]
           },
           "then": {
             "nl": "Toegankelijk mits betaling"
@@ -138,9 +113,7 @@
       "mappings": [
         {
           "if": {
-            "and": [
-              "operator=Natuurpunt"
-            ]
+            "and": ["operator=Natuurpunt"]
           },
           "then": {
             "nl": "<img src=\"./assets/themes/buurtnatuur/Natuurpunt.jpg\" style=\"width:1.5em\">Dit gebied wordt beheerd door Natuurpunt"
@@ -148,9 +121,7 @@
         },
         {
           "if": {
-            "and": [
-              "operator~(n|N)atuurpunt.*"
-            ]
+            "and": ["operator~(n|N)atuurpunt.*"]
           },
           "then": {
             "nl": "<img src=\"./assets/themes/buurtnatuur/Natuurpunt.jpg\" style=\"width:1.5em\">Dit gebied wordt beheerd door {operator}"
@@ -159,9 +130,7 @@
         },
         {
           "if": {
-            "and": [
-              "operator=Agentschap Natuur en Bos"
-            ]
+            "and": ["operator=Agentschap Natuur en Bos"]
           },
           "then": {
             "nl": "<img src=\"./assets/themes/buurtnatuur/ANB.jpg\" style=\"width:1.5em\">Dit gebied wordt beheerd door het Agentschap Natuur en Bos"
@@ -181,9 +150,7 @@
         "key": "name:nl"
       },
       "condition": {
-        "and": [
-          "name:nl~*"
-        ]
+        "and": ["name:nl~*"]
       }
     },
     {
@@ -196,22 +163,15 @@
       },
       "freeform": {
         "key": "name",
-        "addExtraTags": [
-          "noname="
-        ]
+        "addExtraTags": ["noname="]
       },
       "condition": {
-        "and": [
-          "name:nl="
-        ]
+        "and": ["name:nl="]
       },
       "mappings": [
         {
           "if": {
-            "and": [
-              "noname=yes",
-              "name="
-            ]
+            "and": ["noname=yes", "name="]
           },
           "then": {
             "nl": "Dit gebied heeft geen naam"
@@ -229,11 +189,7 @@
         "de": "Sind Hunde in diesem Naturschutzgebiet erlaubt?"
       },
       "condition": {
-        "or": [
-          "access=yes",
-          "access=permissive",
-          "access=guided"
-        ]
+        "or": ["access=yes", "access=permissive", "access=guided"]
       },
       "mappings": [
         {

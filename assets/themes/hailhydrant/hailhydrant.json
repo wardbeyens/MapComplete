@@ -15,15 +15,7 @@
     "ja": "このマップでは、お気に入りの近隣にある消火栓、消防署、救急ステーション、消火器を検索して更新できます。\n\n正確な位置を追跡し(モバイルのみ)、左下コーナーで関連するレイヤを選択できます。このツールを使用して、マップにピン(注視点)を追加または編集したり、利用可能な質問に答えることによって追加の詳細を提供することもできます。\n\nすべての変更は自動的にOpenStreetMapのグローバルデータベースに保存され、他のユーザが自由に再利用できます。",
     "zh_Hant": "在這份地圖上面你可以在你喜愛的社區尋找與更新消防栓、消防隊、急救站與滅火器。\n\n你可以追蹤確切位置 (只有行動版) 以及在左下角選擇與你相關的圖層。你也可以使用這工具新增或編輯地圖上的釘子 (興趣點)，以及透過回答一些問題提供額外的資訊。\n\n所有你做出的變動都會自動存到開放街圖這個全球資料庫，而且能自由讓其他人取用。"
   },
-  "language": [
-    "en",
-    "ja",
-    "zh_Hant",
-    "nb_NO",
-    "ru",
-    "it",
-    "id"
-  ],
+  "language": ["en", "ja", "zh_Hant", "nb_NO", "ru", "it", "id"],
   "maintainer": "Erwin Olario",
   "icon": "./assets/themes/hailhydrant/logo.svg",
   "version": "0",
@@ -44,9 +36,7 @@
       "minzoom": 14,
       "source": {
         "osmTags": {
-          "and": [
-            "emergency=fire_hydrant"
-          ]
+          "and": ["emergency=fire_hydrant"]
         }
       },
       "title": {
@@ -81,9 +71,7 @@
           "mappings": [
             {
               "if": {
-                "and": [
-                  "colour="
-                ]
+                "and": ["colour="]
               },
               "then": {
                 "en": "The hydrant color is unknown.",
@@ -93,9 +81,7 @@
             },
             {
               "if": {
-                "and": [
-                  "colour=yellow"
-                ]
+                "and": ["colour=yellow"]
               },
               "then": {
                 "en": "The hydrant color is yellow.",
@@ -104,9 +90,7 @@
             },
             {
               "if": {
-                "and": [
-                  "colour=red"
-                ]
+                "and": ["colour=red"]
               },
               "then": {
                 "en": "The hydrant color is red.",
@@ -134,9 +118,7 @@
           "mappings": [
             {
               "if": {
-                "and": [
-                  "fire_hydrant:type="
-                ]
+                "and": ["fire_hydrant:type="]
               },
               "then": {
                 "en": "The hydrant type is unknown.",
@@ -147,9 +129,7 @@
             },
             {
               "if": {
-                "and": [
-                  "fire_hydrant:type=pillar"
-                ]
+                "and": ["fire_hydrant:type=pillar"]
               },
               "then": {
                 "en": "<img style=\"width:15px\" src=\"./assets/themes/hailhydrant/hydrant_pillar.svg\" /> Pillar type.",
@@ -158,9 +138,7 @@
             },
             {
               "if": {
-                "and": [
-                  "fire_hydrant:type=pipe"
-                ]
+                "and": ["fire_hydrant:type=pipe"]
               },
               "then": {
                 "en": "<img style=\"width:15px\" src=\"./assets/themes/hailhydrant/hydrant_unknown.svg\" /> Pipe type.",
@@ -169,9 +147,7 @@
             },
             {
               "if": {
-                "and": [
-                  "fire_hydrant:type=wall"
-                ]
+                "and": ["fire_hydrant:type=wall"]
               },
               "then": {
                 "en": "<img style=\"width:15px\" src=\"./assets/themes/hailhydrant/hydrant_unknown.svg\" /> Wall type.",
@@ -182,9 +158,7 @@
             },
             {
               "if": {
-                "and": [
-                  "fire_hydrant:type=underground"
-                ]
+                "and": ["fire_hydrant:type=underground"]
               },
               "then": {
                 "en": "<img style=\"width:15px\" src=\"./assets/themes/hailhydrant/hydrant_underground.svg\" /> Underground type.",
@@ -208,9 +182,7 @@
           "mappings": [
             {
               "if": {
-                "and": [
-                  "emergency=fire_hydrant"
-                ]
+                "and": ["emergency=fire_hydrant"]
               },
               "then": {
                 "en": "The hydrant is (fully or partially) working.",
@@ -219,10 +191,7 @@
             },
             {
               "if": {
-                "and": [
-                  "disused:emergency=fire_hydrant",
-                  "emergency="
-                ]
+                "and": ["disused:emergency=fire_hydrant", "emergency="]
               },
               "then": {
                 "en": "The hydrant is unavailable.",
@@ -231,10 +200,7 @@
             },
             {
               "if": {
-                "and": [
-                  "removed:emergency=fire_hydrant",
-                  "emergency="
-                ]
+                "and": ["removed:emergency=fire_hydrant", "emergency="]
               },
               "then": {
                 "en": "The hydrant has been removed.",
@@ -260,9 +226,7 @@
       },
       "presets": [
         {
-          "tags": [
-            "emergency=fire_hydrant"
-          ],
+          "tags": ["emergency=fire_hydrant"],
           "title": {
             "en": "Fire hydrant",
             "ru": "Пожарный гидрант",
@@ -287,9 +251,7 @@
       "minzoom": 14,
       "source": {
         "osmTags": {
-          "and": [
-            "emergency=fire_extinguisher"
-          ]
+          "and": ["emergency=fire_extinguisher"]
         }
       },
       "title": {
@@ -319,9 +281,7 @@
           "mappings": [
             {
               "if": {
-                "and": [
-                  "location=indoor"
-                ]
+                "and": ["location=indoor"]
               },
               "then": {
                 "en": "Found indoors.",
@@ -330,9 +290,7 @@
             },
             {
               "if": {
-                "and": [
-                  "location=outdoor"
-                ]
+                "and": ["location=outdoor"]
               },
               "then": {
                 "en": "Found outdoors.",
@@ -361,9 +319,7 @@
       },
       "presets": [
         {
-          "tags": [
-            "emergency=fire_extinguisher"
-          ],
+          "tags": ["emergency=fire_extinguisher"],
           "title": {
             "en": "Fire extinguisher",
             "ja": "消火器",
@@ -388,9 +344,7 @@
       "minzoom": 12,
       "source": {
         "osmTags": {
-          "and": [
-            "amenity=fire_station"
-          ]
+          "and": ["amenity=fire_station"]
         }
       },
       "wayHandling": 2,
@@ -494,9 +448,7 @@
           "mappings": [
             {
               "if": {
-                "and": [
-                  "operator:type=government"
-                ]
+                "and": ["operator:type=government"]
               },
               "then": {
                 "en": "The station is operated by the government.",
@@ -505,9 +457,7 @@
             },
             {
               "if": {
-                "and": [
-                  "operator:type=community"
-                ]
+                "and": ["operator:type=community"]
               },
               "then": {
                 "en": "The station is operated by a community-based, or informal organization.",
@@ -516,9 +466,7 @@
             },
             {
               "if": {
-                "and": [
-                  "operator:type=ngo"
-                ]
+                "and": ["operator:type=ngo"]
               },
               "then": {
                 "en": "The station is operated by a formal group of volunteers.",
@@ -527,9 +475,7 @@
             },
             {
               "if": {
-                "and": [
-                  "operator:type=private"
-                ]
+                "and": ["operator:type=private"]
               },
               "then": {
                 "en": "The station is privately operated.",
@@ -555,9 +501,7 @@
       },
       "presets": [
         {
-          "tags": [
-            "amenity=fire_station"
-          ],
+          "tags": ["amenity=fire_station"],
           "title": {
             "en": "Fire station",
             "ja": "消防署"
@@ -578,9 +522,7 @@
       "minzoom": 12,
       "source": {
         "osmTags": {
-          "and": [
-            "emergency=ambulance_station"
-          ]
+          "and": ["emergency=ambulance_station"]
         }
       },
       "title": {
@@ -664,9 +606,7 @@
           "mappings": [
             {
               "if": {
-                "and": [
-                  "operator:type=government"
-                ]
+                "and": ["operator:type=government"]
               },
               "then": {
                 "en": "The station is operated by the government.",
@@ -675,9 +615,7 @@
             },
             {
               "if": {
-                "and": [
-                  "operator:type=community"
-                ]
+                "and": ["operator:type=community"]
               },
               "then": {
                 "en": "The station is operated by a community-based, or informal organization.",
@@ -686,9 +624,7 @@
             },
             {
               "if": {
-                "and": [
-                  "operator:type=ngo"
-                ]
+                "and": ["operator:type=ngo"]
               },
               "then": {
                 "en": "The station is operated by a formal group of volunteers.",
@@ -697,9 +633,7 @@
             },
             {
               "if": {
-                "and": [
-                  "operator:type=private"
-                ]
+                "and": ["operator:type=private"]
               },
               "then": {
                 "en": "The station is privately operated.",
@@ -725,9 +659,7 @@
       },
       "presets": [
         {
-          "tags": [
-            "emergency=ambulance_station"
-          ],
+          "tags": ["emergency=ambulance_station"],
           "title": {
             "en": "Ambulance station",
             "ru": "Станция скорой помощи",

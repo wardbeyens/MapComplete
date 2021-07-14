@@ -21,13 +21,7 @@
     "ja": "スポーツ競技場は、スポーツが行われる場所です",
     "zh_Hant": "運動場地是進行運動的地方"
   },
-  "language": [
-    "nl",
-    "fr",
-    "en",
-    "ja",
-    "zh_Hant"
-  ],
+  "language": ["nl", "fr", "en", "ja", "zh_Hant"],
   "maintainer": "",
   "icon": "./assets/layers/sport_pitch/table_tennis.svg",
   "version": "0",
@@ -36,8 +30,6 @@
   "startZoom": 1,
   "widenFactor": 0.05,
   "socialImage": "",
-  "layers": [
-    "sport_pitch"
-  ],
+  "layers": ["sport_pitch"],
   "roamingRenderings": []
 }

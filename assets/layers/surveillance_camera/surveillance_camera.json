@@ -45,9 +45,7 @@
       "mappings": [
         {
           "if": {
-            "and": [
-              "camera:type=fixed"
-            ]
+            "and": ["camera:type=fixed"]
           },
           "then": {
             "en": "A fixed (non-moving) camera",
@@ -58,9 +56,7 @@
         },
         {
           "if": {
-            "and": [
-              "camera:type=dome"
-            ]
+            "and": ["camera:type=dome"]
           },
           "then": {
             "en": "A dome camera (which can turn)",
@@ -72,9 +68,7 @@
         },
         {
           "if": {
-            "and": [
-              "camera:type=panning"
-            ]
+            "and": ["camera:type=panning"]
           },
           "then": {
             "en": "A panning camera",
@@ -106,10 +100,7 @@
           "direction~*",
           "camera:type!=dome",
           {
-            "and": [
-              "camera:type=dome",
-              "camera:mount=wall"
-            ]
+            "and": ["camera:type=dome", "camera:mount=wall"]
           }
         ]
       },
@@ -120,10 +111,7 @@
       "mappings": [
         {
           "if": {
-            "and": [
-              "camera:direction=",
-              "direction~*"
-            ]
+            "and": ["camera:direction=", "direction~*"]
           },
           "then": {
             "en": "Films to a compass heading of {direction}",
@@ -164,9 +152,7 @@
       "mappings": [
         {
           "if": {
-            "and": [
-              "surveillance=public"
-            ]
+            "and": ["surveillance=public"]
           },
           "then": {
             "en": "A public area is surveilled, such as a street, a bridge, a square, a park, a train station, a public corridor or tunnel,...",
@@ -177,9 +163,7 @@
         },
         {
           "if": {
-            "and": [
-              "surveillance=outdoor"
-            ]
+            "and": ["surveillance=outdoor"]
           },
           "then": {
             "en": "An outdoor, yet private area is surveilled (e.g. a parking lot, a fuel station, courtyard, entrance, private driveway, ...)",
@@ -190,9 +174,7 @@
         },
         {
           "if": {
-            "and": [
-              "surveillance=indoor"
-            ]
+            "and": ["surveillance=indoor"]
           },
           "then": {
             "nl": "Een private binnenruimte wordt bewaakt, bv. een winkel, een parkeergarage, ...",
@@ -212,9 +194,7 @@
         "it": "Lo spazio pubblico sorvegliato da questa videocamera è all'aperto o al chiuso?"
       },
       "condition": {
-        "and": [
-          "surveillance:type=public"
-        ]
+        "and": ["surveillance:type=public"]
       },
       "mappings": [
         {
@@ -268,10 +248,7 @@
         "type": "nat"
       },
       "condition": {
-        "or": [
-          "indoor=yes",
-          "surveillance:type=ye"
-        ]
+        "or": ["indoor=yes", "surveillance:type=ye"]
       }
     },
     {
@@ -294,9 +271,7 @@
       "mappings": [
         {
           "if": {
-            "and": [
-              "surveillance:zone=parking"
-            ]
+            "and": ["surveillance:zone=parking"]
           },
           "then": {
             "en": "Surveills a parking",
@@ -307,9 +282,7 @@
         },
         {
           "if": {
-            "and": [
-              "surveillance:zone=traffic"
-            ]
+            "and": ["surveillance:zone=traffic"]
           },
           "then": {
             "en": "Surveills the traffic",
@@ -320,9 +293,7 @@
         },
         {
           "if": {
-            "and": [
-              "surveillance:zone=entrance"
-            ]
+            "and": ["surveillance:zone=entrance"]
           },
           "then": {
             "en": "Surveills an entrance",
@@ -333,9 +304,7 @@
         },
         {
           "if": {
-            "and": [
-              "surveillance:zone=corridor"
-            ]
+            "and": ["surveillance:zone=corridor"]
           },
           "then": {
             "en": "Surveills a corridor",
@@ -346,9 +315,7 @@
         },
         {
           "if": {
-            "and": [
-              "surveillance:zone=public_transport_platform"
-            ]
+            "and": ["surveillance:zone=public_transport_platform"]
           },
           "then": {
             "en": "Surveills a public tranport platform",
@@ -359,9 +326,7 @@
         },
         {
           "if": {
-            "and": [
-              "surveillance:zone=shop"
-            ]
+            "and": ["surveillance:zone=shop"]
           },
           "then": {
             "en": "Surveills a shop",
@@ -474,10 +439,7 @@
   },
   "presets": [
     {
-      "tags": [
-        "man_made=surveillance",
-        "surveillance:type=camera"
-      ],
+      "tags": ["man_made=surveillance", "surveillance:type=camera"],
       "title": "Surveillance camera"
     }
   ],

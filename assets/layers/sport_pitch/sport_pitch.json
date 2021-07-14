@@ -11,9 +11,7 @@
   "minzoom": 12,
   "source": {
     "osmTags": {
-      "and": [
-        "leisure=pitch"
-      ]
+      "and": ["leisure=pitch"]
     }
   },
   "calculatedTags": [
@@ -57,9 +55,7 @@
       "mappings": [
         {
           "if": {
-            "and": [
-              "sport=basketball"
-            ]
+            "and": ["sport=basketball"]
           },
           "then": {
             "nl": "Hier kan men basketbal spelen",
@@ -71,9 +67,7 @@
         },
         {
           "if": {
-            "and": [
-              "sport=soccer"
-            ]
+            "and": ["sport=soccer"]
           },
           "then": {
             "nl": "Hier kan men voetbal spelen",
@@ -85,9 +79,7 @@
         },
         {
           "if": {
-            "and": [
-              "sport=table_tennis"
-            ]
+            "and": ["sport=table_tennis"]
           },
           "then": {
             "nl": "Dit is een pingpongtafel",
@@ -99,9 +91,7 @@
         },
         {
           "if": {
-            "and": [
-              "sport=tennis"
-            ]
+            "and": ["sport=tennis"]
           },
           "then": {
             "nl": "Hier kan men tennis spelen",
@@ -113,9 +103,7 @@
         },
         {
           "if": {
-            "and": [
-              "sport=korfball"
-            ]
+            "and": ["sport=korfball"]
           },
           "then": {
             "nl": "Hier kan men korfbal spelen",
@@ -127,9 +115,7 @@
         },
         {
           "if": {
-            "and": [
-              "sport=basket"
-            ]
+            "and": ["sport=basket"]
           },
           "then": {
             "nl": "Hier kan men basketbal beoefenen",
@@ -272,11 +258,7 @@
         "ru": "Нужна ли предварительная запись для доступа на эту спортивную площадку?"
       },
       "condition": {
-        "and": [
-          "access!=public",
-          "access!=private",
-          "access!=members"
-        ]
+        "and": ["access!=public", "access!=private", "access!=members"]
       },
       "mappings": [
         {
@@ -408,21 +390,14 @@
   "iconOverlays": [
     {
       "if": {
-        "and": [
-          "opening_hours!=24/7",
-          "opening_hours~*"
-        ]
+        "and": ["opening_hours!=24/7", "opening_hours~*"]
       },
       "then": "isOpen",
       "badge": true
     },
     {
       "if": {
-        "or": [
-          "access=customers",
-          "access=private",
-          "access=no"
-        ]
+        "or": ["access=customers", "access=private", "access=no"]
       },
       "then": "circle:white;./assets/layers/sport_pitch/lock.svg",
       "badge": true
@@ -436,10 +411,7 @@
     "mappings": [
       {
         "if": {
-          "or": [
-            "_size_classification=medium",
-            "id~node/.*"
-          ]
+          "or": ["_size_classification=medium", "id~node/.*"]
         },
         "then": "40,40,center"
       },
@@ -465,10 +437,7 @@
         "it": "Tavolo da tennistavolo",
         "ru": "Стол для настольного тенниса"
       },
-      "tags": [
-        "leisure=pitch",
-        "sport=table_tennis"
-      ]
+      "tags": ["leisure=pitch", "sport=table_tennis"]
     },
     {
       "title": {

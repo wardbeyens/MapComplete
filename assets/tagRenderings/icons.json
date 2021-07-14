@@ -2,10 +2,7 @@
   "wikipedialink": {
     "render": "<a href='https://wikipedia.org/wiki/{wikipedia}' target='_blank'><img src='./assets/svg/wikipedia.svg' alt='WP'/></a>",
     "condition": {
-      "or": [
-        "wikipedia~*",
-        "wikidata~*"
-      ]
+      "or": ["wikipedia~*", "wikidata~*"]
     },
     "mappings": [
       {
@@ -28,20 +25,14 @@
       {
         "#": "Still loading the country",
         "if": {
-          "and": [
-            "_isOpen=",
-            "opening_hours~*"
-          ]
+          "and": ["_isOpen=", "opening_hours~*"]
         },
         "then": "clock:#ff0;ring:#ff0"
       },
       {
         "#": "Still loading the country",
         "if": {
-          "and": [
-            "_isOpen=parse_error",
-            "opening_hours~*"
-          ]
+          "and": ["_isOpen=parse_error", "opening_hours~*"]
         },
         "then": "circle:#f0f;clock:#fff"
       }

@@ -1,32 +1,20 @@
 [
   {
-    "authors": [
-      "European Vegetarian Union"
-    ],
+    "authors": ["European Vegetarian Union"],
     "path": "Vegetarian-mark.svg",
     "license": "PD",
-    "sources": [
-      "https://commons.wikimedia.org/wiki/File:Vegetarian-mark.svg"
-    ]
+    "sources": ["https://commons.wikimedia.org/wiki/File:Vegetarian-mark.svg"]
   },
   {
-    "authors": [
-      "Freepik"
-    ],
+    "authors": ["Freepik"],
     "path": "logo.svg",
     "license": "CC-BY",
-    "sources": [
-      "https://www.flaticon.com/free-icon/french-fries_1144288"
-    ]
+    "sources": ["https://www.flaticon.com/free-icon/french-fries_1144288"]
   },
   {
-    "authors": [
-      "Freepik"
-    ],
+    "authors": ["Freepik"],
     "path": "fries.svg",
     "license": "CC-BY",
-    "sources": [
-      "https://www.flaticon.com/free-icon/french-fries_1144288"
-    ]
+    "sources": ["https://www.flaticon.com/free-icon/french-fries_1144288"]
   }
 ]

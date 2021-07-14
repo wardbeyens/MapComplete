@@ -121,9 +121,7 @@
       "wayHandling": 2,
       "presets": [
         {
-          "tags": [
-            "tourism=artwork"
-          ],
+          "tags": ["tourism=artwork"],
           "title": {
             "en": "Artwork",
             "nl": "Kunstwerk",

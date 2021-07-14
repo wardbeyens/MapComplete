@@ -11,10 +11,7 @@
   "minzoom": 12,
   "source": {
     "osmTags": {
-      "or": [
-        "tourism=map",
-        "information=map"
-      ]
+      "or": ["tourism=map", "information=map"]
     }
   },
   "title": {
@@ -46,10 +43,7 @@
       "mappings": [
         {
           "if": {
-            "and": [
-              "map_source=OpenStreetMap",
-              "not:map_source="
-            ]
+            "and": ["map_source=OpenStreetMap", "not:map_source="]
           },
           "then": {
             "en": "This map is based on OpenStreetMap",
@@ -83,9 +77,7 @@
       "mappings": [
         {
           "if": {
-            "and": [
-              "map_source:attribution=yes"
-            ]
+            "and": ["map_source:attribution=yes"]
           },
           "then": {
             "en": "OpenStreetMap is clearly attributed, including the ODBL-license",
@@ -96,9 +88,7 @@
         },
         {
           "if": {
-            "and": [
-              "map_source:attribution=incomplete"
-            ]
+            "and": ["map_source:attribution=incomplete"]
           },
           "then": {
             "en": "OpenStreetMap is clearly attributed, but the license is not mentioned",
@@ -109,9 +99,7 @@
         },
         {
           "if": {
-            "and": [
-              "map_source:attribution=sticker"
-            ]
+            "and": ["map_source:attribution=sticker"]
           },
           "then": {
             "en": "OpenStreetMap wasn't mentioned, but someone put an OpenStreetMap-sticker on it",
@@ -122,9 +110,7 @@
         },
         {
           "if": {
-            "and": [
-              "map_source:attribution=none"
-            ]
+            "and": ["map_source:attribution=none"]
           },
           "then": {
             "en": "There is no attribution at all",
@@ -136,9 +122,7 @@
         },
         {
           "if": {
-            "and": [
-              "map_source:attribution=no"
-            ]
+            "and": ["map_source:attribution=no"]
           },
           "then": {
             "nl": "Er is geen attributie",
@@ -165,27 +149,19 @@
     "mappings": [
       {
         "if": {
-          "and": [
-            "map_source=OpenStreetMap",
-            "map_source:attribution=sticker"
-          ]
+          "and": ["map_source=OpenStreetMap", "map_source:attribution=sticker"]
         },
         "then": "./assets/layers/map/map-stickered.svg"
       },
       {
         "if": {
-          "and": [
-            "map_source=OpenStreetMap",
-            "map_source:attribution=yes"
-          ]
+          "and": ["map_source=OpenStreetMap", "map_source:attribution=yes"]
         },
         "then": "./assets/layers/map/osm-logo-white-bg.svg"
       },
       {
         "if": {
-          "and": [
-            "map_source=OpenStreetMap"
-          ]
+          "and": ["map_source=OpenStreetMap"]
         },
         "then": "./assets/layers/map/osm-logo-buggy-attr.svg"
       }
@@ -202,9 +178,7 @@
   },
   "presets": [
     {
-      "tags": [
-        "tourism=map"
-      ],
+      "tags": ["tourism=map"],
       "title": {
         "en": "Map",
         "nl": "Kaart",

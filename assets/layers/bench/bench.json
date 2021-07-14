@@ -533,9 +533,7 @@
   },
   "presets": [
     {
-      "tags": [
-        "amenity=bench"
-      ],
+      "tags": ["amenity=bench"],
       "title": {
         "en": "Bench",
         "de": "Sitzbank",

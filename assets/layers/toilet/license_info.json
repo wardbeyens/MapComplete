@@ -3,20 +3,13 @@
     "authors": [],
     "path": "toilets.svg",
     "license": "CC0",
-    "sources": [
-      "https://wiki.openstreetmap.org/wiki/File:Toilets-16.svg"
-    ]
+    "sources": ["https://wiki.openstreetmap.org/wiki/File:Toilets-16.svg"]
   },
   {
-    "authors": [
-      "asianson.design",
-      " Pieter Vander Vennet"
-    ],
+    "authors": ["asianson.design", " Pieter Vander Vennet"],
     "path": "urinal.svg",
     "license": "CC-BY",
-    "sources": [
-      "https://thenounproject.com/term/urinal/1307984/"
-    ]
+    "sources": ["https://thenounproject.com/term/urinal/1307984/"]
   },
   {
     "authors": [],

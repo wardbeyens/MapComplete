@@ -10,9 +10,7 @@
   "minzoom": 14,
   "source": {
     "osmTags": {
-      "and": [
-        "natural=tree"
-      ]
+      "and": ["natural=tree"]
     }
   },
   "title": {
@@ -50,16 +48,12 @@
         "fr": "Hauteur : {height}"
       },
       "condition": {
-        "and": [
-          "height~*"
-        ]
+        "and": ["height~*"]
       },
       "mappings": [
         {
           "if": {
-            "and": [
-              "height~^[0-9.]+$"
-            ]
+            "and": ["height~^[0-9.]+$"]
           },
           "then": {
             "nl": "Hoogte: {height}&nbsp;m",
@@ -80,9 +74,7 @@
       "mappings": [
         {
           "if": {
-            "and": [
-              "leaf_type=broadleaved"
-            ]
+            "and": ["leaf_type=broadleaved"]
           },
           "then": {
             "nl": "<img src=\"./assets/themes/trees/broadleaved.svg\" style=\"width:1.5em;height:1.5em\" alt=\"\"/> Loofboom",
@@ -92,9 +84,7 @@
         },
         {
           "if": {
-            "and": [
-              "leaf_type=needleleaved"
-            ]
+            "and": ["leaf_type=needleleaved"]
           },
           "then": {
             "nl": "<img src=\"./assets/themes/trees/needleleaved.svg\" style=\"width:1.5em;height:1.5em\" alt=\"\"/> Naaldboom",
@@ -104,9 +94,7 @@
         },
         {
           "if": {
-            "and": [
-              "leaf_type=leafless"
-            ]
+            "and": ["leaf_type=leafless"]
           },
           "then": {
             "nl": "<img src=\"./assets/themes/trees/leafless.svg\" style=\"width:1.5em;height:1.5em\" alt=\"\"/> Permanent bladloos",
@@ -127,9 +115,7 @@
       "mappings": [
         {
           "if": {
-            "and": [
-              "denotation=landmark"
-            ]
+            "and": ["denotation=landmark"]
           },
           "then": {
             "nl": "De boom valt op door zijn grootte of prominente locatie. Hij is nuttig voor navigatie.",
@@ -140,9 +126,7 @@
         },
         {
           "if": {
-            "and": [
-              "denotation=natural_monument"
-            ]
+            "and": ["denotation=natural_monument"]
           },
           "then": {
             "nl": "De boom is een natuurlijk monument, bijvoorbeeld doordat hij bijzonder oud of van een waardevolle soort is.",
@@ -152,9 +136,7 @@
         },
         {
           "if": {
-            "and": [
-              "denotation=agricultural"
-            ]
+            "and": ["denotation=agricultural"]
           },
           "then": {
             "nl": "De boom wordt voor landbouwdoeleinden gebruikt, bijvoorbeeld in een boomgaard.",
@@ -164,9 +146,7 @@
         },
         {
           "if": {
-            "and": [
-              "denotation=park"
-            ]
+            "and": ["denotation=park"]
           },
           "then": {
             "nl": "De boom staat in een park of dergelijke (begraafplaats, schoolterrein, …).",
@@ -176,9 +156,7 @@
         },
         {
           "if": {
-            "and": [
-              "denotation=garden"
-            ]
+            "and": ["denotation=garden"]
           },
           "then": {
             "nl": "De boom staat in de tuin bij een woning/flatgebouw.",
@@ -188,9 +166,7 @@
         },
         {
           "if": {
-            "and": [
-              "denotation=avenue"
-            ]
+            "and": ["denotation=avenue"]
           },
           "then": {
             "nl": "Dit is een laanboom.",
@@ -201,9 +177,7 @@
         },
         {
           "if": {
-            "and": [
-              "denotation=urban"
-            ]
+            "and": ["denotation=urban"]
           },
           "then": {
             "nl": "De boom staat in een woonkern.",
@@ -214,9 +188,7 @@
         },
         {
           "if": {
-            "and": [
-              "denotation=none"
-            ]
+            "and": ["denotation=none"]
           },
           "then": {
             "nl": "De boom staat buiten een woonkern.",
@@ -236,9 +208,7 @@
       "mappings": [
         {
           "if": {
-            "and": [
-              "leaf_cycle=deciduous"
-            ]
+            "and": ["leaf_cycle=deciduous"]
           },
           "then": {
             "nl": "Bladverliezend: de boom is een periode van het jaar kaal.",
@@ -249,9 +219,7 @@
         },
         {
           "if": {
-            "and": [
-              "leaf_cycle=evergreen"
-            ]
+            "and": ["leaf_cycle=evergreen"]
           },
           "then": {
             "nl": "Groenblijvend.",
@@ -263,9 +231,7 @@
         }
       ],
       "condition": {
-        "and": [
-          "leaf_type!~^leafless$"
-        ]
+        "and": ["leaf_type!~^leafless$"]
       }
     },
     {
@@ -286,17 +252,12 @@
       },
       "freeform": {
         "key": "name",
-        "addExtraTags": [
-          "noname="
-        ]
+        "addExtraTags": ["noname="]
       },
       "mappings": [
         {
           "if": {
-            "and": [
-              "name=",
-              "noname=yes"
-            ]
+            "and": ["name=", "noname=yes"]
           },
           "then": {
             "nl": "De boom heeft geen naam.",
@@ -308,11 +269,7 @@
         }
       ],
       "condition": {
-        "or": [
-          "denotation=landmark",
-          "denotation=natural_monument",
-          "name~*"
-        ]
+        "or": ["denotation=landmark", "denotation=natural_monument", "name~*"]
       }
     },
     {
@@ -325,10 +282,7 @@
       "mappings": [
         {
           "if": {
-            "and": [
-              "heritage=4",
-              "heritage:operator=OnroerendErfgoed"
-            ]
+            "and": ["heritage=4", "heritage:operator=OnroerendErfgoed"]
           },
           "then": {
             "nl": "<img src=\"./assets/layers/tree_node/Onroerend_Erfgoed_logo_without_text.svg\" style=\"width:0.85em;height:1em;vertical-align:middle\" alt=\"\"/> Erkend als houtig erfgoed door Onroerend Erfgoed Vlaanderen",
@@ -338,10 +292,7 @@
         },
         {
           "if": {
-            "and": [
-              "heritage=4",
-              "heritage:operator=aatl"
-            ]
+            "and": ["heritage=4", "heritage:operator=aatl"]
           },
           "then": {
             "nl": "Erkend als natuurlijk erfgoed door Directie Cultureel Erfgoed Brussel",
@@ -352,10 +303,7 @@
         },
         {
           "if": {
-            "and": [
-              "heritage=yes",
-              "heritage:operator="
-            ]
+            "and": ["heritage=yes", "heritage:operator="]
           },
           "then": {
             "nl": "Erkend als erfgoed door een andere organisatie",
@@ -366,10 +314,7 @@
         },
         {
           "if": {
-            "and": [
-              "heritage=no",
-              "heritage:operator="
-            ]
+            "and": ["heritage=no", "heritage:operator="]
           },
           "then": {
             "nl": "Niet erkend als erfgoed",
@@ -380,9 +325,7 @@
         },
         {
           "if": {
-            "and": [
-              "heritage~*"
-            ]
+            "and": ["heritage~*"]
           },
           "then": {
             "nl": "Erkend als erfgoed door een andere organisatie",
@@ -394,10 +337,7 @@
         }
       ],
       "condition": {
-        "or": [
-          "denotation=landmark",
-          "denotation=natural_monument"
-        ]
+        "or": ["denotation=landmark", "denotation=natural_monument"]
       }
     },
     {
@@ -417,10 +357,7 @@
         "type": "nat"
       },
       "condition": {
-        "and": [
-          "heritage=4",
-          "heritage:operator=OnroerendErfgoed"
-        ]
+        "and": ["heritage=4", "heritage:operator=OnroerendErfgoed"]
       }
     },
     {
@@ -455,17 +392,13 @@
     "mappings": [
       {
         "if": {
-          "and": [
-            "leaf_type=broadleaved"
-          ]
+          "and": ["leaf_type=broadleaved"]
         },
         "then": "circle:#ffffff;./assets/themes/trees/broadleaved.svg"
       },
       {
         "if": {
-          "and": [
-            "leaf_type=needleleaved"
-          ]
+          "and": ["leaf_type=needleleaved"]
         },
         "then": "circle:#ffffff;./assets/themes/trees/needleleaved.svg"
       }
@@ -483,10 +416,7 @@
   },
   "presets": [
     {
-      "tags": [
-        "natural=tree",
-        "leaf_type=broadleaved"
-      ],
+      "tags": ["natural=tree", "leaf_type=broadleaved"],
       "title": {
         "nl": "Loofboom",
         "en": "Broadleaved tree",
@@ -502,10 +432,7 @@
       }
     },
     {
-      "tags": [
-        "natural=tree",
-        "leaf_type=needleleaved"
-      ],
+      "tags": ["natural=tree", "leaf_type=needleleaved"],
       "title": {
         "nl": "Naaldboom",
         "en": "Needleleaved tree",
@@ -520,9 +447,7 @@
       }
     },
     {
-      "tags": [
-        "natural=tree"
-      ],
+      "tags": ["natural=tree"],
       "title": {
         "nl": "Boom",
         "en": "Tree",

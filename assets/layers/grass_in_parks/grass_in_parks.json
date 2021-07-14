@@ -11,10 +11,7 @@
           "and": [
             "landuse=grass",
             {
-              "or": [
-                "access=public",
-                "access=yes"
-              ]
+              "or": ["access=public", "access=yes"]
             }
           ]
         }

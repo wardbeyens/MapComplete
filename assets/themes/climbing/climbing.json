@@ -68,10 +68,7 @@
               "and": [
                 "sport=climbing",
                 {
-                  "or": [
-                    "office~*",
-                    "club~*"
-                  ]
+                  "or": ["office~*", "club~*"]
                 }
               ]
             }
@@ -162,10 +159,7 @@
       },
       "presets": [
         {
-          "tags": [
-            "club=sport",
-            "sport=climbing"
-          ],
+          "tags": ["club=sport", "sport=climbing"],
           "title": {
             "de": "Kletterverein",
             "en": "Climbing club",
@@ -182,10 +176,7 @@
           }
         },
         {
-          "tags": [
-            "office=ngo",
-            "sport=climbing"
-          ],
+          "tags": ["office=ngo", "sport=climbing"],
           "title": {
             "de": "Eine Kletter-Organisation",
             "en": "Climbing NGO",
@@ -213,10 +204,7 @@
       "minzoom": 10,
       "source": {
         "osmTags": {
-          "and": [
-            "sport=climbing",
-            "leisure=sports_centre"
-          ]
+          "and": ["sport=climbing", "leisure=sports_centre"]
         }
       },
       "title": {
@@ -306,9 +294,7 @@
       "minzoom": 18,
       "source": {
         "osmTags": {
-          "and": [
-            "climbing=route"
-          ]
+          "and": ["climbing=route"]
         }
       },
       "title": {
@@ -365,10 +351,7 @@
           "mappings": [
             {
               "if": {
-                "and": [
-                  "noname=yes",
-                  "name="
-                ]
+                "and": ["noname=yes", "name="]
               },
               "then": {
                 "en": "This climbing route doesn't have a name",
@@ -429,9 +412,7 @@
           "freeform": {
             "key": "climbing:bolts",
             "type": "pnat",
-            "addExtraTag": [
-              "climbing:bolted=yes"
-            ]
+            "addExtraTag": ["climbing:bolted=yes"]
           },
           "mappings": [
             {
@@ -486,10 +467,7 @@
           "title": {
             "en": "Climbing route"
           },
-          "tags": [
-            "sport=climbing",
-            "climbing=route"
-          ]
+          "tags": ["sport=climbing", "climbing=route"]
         }
       ],
       "wayHandling": 2
@@ -533,10 +511,7 @@
             "if": {
               "and": [
                 {
-                  "or": [
-                    "climbing=area",
-                    "climbing=site"
-                  ]
+                  "or": ["climbing=area", "climbing=site"]
                 },
                 "name~*"
               ]
@@ -548,10 +523,7 @@
           },
           {
             "if": {
-              "or": [
-                "climbing=site",
-                "climbing=area"
-              ]
+              "or": ["climbing=site", "climbing=area"]
             },
             "then": {
               "en": "Climbing site",
@@ -625,10 +597,7 @@
           "mappings": [
             {
               "if": {
-                "and": [
-                  "noname=yes",
-                  "name="
-                ]
+                "and": ["noname=yes", "name="]
               },
               "then": {
                 "en": "This climbing opportunity doesn't have a name",
@@ -682,11 +651,7 @@
             }
           ],
           "condition": {
-            "or": [
-              "climbing=crag",
-              "natural=cliff",
-              "natural=bare_rock"
-            ]
+            "or": ["climbing=crag", "natural=cliff", "natural=bare_rock"]
           }
         },
         "reviews"
@@ -706,9 +671,7 @@
       },
       "presets": [
         {
-          "tags": [
-            "sport=climbing"
-          ],
+          "tags": ["sport=climbing"],
           "title": {
             "en": "Climbing opportunity",
             "nl": "Klimgelegenheid",
@@ -804,9 +767,7 @@
           "mappings": [
             {
               "if": {
-                "and": [
-                  "sport!~climbing"
-                ]
+                "and": ["sport!~climbing"]
               },
               "then": {
                 "en": "Climbing is not possible here",
@@ -819,9 +780,7 @@
             },
             {
               "if": {
-                "and": [
-                  "sport=climbing"
-                ]
+                "and": ["sport=climbing"]
               },
               "then": {
                 "en": "Climbing is possible here",
@@ -865,11 +824,7 @@
       "applicableUnits": [
         {
           "canonicalDenomination": "",
-          "alternativeDenomination": [
-            "m",
-            "meter",
-            "meters"
-          ],
+          "alternativeDenomination": ["m", "meter", "meters"],
           "human": {
             "en": " meter",
             "nl": " meter"
@@ -878,10 +833,7 @@
         },
         {
           "canonicalDenomination": "ft",
-          "alternativeDenomination": [
-            "feet",
-            "voet"
-          ],
+          "alternativeDenomination": ["feet", "voet"],
           "human": {
             "en": " feet",
             "nl": " voet"
@@ -900,12 +852,7 @@
         "nl": "Is er een (onofficiële) website met meer informatie (b.v. met topos)?"
       },
       "condition": {
-        "and": [
-          "leisure!~sports_centre",
-          "sport=climbing",
-          "office=",
-          "club="
-        ]
+        "and": ["leisure!~sports_centre", "sport=climbing", "office=", "club="]
       },
       "render": "<a href='{url}' target='_blank'>{url}</a>",
       "freeform": {
@@ -990,16 +937,10 @@
           "office=",
           "club=",
           {
-            "or": [
-              "sport=climbing",
-              "climbing:sport=yes"
-            ]
+            "or": ["sport=climbing", "climbing:sport=yes"]
           },
           {
-            "or": [
-              "access~*",
-              "_embedding_feature:access="
-            ]
+            "or": ["access~*", "_embedding_feature:access="]
           }
         ]
       }
@@ -1069,10 +1010,7 @@
           "office=",
           "club=",
           {
-            "or": [
-              "climbing:sport=yes",
-              "sport=climbing"
-            ]
+            "or": ["climbing:sport=yes", "sport=climbing"]
           }
         ]
       }
@@ -1100,10 +1038,7 @@
           "office=",
           "club=",
           {
-            "or": [
-              "climbing:sport=yes",
-              "sport=climbing"
-            ]
+            "or": ["climbing:sport=yes", "sport=climbing"]
           }
         ]
       }
@@ -1161,10 +1096,7 @@
       "condition": {
         "and": [
           {
-            "or": [
-              "climbing:sport=yes",
-              "sport=climbing"
-            ]
+            "or": ["climbing:sport=yes", "sport=climbing"]
           },
           "office=",
           "club="
@@ -1212,10 +1144,7 @@
       "condition": {
         "and": [
           {
-            "or": [
-              "climbing:sport=yes",
-              "sport=climbing"
-            ]
+            "or": ["climbing:sport=yes", "sport=climbing"]
           },
           "office=",
           "club="
@@ -1265,10 +1194,7 @@
       "condition": {
         "and": [
           {
-            "or": [
-              "climbing:sport=yes",
-              "sport=climbing"
-            ]
+            "or": ["climbing:sport=yes", "sport=climbing"]
           },
           "office=",
           "club="
@@ -1316,10 +1242,7 @@
       "condition": {
         "and": [
           {
-            "or": [
-              "climbing:sport=yes",
-              "sport=climbing"
-            ]
+            "or": ["climbing:sport=yes", "sport=climbing"]
           },
           "office=",
           "club="
@@ -1338,10 +1261,7 @@
         "and": [
           "leisure=sports_centre",
           {
-            "or": [
-              "climbing:sport=yes",
-              "sport=climbing"
-            ]
+            "or": ["climbing:sport=yes", "sport=climbing"]
           },
           "office=",
           "club="

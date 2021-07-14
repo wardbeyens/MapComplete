@@ -52,7 +52,5 @@
   "startLat": 0,
   "startLon": 0,
   "startZoom": 12,
-  "layers": [
-    "defibrillator"
-  ]
+  "layers": ["defibrillator"]
 }

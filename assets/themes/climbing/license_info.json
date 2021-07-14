@@ -1,27 +1,18 @@
 [
   {
-    "authors": [
-      "Matthew Dera"
-    ],
+    "authors": ["Matthew Dera"],
     "path": "carabiner.svg",
     "license": "CC-BY-SA 4.0",
-    "sources": [
-      "https://thenounproject.com/term/carabiner/30076/"
-    ]
+    "sources": ["https://thenounproject.com/term/carabiner/30076/"]
   },
   {
-    "authors": [
-      "Pieter Vander Vennet"
-    ],
+    "authors": ["Pieter Vander Vennet"],
     "path": "height.svg",
     "license": "CC0",
     "sources": []
   },
   {
-    "authors": [
-      "Polarbear w",
-      "Christian Neumann"
-    ],
+    "authors": ["Polarbear w", "Christian Neumann"],
     "path": "climbing_gym.svg",
     "license": "CC0",
     "sources": [
@@ -31,10 +22,7 @@
     ]
   },
   {
-    "authors": [
-      "Polarbear w",
-      "Christian Neumann"
-    ],
+    "authors": ["Polarbear w", "Christian Neumann"],
     "path": "climbing_icon.svg",
     "license": "CC0",
     "sources": [
@@ -44,10 +32,7 @@
     ]
   },
   {
-    "authors": [
-      "Polarbear w",
-      "Christian Neumann"
-    ],
+    "authors": ["Polarbear w", "Christian Neumann"],
     "path": "climbing_no_rope.svg",
     "license": "CC0",
     "sources": [
@@ -57,10 +42,7 @@
     ]
   },
   {
-    "authors": [
-      "Polarbear w",
-      "Christian Neumann"
-    ],
+    "authors": ["Polarbear w", "Christian Neumann"],
     "path": "climbing_rope.svg",
     "license": "CC0",
     "sources": [
@@ -70,10 +52,7 @@
     ]
   },
   {
-    "authors": [
-      "Polarbear w",
-      "Christian Neumann"
-    ],
+    "authors": ["Polarbear w", "Christian Neumann"],
     "path": "climbing_route.svg",
     "license": "CC0",
     "sources": [
@@ -83,10 +62,7 @@
     ]
   },
   {
-    "authors": [
-      "Polarbear w",
-      "Christian Neumann"
-    ],
+    "authors": ["Polarbear w", "Christian Neumann"],
     "path": "climbing_unknown.svg",
     "license": "CC0",
     "sources": [
@@ -96,10 +72,7 @@
     ]
   },
   {
-    "authors": [
-      "Polarbear w",
-      "Christian Neumann"
-    ],
+    "authors": ["Polarbear w", "Christian Neumann"],
     "path": "club.svg",
     "license": "CC0",
     "sources": [

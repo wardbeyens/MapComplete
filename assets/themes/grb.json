@@ -9,9 +9,7 @@
   "description": {
     "nl": "GRB Fixup"
   },
-  "language": [
-    "nl"
-  ],
+  "language": ["nl"],
   "maintainer": "",
   "icon": "./assets/svg/bug.svg",
   "version": "0",
@@ -30,10 +28,7 @@
       "minzoom": 12,
       "source": {
         "osmTags": {
-          "and": [
-            "fixme~*",
-            "building~*"
-          ]
+          "and": ["fixme~*", "building~*"]
         }
       },
       "calculatedTags": [
@@ -46,9 +41,7 @@
         "mappings": [
           {
             "if": {
-              "and": [
-                "fixme~*"
-              ]
+              "and": ["fixme~*"]
             },
             "then": {
               "nl": "{fixme}"
@@ -73,10 +66,7 @@
           "mappings": [
             {
               "if": {
-                "and": [
-                  "not:addr:housenumber=yes",
-                  "addr:housenumber="
-                ]
+                "and": ["not:addr:housenumber=yes", "addr:housenumber="]
               },
               "then": {
                 "nl": "Geen huisnummer"
@@ -84,18 +74,11 @@
             },
             {
               "if": {
-                "and": [
-                  "addr:housenumber:={_grbNumber}",
-                  "fixme="
-                ]
+                "and": ["addr:housenumber:={_grbNumber}", "fixme="]
               },
               "then": "Het huisnummer is <b>{_grbNumber}</b>, wat overeenkomt met het GRB",
               "hideInAnswer": {
-                "or": [
-                  "_grbNumber=",
-                  "_grbNumber=none",
-                  "_grbNumber=no number"
-                ]
+                "or": ["_grbNumber=", "_grbNumber=none", "_grbNumber=no number"]
               }
             },
             {
@@ -150,9 +133,7 @@
           "mappings": [
             {
               "if": {
-                "and": [
-                  "fixme="
-                ]
+                "and": ["fixme="]
               },
               "then": {
                 "nl": "Geen fixme"

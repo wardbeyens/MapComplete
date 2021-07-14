@@ -1,22 +1,14 @@
 [
   {
-    "authors": [
-      "Font Awesome"
-    ],
+    "authors": ["Font Awesome"],
     "path": "birdhide.svg",
     "license": "CC-BY 4.0",
-    "sources": [
-      "https://fontawesome.com"
-    ]
+    "sources": ["https://fontawesome.com"]
   },
   {
-    "authors": [
-      "Font Awesome Free 5.2.0 by @fontawesome"
-    ],
+    "authors": ["Font Awesome Free 5.2.0 by @fontawesome"],
     "path": "birdshelter.svg",
     "license": "CC-BY-SA 4.0",
-    "sources": [
-      "https://fontawesome.com\r"
-    ]
+    "sources": ["https://fontawesome.com\r"]
   }
 ]

@@ -7,17 +7,7 @@
   "description": {
     "nl": "Op deze kaart vind je je favoriete frituur!"
   },
-  "language": [
-    "nl",
-    "fr",
-    "en",
-    "ja",
-    "ca",
-    "id",
-    "ru",
-    "it",
-    "nb_NO"
-  ],
+  "language": ["nl", "fr", "en", "ja", "ca", "id", "ru", "it", "nb_NO"],
   "maintainer": "",
   "icon": "./assets/themes/fritures/logo.svg",
   "version": "0",
@@ -36,9 +26,7 @@
       "minzoom": 8,
       "source": {
         "osmTags": {
-          "and": [
-            "cuisine~.*friture.*"
-          ]
+          "and": ["cuisine~.*friture.*"]
         }
       },
       "title": {
@@ -49,9 +37,7 @@
         "mappings": [
           {
             "if": {
-              "and": [
-                "name~*"
-              ]
+              "and": ["name~*"]
             },
             "then": {
               "nl": " <i>{name}</i>",
@@ -63,10 +49,7 @@
       "titleIcons": [
         {
           "condition": {
-            "or": [
-              "diet:vegetarian=yes",
-              "diet:vegan=yes"
-            ]
+            "or": ["diet:vegetarian=yes", "diet:vegan=yes"]
           },
           "render": "<img src='./assets/themes/fritures/Vegetarian-mark.svg'/>"
         },
@@ -151,9 +134,7 @@
           "mappings": [
             {
               "if": {
-                "and": [
-                  "diet:vegetarian=yes"
-                ]
+                "and": ["diet:vegetarian=yes"]
               },
               "then": {
                 "nl": "Er zijn vegetarische snacks aanwezig",
@@ -162,9 +143,7 @@
             },
             {
               "if": {
-                "and": [
-                  "diet:vegetarian=limited"
-                ]
+                "and": ["diet:vegetarian=limited"]
               },
               "then": {
                 "nl": "Slechts enkele vegetarische snacks",
@@ -173,9 +152,7 @@
             },
             {
               "if": {
-                "and": [
-                  "diet:vegetarian=no"
-                ]
+                "and": ["diet:vegetarian=no"]
               },
               "then": {
                 "nl": "Geen vegetarische snacks beschikbaar",
@@ -192,9 +169,7 @@
           "mappings": [
             {
               "if": {
-                "and": [
-                  "diet:vegan=yes"
-                ]
+                "and": ["diet:vegan=yes"]
               },
               "then": {
                 "nl": "Er zijn veganistische snacks aanwezig",
@@ -203,9 +178,7 @@
             },
             {
               "if": {
-                "and": [
-                  "diet:vegan=limited"
-                ]
+                "and": ["diet:vegan=limited"]
               },
               "then": {
                 "nl": "Slechts enkele veganistische snacks",
@@ -214,9 +187,7 @@
             },
             {
               "if": {
-                "and": [
-                  "diet:vegetarian=no"
-                ]
+                "and": ["diet:vegetarian=no"]
               },
               "then": {
                 "nl": "Geen veganistische snacks beschikbaar",
@@ -233,9 +204,7 @@
           "mappings": [
             {
               "if": {
-                "and": [
-                  "friture:oil=vegetable"
-                ]
+                "and": ["friture:oil=vegetable"]
               },
               "then": {
                 "nl": "Plantaardige olie",
@@ -244,9 +213,7 @@
             },
             {
               "if": {
-                "and": [
-                  "friture:oil=animal"
-                ]
+                "and": ["friture:oil=animal"]
               },
               "then": {
                 "nl": "Dierlijk vet",
@@ -302,10 +269,7 @@
         },
         {
           "if": {
-            "or": [
-              "diet:vegetarian=yes",
-              "diet:vegan=yes"
-            ]
+            "or": ["diet:vegetarian=yes", "diet:vegan=yes"]
           },
           "then": {
             "render": "circle:white;./assets/themes/fritures/Vegetarian-mark.svg"
@@ -328,10 +292,7 @@
             "nl": "Frituur",
             "fr": "Friturie"
           },
-          "tags": [
-            "amenity=fast_food",
-            "cuisine=friture"
-          ]
+          "tags": ["amenity=fast_food", "cuisine=friture"]
         }
       ],
       "wayHandling": 1

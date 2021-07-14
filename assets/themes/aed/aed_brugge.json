@@ -8,9 +8,7 @@
   "description": {
     "nl": "Op deze kaart kan je informatie over AEDs vinden en verbeteren + een export van de brugse defibrillatoren"
   },
-  "language": [
-    "nl"
-  ],
+  "language": ["nl"],
   "version": "2021-05-16",
   "startLat": 51.25634,
   "startLon": 3.195682,
@@ -40,9 +38,7 @@
         ]
       },
       "iconSize": "20,20,center",
-      "tagRenderings": [
-        "all_tags"
-      ]
+      "tagRenderings": ["all_tags"]
     }
   ],
   "hideFromOverview": true,

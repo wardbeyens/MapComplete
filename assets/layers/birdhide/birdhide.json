@@ -6,9 +6,7 @@
   "minzoom": 14,
   "source": {
     "osmTags": {
-      "and": [
-        "leisure=bird_hide"
-      ]
+      "and": ["leisure=bird_hide"]
     }
   },
   "title": {
@@ -18,9 +16,7 @@
     "mappings": [
       {
         "if": {
-          "and": [
-            "name~((V|v)ogel.*).*"
-          ]
+          "and": ["name~((V|v)ogel.*).*"]
         },
         "then": {
           "nl": "{name}"
@@ -31,10 +27,7 @@
           "and": [
             "name~*",
             {
-              "or": [
-                "building!~no",
-                "shelter=yes"
-              ]
+              "or": ["building!~no", "shelter=yes"]
             }
           ]
         },
@@ -44,9 +37,7 @@
       },
       {
         "if": {
-          "and": [
-            "name~*"
-          ]
+          "and": ["name~*"]
         },
         "then": {
           "nl": "Vogelkijkwand {name}"
@@ -66,11 +57,7 @@
       "mappings": [
         {
           "if": {
-            "and": [
-              "shelter=no",
-              "building=",
-              "amenity="
-            ]
+            "and": ["shelter=no", "building=", "amenity="]
           },
           "then": {
             "nl": "Vogelkijkwand"
@@ -78,11 +65,7 @@
         },
         {
           "if": {
-            "and": [
-              "amenity=shelter",
-              "building=yes",
-              "shelter=yes"
-            ]
+            "and": ["amenity=shelter", "building=yes", "shelter=yes"]
           },
           "then": {
             "nl": "Vogelkijkhut"
@@ -90,11 +73,7 @@
         },
         {
           "if": {
-            "or": [
-              "amenity=shelter",
-              "building=yes",
-              "shelter=yes"
-            ]
+            "or": ["amenity=shelter", "building=yes", "shelter=yes"]
           },
           "then": {
             "nl": "Vogelkijkhut"
@@ -110,9 +89,7 @@
       "mappings": [
         {
           "if": {
-            "and": [
-              "wheelchair=designated"
-            ]
+            "and": ["wheelchair=designated"]
           },
           "then": {
             "nl": "Er zijn speciale voorzieningen voor rolstoelen"
@@ -120,9 +97,7 @@
         },
         {
           "if": {
-            "and": [
-              "wheelchair=yes"
-            ]
+            "and": ["wheelchair=yes"]
           },
           "then": {
             "nl": "Een rolstoel raakt er vlot"
@@ -130,9 +105,7 @@
         },
         {
           "if": {
-            "and": [
-              "wheelchair=limited"
-            ]
+            "and": ["wheelchair=limited"]
           },
           "then": {
             "nl": "Je kan er raken met een rolstoel, maar het is niet makkelijk"
@@ -140,9 +113,7 @@
         },
         {
           "if": {
-            "and": [
-              "wheelchair=no"
-            ]
+            "and": ["wheelchair=no"]
           },
           "then": {
             "nl": "Niet rolstoeltoegankelijk"
@@ -183,11 +154,7 @@
     "mappings": [
       {
         "if": {
-          "or": [
-            "building=yes",
-            "shelter=yes",
-            "amenity=shelter"
-          ]
+          "or": ["building=yes", "shelter=yes", "amenity=shelter"]
         },
         "then": "./assets/layers/birdhide/birdshelter.svg"
       }
@@ -228,11 +195,7 @@
       }
     },
     {
-      "tags": [
-        "leisure=bird_hide",
-        "building=no",
-        "shelter=no"
-      ],
+      "tags": ["leisure=bird_hide", "building=no", "shelter=no"],
       "title": {
         "nl": "Vogelkijkwand"
       },

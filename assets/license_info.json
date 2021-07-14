@@ -1,80 +1,50 @@
 [
   {
-    "authors": [
-      "Pietervdvn"
-    ],
+    "authors": ["Pietervdvn"],
     "path": "MapComplete_Screenshot.png",
     "license": "GPL3",
-    "sources": [
-      "https://mapcomplete.osm.be/bookcases"
-    ]
+    "sources": ["https://mapcomplete.osm.be/bookcases"]
   },
   {
-    "authors": [
-      "pietervdvn"
-    ],
+    "authors": ["pietervdvn"],
     "path": "SocialImageSmall.png",
     "license": "CC-BY-SA 4.0",
     "sources": []
   },
   {
-    "authors": [
-      "Pieter Vander Vennet"
-    ],
+    "authors": ["Pieter Vander Vennet"],
     "path": "SocialImage.png",
     "license": "CC0",
     "sources": []
   },
   {
-    "authors": [
-      "OpenStreetMap"
-    ],
+    "authors": ["OpenStreetMap"],
     "path": "generic_osm_background.png",
     "license": "CC-BY-SA",
-    "sources": [
-      "https://www.OpenStreetMap.org"
-    ]
+    "sources": ["https://www.OpenStreetMap.org"]
   },
   {
-    "authors": [
-      "Mangrove Reviews"
-    ],
+    "authors": ["Mangrove Reviews"],
     "path": "mangrove_logo.png",
     "license": "logo; All rights reserved",
-    "sources": [
-      "https://mangrove.reviews/"
-    ]
+    "sources": ["https://mangrove.reviews/"]
   },
   {
-    "authors": [
-      "Pieter Vander Vennet"
-    ],
+    "authors": ["Pieter Vander Vennet"],
     "path": "social_image_front.png",
     "license": "CC-BY-SA",
     "sources": []
   },
   {
-    "authors": [
-      "Pieter Vander Vennet",
-      " OpenStreetMap"
-    ],
+    "authors": ["Pieter Vander Vennet", " OpenStreetMap"],
     "path": "weblogo.png",
     "license": "Logo; CC-BY-SA",
-    "sources": [
-      "https://mapcomplete.osm.be",
-      " https://www.openstreetmap.org"
-    ]
+    "sources": ["https://mapcomplete.osm.be", " https://www.openstreetmap.org"]
   },
   {
-    "authors": [
-      "Pieter Vander Vennet",
-      " OpenStreetMap"
-    ],
+    "authors": ["Pieter Vander Vennet", " OpenStreetMap"],
     "path": "weblogo.svg",
     "license": "Logo; CC-BY-SA",
-    "sources": [
-      "https://mapcomplete.osm.be",
-      " https://www.openstreetmap.org"
-    ]
+    "sources": ["https://mapcomplete.osm.be", " https://www.openstreetmap.org"]
   }
 ]

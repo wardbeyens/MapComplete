@@ -25,15 +25,7 @@
     "ja": "すべての樹木をマッピングします!",
     "zh_Hant": "繪製所有樹木！"
   },
-  "language": [
-    "nl",
-    "en",
-    "fr",
-    "it",
-    "ru",
-    "ja",
-    "zh_Hant"
-  ],
+  "language": ["nl", "en", "fr", "it", "ru", "ja", "zh_Hant"],
   "maintainer": "Midgard",
   "icon": "./assets/themes/trees/logo.svg",
   "version": "0",
@@ -45,9 +37,7 @@
   "clustering": {
     "maxZoom": 18
   },
-  "layers": [
-    "tree_node"
-  ],
+  "layers": ["tree_node"],
   "roamingRenderings": [],
   "defaultBackgroundId": "AGIV"
 }

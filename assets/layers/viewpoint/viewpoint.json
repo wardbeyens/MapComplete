@@ -33,9 +33,7 @@
         "ru": "Смотровая площадка",
         "it": "Punto panoramico"
       },
-      "tags": [
-        "tourism=viewpoint"
-      ]
+      "tags": ["tourism=viewpoint"]
     }
   ],
   "title": {

@@ -232,10 +232,7 @@
       },
       {
         "if": {
-          "or": [
-            "highway=footway",
-            "highway=pedestrian"
-          ]
+          "or": ["highway=footway", "highway=pedestrian"]
         },
         "then": "12 18"
       },

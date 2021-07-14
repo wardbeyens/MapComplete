@@ -2,14 +2,7 @@
   "id": "ghostbikes",
   "maintainer": "MapComplete",
   "version": "2020-08-30",
-  "language": [
-    "en",
-    "nl",
-    "de",
-    "ja",
-    "nb_NO",
-    "zh_Hant"
-  ],
+  "language": ["en", "nl", "de", "ja", "nb_NO", "zh_Hant"],
   "title": {
     "en": "Ghost bikes",
     "nl": "Witte Fietsen",
@@ -30,8 +23,6 @@
   "startLat": 0,
   "startLon": 0,
   "widenFactor": 0.1,
-  "layers": [
-    "ghost_bike"
-  ],
+  "layers": ["ghost_bike"],
   "defaultBackgroundId": "CartoDB.Positron"
 }

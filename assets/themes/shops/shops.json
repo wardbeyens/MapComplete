@@ -17,16 +17,7 @@
     "ja": "この地図には店の基本情報を記入したり営業時間や電話番号を追加することができます",
     "zh_Hant": "這份地圖上，你可以標記商家基本資訊，新增營業時間以及聯絡電話"
   },
-  "language": [
-    "en",
-    "fr",
-    "ja",
-    "zh_Hant",
-    "ru",
-    "nl",
-    "ca",
-    "id"
-  ],
+  "language": ["en", "fr", "ja", "zh_Hant", "ru", "nl", "ca", "id"],
   "maintainer": "MapComplete",
   "icon": "./assets/themes/shops/shop.svg",
   "version": "0",
@@ -48,9 +39,7 @@
       "minzoom": 16,
       "source": {
         "osmTags": {
-          "and": [
-            "shop~*"
-          ]
+          "and": ["shop~*"]
         }
       },
       "title": {
@@ -64,9 +53,7 @@
         "mappings": [
           {
             "if": {
-              "and": [
-                "name~*"
-              ]
+              "and": ["name~*"]
             },
             "then": {
               "en": "{name}",
@@ -77,9 +64,7 @@
           },
           {
             "if": {
-              "and": [
-                "shop!~yes"
-              ]
+              "and": ["shop!~yes"]
             },
             "then": {
               "en": "{shop}",
@@ -128,9 +113,7 @@
           "mappings": [
             {
               "if": {
-                "and": [
-                  "shop=convenience"
-                ]
+                "and": ["shop=convenience"]
               },
               "then": {
                 "en": "Convenience store",
@@ -140,9 +123,7 @@
             },
             {
               "if": {
-                "and": [
-                  "shop=supermarket"
-                ]
+                "and": ["shop=supermarket"]
               },
               "then": {
                 "en": "Supermarket",
@@ -154,9 +135,7 @@
             },
             {
               "if": {
-                "and": [
-                  "shop=clothes"
-                ]
+                "and": ["shop=clothes"]
               },
               "then": {
                 "en": "Clothing store",
@@ -167,9 +146,7 @@
             },
             {
               "if": {
-                "and": [
-                  "shop=hairdresser"
-                ]
+                "and": ["shop=hairdresser"]
               },
               "then": {
                 "en": "Hairdresser",
@@ -181,9 +158,7 @@
             },
             {
               "if": {
-                "and": [
-                  "shop=bakery"
-                ]
+                "and": ["shop=bakery"]
               },
               "then": {
                 "en": "Bakery",
@@ -194,9 +169,7 @@
             },
             {
               "if": {
-                "and": [
-                  "shop=car_repair"
-                ]
+                "and": ["shop=car_repair"]
               },
               "then": {
                 "en": "Car repair (garage)",
@@ -206,9 +179,7 @@
             },
             {
               "if": {
-                "and": [
-                  "shop=car"
-                ]
+                "and": ["shop=car"]
               },
               "then": {
                 "en": "Car dealer",
@@ -320,9 +291,7 @@
       },
       "presets": [
         {
-          "tags": [
-            "shop=yes"
-          ],
+          "tags": ["shop=yes"],
           "title": {
             "en": "Shop",
             "fr": "Magasin",

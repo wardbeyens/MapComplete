@@ -11,9 +11,7 @@
   "minzoom": 13,
   "source": {
     "osmTags": {
-      "and": [
-        "amenity=bicycle_repair_station"
-      ]
+      "and": ["amenity=bicycle_repair_station"]
     }
   },
   "title": {
@@ -44,10 +42,7 @@
       },
       {
         "if": {
-          "and": [
-            "service:bicycle:pump=yes",
-            "service:bicycle:tools=yes"
-          ]
+          "and": ["service:bicycle:pump=yes", "service:bicycle:tools=yes"]
         },
         "then": {
           "en": "Bike repair station",
@@ -63,10 +58,7 @@
           "and": [
             "service:bicycle:pump:operational_status=broken",
             {
-              "or": [
-                "service:bicycle:tools=no",
-                "service:bicycle:tools="
-              ]
+              "or": ["service:bicycle:tools=no", "service:bicycle:tools="]
             }
           ]
         },
@@ -99,10 +91,7 @@
       },
       {
         "if": {
-          "and": [
-            "service:bicycle:pump=yes",
-            "service:bicycle:tools=no"
-          ]
+          "and": ["service:bicycle:pump=yes", "service:bicycle:tools=no"]
         },
         "then": {
           "en": "Bicycle pump",
@@ -138,10 +127,7 @@
       "mappings": [
         {
           "if": {
-            "and": [
-              "service:bicycle:tools=no",
-              "service:bicycle:pump=yes"
-            ]
+            "and": ["service:bicycle:tools=no", "service:bicycle:pump=yes"]
           },
           "then": {
             "en": "There is only a pump present",
@@ -154,10 +140,7 @@
         },
         {
           "if": {
-            "and": [
-              "service:bicycle:tools=yes",
-              "service:bicycle:pump=no"
-            ]
+            "and": ["service:bicycle:tools=yes", "service:bicycle:pump=no"]
           },
           "then": {
             "en": "There are only tools (screwdrivers, pliers...) present",
@@ -170,10 +153,7 @@
         },
         {
           "if": {
-            "and": [
-              "service:bicycle:tools=yes",
-              "service:bicycle:pump=yes"
-            ]
+            "and": ["service:bicycle:tools=yes", "service:bicycle:pump=yes"]
           },
           "then": {
             "en": "There are both tools and a pump present",
@@ -529,10 +509,7 @@
       },
       {
         "if": {
-          "and": [
-            "service:bicycle:pump=yes",
-            "service:bicycle:tools=yes"
-          ]
+          "and": ["service:bicycle:pump=yes", "service:bicycle:tools=yes"]
         },
         "then": "./assets/layers/bike_repair_station/repair_station_pump.svg"
       },
@@ -550,10 +527,7 @@
           "and": [
             "service:bicycle:pump=yes",
             {
-              "or": [
-                "service:bicycle:tools=no",
-                "service:bicycle:tools="
-              ]
+              "or": ["service:bicycle:tools=no", "service:bicycle:tools="]
             }
           ]
         },

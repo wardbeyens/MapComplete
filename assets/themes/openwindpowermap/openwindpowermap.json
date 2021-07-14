@@ -8,10 +8,7 @@
   "description": {
     "en": "A map for showing and editing wind turbines."
   },
-  "language": [
-    "en",
-    "nl"
-  ],
+  "language": ["en", "nl"],
   "version": "2021-06-18",
   "startLat": 50.52,
   "startLon": 4.643,
@@ -116,10 +113,7 @@
       ],
       "presets": [
         {
-          "tags": [
-            "power=generator",
-            "generator:source=wind"
-          ],
+          "tags": ["power=generator", "generator:source=wind"],
           "title": {
             "en": "wind turbine"
           }
@@ -129,16 +123,11 @@
   ],
   "units": [
     {
-      "appliesToKey": [
-        "generator:output:electricity"
-      ],
+      "appliesToKey": ["generator:output:electricity"],
       "applicableUnits": [
         {
           "canonicalDenomination": "MW",
-          "alternativeDenomination": [
-            "megawatts",
-            "megawatt"
-          ],
+          "alternativeDenomination": ["megawatts", "megawatt"],
           "human": {
             "en": " megawatts",
             "nl": " megawatt"
@@ -146,10 +135,7 @@
         },
         {
           "canonicalDenomination": "kW",
-          "alternativeDenomination": [
-            "kilowatts",
-            "kilowatt"
-          ],
+          "alternativeDenomination": ["kilowatts", "kilowatt"],
           "human": {
             "en": " kilowatts",
             "nl": " kilowatt"
@@ -157,10 +143,7 @@
         },
         {
           "canonicalDenomination": "W",
-          "alternativeDenomination": [
-            "watts",
-            "watt"
-          ],
+          "alternativeDenomination": ["watts", "watt"],
           "human": {
             "en": " watts",
             "nl": " watt"
@@ -168,10 +151,7 @@
         },
         {
           "canonicalDenomination": "GW",
-          "alternativeDenomination": [
-            "gigawatts",
-            "gigawatt"
-          ],
+          "alternativeDenomination": ["gigawatts", "gigawatt"],
           "human": {
             "en": " gigawatts",
             "nl": " gigawatt"
