@@ -355,10 +355,7 @@
   },
   "presets": [
     {
-      "tags": [
-        "leisure=nature_reserve",
-        "fixme=Toegevoegd met MapComplete, geometry nog uit te tekenen"
-      ],
+      "tags": ["leisure=nature_reserve", "fixme=Toegevoegd met MapComplete, geometry nog uit te tekenen"],
       "title": {
         "nl": "Natuurreservaat"
       },

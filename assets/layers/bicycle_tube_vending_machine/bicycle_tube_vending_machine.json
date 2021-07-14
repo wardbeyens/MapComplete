@@ -67,11 +67,7 @@
         "zh_Hant": "自行車內胎自動售貨機",
         "pt_BR": "Máquina de venda automática de tubos de bicicleta"
       },
-      "tags": [
-        "amenity=vending_machine",
-        "vending=bicycle_tube",
-        "vending:bicycle_tube=yes"
-      ]
+      "tags": ["amenity=vending_machine", "vending=bicycle_tube", "vending:bicycle_tube=yes"]
     }
   ],
   "color": "#6bc4f7",

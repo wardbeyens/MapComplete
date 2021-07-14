@@ -165,10 +165,7 @@
             "type": "phone"
           },
           "condition": {
-            "or": [
-              "authentication:phone_call=yes",
-              "authentication:short_message=yes"
-            ]
+            "or": ["authentication:phone_call=yes", "authentication:short_message=yes"]
           }
         },
         {

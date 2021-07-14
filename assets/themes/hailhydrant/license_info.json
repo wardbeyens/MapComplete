@@ -9,10 +9,7 @@
     "authors": ["Twemoji Project"],
     "path": "Twemoji12_1f9ef.svg",
     "license": "CC-BY 4.0",
-    "sources": [
-      "https://upload.wikimedia.org/wikipedia/commons/9/9b/Twemoji12_1f9ef.svg",
-      "https://twemoji.twitter.com/"
-    ]
+    "sources": ["https://upload.wikimedia.org/wikipedia/commons/9/9b/Twemoji12_1f9ef.svg", "https://twemoji.twitter.com/"]
   },
   {
     "path": "hydrant_pillar.svg",
@@ -45,36 +42,25 @@
     "path": "hydrant.svg",
     "license": "CC-BY-SA 4.0",
     "authors": ["GOwin"],
-    "sources": [
-      "https://raw.githubusercontent.com/mapamore/MapComplete/master/assets/themes/hailhydrant/hydrant.svg"
-    ]
+    "sources": ["https://raw.githubusercontent.com/mapamore/MapComplete/master/assets/themes/hailhydrant/hydrant.svg"]
   },
   {
     "path": "Twemoji12_1f692.svg",
     "license": "CC-BY 4.0",
     "authors": ["Twemoji Project"],
-    "sources": [
-      "https://upload.wikimedia.org/wikipedia/commons/1/19/Twemoji12_1f692.svg",
-      "https://twemoji.twitter.com/"
-    ]
+    "sources": ["https://upload.wikimedia.org/wikipedia/commons/1/19/Twemoji12_1f692.svg", "https://twemoji.twitter.com/"]
   },
   {
     "path": "Twemoji12_26d1.svg",
     "license": "CC-BY 4.0",
     "authors": ["Twemoji Project"],
-    "sources": [
-      "https://upload.wikimedia.org/wikipedia/commons/e/eb/Twemoji12_26d1.svg",
-      "https://twemoji.twitter.com/"
-    ]
+    "sources": ["https://upload.wikimedia.org/wikipedia/commons/e/eb/Twemoji12_26d1.svg", "https://twemoji.twitter.com/"]
   },
   {
     "path": "Twemoji_1f691.svg",
     "license": "CC-BY 4.0",
     "authors": ["Twemoji Project"],
-    "sources": [
-      "https://upload.wikimedia.org/wikipedia/commons/9/95/Twemoji_1f691.svg",
-      "https://twemoji.twitter.com/"
-    ]
+    "sources": ["https://upload.wikimedia.org/wikipedia/commons/9/95/Twemoji_1f691.svg", "https://twemoji.twitter.com/"]
   },
   {
     "authors": ["Erwin Olario"],

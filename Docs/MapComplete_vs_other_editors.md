@@ -48,8 +48,6 @@ No support for splitting ways in MapComplete (as of now - hopefully it'll get ad
 
 MapComplete allows the addition of new points, whereas StreetComplete does not.
 
-
-
 ## MapContrib
 
 MapContrib is another very similar editor which served as inspiration. MapContrib offers - just like MapComplete - an extensible, thematic map view. However, I never understood the MapContrib user interface.

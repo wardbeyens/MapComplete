@@ -1,10 +1,10 @@
 {
-    "undefined": {
-        "email": {
-            "question": "Apa alamat surel dari {name}?"
-        },
-        "website": {
-            "question": "Apa situs web dari {name}?"
-        }
+  "undefined": {
+    "email": {
+      "question": "Apa alamat surel dari {name}?"
+    },
+    "website": {
+      "question": "Apa situs web dari {name}?"
     }
+  }
 }

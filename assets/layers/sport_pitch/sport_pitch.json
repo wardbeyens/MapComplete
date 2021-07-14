@@ -447,10 +447,7 @@
         "ru": "Спортивная площадка",
         "it": "Campo sportivo"
       },
-      "tags": [
-        "leisure=pitch",
-        "fixme=Toegevoegd met MapComplete, geometry nog uit te tekenen"
-      ]
+      "tags": ["leisure=pitch", "fixme=Toegevoegd met MapComplete, geometry nog uit te tekenen"]
     }
   ]
 }

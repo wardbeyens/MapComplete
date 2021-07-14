@@ -16,22 +16,11 @@
     "osmTags": {
       "and": [
         {
-          "or": [
-            "amenity=pub",
-            "amenity=bar",
-            "amenity=cafe",
-            "amenity=restaurant"
-          ]
+          "or": ["amenity=pub", "amenity=bar", "amenity=cafe", "amenity=restaurant"]
         },
         {
           "#": "Note the double tilde in 'service:bicycle' which interprets the key as regex too",
-          "or": [
-            "pub=cycling",
-            "pub=bicycle",
-            "theme=cycling",
-            "theme=bicycle",
-            "service:bicycle:.*~~*"
-          ]
+          "or": ["pub=cycling", "pub=bicycle", "theme=cycling", "theme=bicycle", "service:bicycle:.*~~*"]
         }
       ]
     }

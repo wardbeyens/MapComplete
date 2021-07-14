@@ -1,8 +1,8 @@
-import { Translation } from "../../UI/i18n/Translation";
-import UnitConfigJson from "./UnitConfigJson";
-import Translations from "../../UI/i18n/Translations";
-import BaseUIElement from "../../UI/BaseUIElement";
-import Combine from "../../UI/Base/Combine";
+import { Translation } from '../../UI/i18n/Translation';
+import UnitConfigJson from './UnitConfigJson';
+import Translations from '../../UI/i18n/Translations';
+import BaseUIElement from '../../UI/BaseUIElement';
+import Combine from '../../UI/Base/Combine';
 
 export class Unit {
   public readonly appliesToKeys: Set<string>;
@@ -12,11 +12,7 @@ export class Unit {
   public readonly eraseInvalid: boolean;
   private readonly possiblePostFixes: string[] = [];
 
-  constructor(
-    appliesToKeys: string[],
-    applicableUnits: Denomination[],
-    eraseInvalid: boolean
-  ) {
+  constructor(appliesToKeys: string[], applicableUnits: Denomination[], eraseInvalid: boolean) {
     this.appliesToKeys = new Set(appliesToKeys);
     this.denominations = applicableUnits;
     this.defaultDenom = applicableUnits.filter((denom) => denom.default)[0];
@@ -25,27 +21,18 @@ export class Unit {
     const seenUnitExtensions = new Set<string>();
     for (const denomination of this.denominations) {
       if (seenUnitExtensions.has(denomination.canonical)) {
-        throw (
-          "This canonical unit is already defined in another denomination: " +
-          denomination.canonical
-        );
+        throw 'This canonical unit is already defined in another denomination: ' + denomination.canonical;
       }
-      const duplicate = denomination.alternativeDenominations.filter((denom) =>
-        seenUnitExtensions.has(denom)
-      );
+      const duplicate = denomination.alternativeDenominations.filter((denom) => seenUnitExtensions.has(denom));
       if (duplicate.length > 0) {
-        throw "A denomination is used multiple times: " + duplicate.join(", ");
+        throw 'A denomination is used multiple times: ' + duplicate.join(', ');
       }
 
       seenUnitExtensions.add(denomination.canonical);
-      denomination.alternativeDenominations.forEach((d) =>
-        seenUnitExtensions.add(d)
-      );
+      denomination.alternativeDenominations.forEach((d) => seenUnitExtensions.add(d));
     }
     this.denominationsSorted = [...this.denominations];
-    this.denominationsSorted.sort(
-      (a, b) => b.canonical.length - a.canonical.length
-    );
+    this.denominationsSorted.sort((a, b) => b.canonical.length - a.canonical.length);
 
     const possiblePostFixes = new Set<string>();
     function addPostfixesOf(str) {
@@ -136,17 +123,16 @@ export class Denomination {
     }
 
     json.alternativeDenomination.forEach((v, i) => {
-      if ((v?.trim() ?? "") === "") {
+      if ((v?.trim() ?? '') === '') {
         throw `${context}.alternativeDenomination.${i}: invalid alternative denomination: undefined, null or only whitespace`;
       }
     });
 
-    this.alternativeDenominations =
-      json.alternativeDenomination?.map((v) => v.trim()) ?? [];
+    this.alternativeDenominations = json.alternativeDenomination?.map((v) => v.trim()) ?? [];
 
     this.default = json.default ?? false;
 
-    this._human = Translations.T(json.human, context + "human");
+    this._human = Translations.T(json.human, context + 'human');
 
     this.prefix = json.prefix ?? false;
   }
@@ -163,7 +149,7 @@ export class Denomination {
     if (stripped === null) {
       return null;
     }
-    return (stripped + " " + this.canonical.trim()).trim();
+    return (stripped + ' ' + this.canonical.trim()).trim();
   }
 
   /**
@@ -180,7 +166,7 @@ export class Denomination {
 
     value = value.toLowerCase();
     if (this.prefix) {
-      if (value.startsWith(this.canonical) && this.canonical !== "") {
+      if (value.startsWith(this.canonical) && this.canonical !== '') {
         return value.substring(this.canonical.length).trim();
       }
       for (const alternativeValue of this.alternativeDenominations) {
@@ -189,17 +175,12 @@ export class Denomination {
         }
       }
     } else {
-      if (
-        value.endsWith(this.canonical.toLowerCase()) &&
-        this.canonical !== ""
-      ) {
+      if (value.endsWith(this.canonical.toLowerCase()) && this.canonical !== '') {
         return value.substring(0, value.length - this.canonical.length).trim();
       }
       for (const alternativeValue of this.alternativeDenominations) {
         if (value.endsWith(alternativeValue.toLowerCase())) {
-          return value
-            .substring(0, value.length - alternativeValue.length)
-            .trim();
+          return value.substring(0, value.length - alternativeValue.length).trim();
         }
       }
     }

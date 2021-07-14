@@ -9,14 +9,7 @@
     "osmTags": {
       "and": [
         {
-          "or": [
-            "highway=pedestrian",
-            "highway=footway",
-            "highway=path",
-            "highway=bridleway",
-            "highway=living_street",
-            "highway=track"
-          ]
+          "or": ["highway=pedestrian", "highway=footway", "highway=path", "highway=bridleway", "highway=living_street", "highway=track"]
         },
         "access!=no",
         "access!=private"

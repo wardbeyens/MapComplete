@@ -78,14 +78,7 @@
         "mappings": [
           {
             "if": {
-              "and": [
-                "name=",
-                "noname=",
-                "operator=",
-                "access=",
-                "access:description=",
-                "leisure=park"
-              ]
+              "and": ["name=", "noname=", "operator=", "access=", "access:description=", "leisure=park"]
             },
             "then": "#cc1100"
           },
@@ -99,10 +92,7 @@
       },
       "presets": [
         {
-          "tags": [
-            "leisure=nature_reserve",
-            "fixme=Toegevoegd met MapComplete, geometry nog uit te tekenen"
-          ],
+          "tags": ["leisure=nature_reserve", "fixme=Toegevoegd met MapComplete, geometry nog uit te tekenen"],
           "title": {
             "nl": "Natuurreservaat"
           },
@@ -185,10 +175,7 @@
       },
       "presets": [
         {
-          "tags": [
-            "leisure=park",
-            "fixme=Toegevoegd met MapComplete, geometry nog uit te tekenen"
-          ],
+          "tags": ["leisure=park", "fixme=Toegevoegd met MapComplete, geometry nog uit te tekenen"],
           "title": {
             "nl": "Park"
           },
@@ -283,10 +270,7 @@
       },
       "presets": [
         {
-          "tags": [
-            "landuse=forest",
-            "fixme=Toegevoegd met MapComplete, geometry nog uit te tekenen"
-          ],
+          "tags": ["landuse=forest", "fixme=Toegevoegd met MapComplete, geometry nog uit te tekenen"],
           "title": {
             "nl": "Bos"
           },

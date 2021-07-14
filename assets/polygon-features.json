@@ -33,14 +33,7 @@
   {
     "key": "barrier",
     "polygon": "whitelist",
-    "values": [
-      "city_wall",
-      "ditch",
-      "hedge",
-      "retaining_wall",
-      "wall",
-      "spikes"
-    ]
+    "values": ["city_wall", "ditch", "hedge", "retaining_wall", "wall", "spikes"]
   },
   {
     "key": "railway",

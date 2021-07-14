@@ -1,4 +1,4 @@
-import { AndOrTagConfigJson } from "./TagConfigJson";
+import { AndOrTagConfigJson } from './TagConfigJson';
 
 export interface DeleteConfigJson {
   /***

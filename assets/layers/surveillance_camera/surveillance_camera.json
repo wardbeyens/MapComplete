@@ -13,11 +13,7 @@
       "and": [
         "man_made=surveillance",
         {
-          "or": [
-            "surveillance:type=camera",
-            "surveillance:type=ALPR",
-            "surveillance:type=ANPR"
-          ]
+          "or": ["surveillance:type=camera", "surveillance:type=ALPR", "surveillance:type=ANPR"]
         }
       ]
     }

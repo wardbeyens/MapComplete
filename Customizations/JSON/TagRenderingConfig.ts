@@ -1,13 +1,13 @@
-import { TagRenderingConfigJson } from "./TagRenderingConfigJson";
-import Translations from "../../UI/i18n/Translations";
-import { FromJSON } from "./FromJSON";
-import ValidatedTextField from "../../UI/Input/ValidatedTextField";
-import { Translation } from "../../UI/i18n/Translation";
-import { Utils } from "../../Utils";
-import { TagUtils } from "../../Logic/Tags/TagUtils";
-import { And } from "../../Logic/Tags/And";
-import { TagsFilter } from "../../Logic/Tags/TagsFilter";
-import { SubstitutedTranslation } from "../../UI/SubstitutedTranslation";
+import { TagRenderingConfigJson } from './TagRenderingConfigJson';
+import Translations from '../../UI/i18n/Translations';
+import { FromJSON } from './FromJSON';
+import ValidatedTextField from '../../UI/Input/ValidatedTextField';
+import { Translation } from '../../UI/i18n/Translation';
+import { Utils } from '../../Utils';
+import { TagUtils } from '../../Logic/Tags/TagUtils';
+import { And } from '../../Logic/Tags/And';
+import { TagsFilter } from '../../Logic/Tags/TagsFilter';
+import { SubstitutedTranslation } from '../../UI/SubstitutedTranslation';
 
 /***
  * The parsed version of TagRenderingConfigJSON
@@ -38,12 +38,8 @@ export default class TagRenderingConfig {
   }[];
   readonly roaming: boolean;
 
-  constructor(
-    json: string | TagRenderingConfigJson,
-    conditionIfRoaming: TagsFilter,
-    context?: string
-  ) {
-    if (json === "questions") {
+  constructor(json: string | TagRenderingConfigJson, conditionIfRoaming: TagsFilter, context?: string) {
+    if (json === 'questions') {
       // Very special value
       this.render = null;
       this.question = null;
@@ -51,21 +47,18 @@ export default class TagRenderingConfig {
     }
 
     if (json === undefined) {
-      throw "Initing a TagRenderingConfig with undefined in " + context;
+      throw 'Initing a TagRenderingConfig with undefined in ' + context;
     }
-    if (typeof json === "string") {
-      this.render = Translations.T(json, context + ".render");
+    if (typeof json === 'string') {
+      this.render = Translations.T(json, context + '.render');
       this.multiAnswer = false;
       return;
     }
 
-    this.render = Translations.T(json.render, context + ".render");
-    this.question = Translations.T(json.question, context + ".question");
+    this.render = Translations.T(json.render, context + '.render');
+    this.question = Translations.T(json.question, context + '.question');
     this.roaming = json.roaming ?? false;
-    const condition = FromJSON.Tag(
-      json.condition ?? { and: [] },
-      `${context}.condition`
-    );
+    const condition = FromJSON.Tag(json.condition ?? { and: [] }, `${context}.condition`);
     if (this.roaming && conditionIfRoaming !== undefined) {
       this.condition = new And([condition, conditionIfRoaming]);
     } else {
@@ -74,25 +67,20 @@ export default class TagRenderingConfig {
     if (json.freeform) {
       this.freeform = {
         key: json.freeform.key,
-        type: json.freeform.type ?? "string",
-        addExtraTags:
-          json.freeform.addExtraTags?.map((tg, i) =>
-            FromJSON.Tag(tg, `${context}.extratag[${i}]`)
-          ) ?? [],
+        type: json.freeform.type ?? 'string',
+        addExtraTags: json.freeform.addExtraTags?.map((tg, i) => FromJSON.Tag(tg, `${context}.extratag[${i}]`)) ?? [],
         inline: json.freeform.inline ?? false,
-        default: json.freeform.default,
+        default: json.freeform.default
       };
-      if (json.freeform["extraTags"] !== undefined) {
+      if (json.freeform['extraTags'] !== undefined) {
         throw `Freeform.extraTags is defined. This should probably be 'freeform.addExtraTag' (at ${context})`;
       }
-      if (this.freeform.key === undefined || this.freeform.key === "") {
+      if (this.freeform.key === undefined || this.freeform.key === '') {
         throw `Freeform.key is undefined or the empty string - this is not allowed; either fill out something or remove the freeform block alltogether. Error in ${context}`;
       }
 
       if (ValidatedTextField.AllTypes[this.freeform.type] === undefined) {
-        const knownKeys = ValidatedTextField.tpList
-          .map((tp) => tp.name)
-          .join(", ");
+        const knownKeys = ValidatedTextField.tpList.map((tp) => tp.name).join(', ');
         throw `Freeform.key ${this.freeform.key} is an invalid type. Known keys are ${knownKeys}`;
       }
       if (this.freeform.addExtraTags) {
@@ -106,11 +94,7 @@ export default class TagRenderingConfig {
     this.multiAnswer = json.multiAnswer ?? false;
     if (json.mappings) {
       if (!Array.isArray(json.mappings)) {
-        throw (
-          "Tagrendering has a 'mappings'-object, but expected a list (" +
-          context +
-          ")"
-        );
+        throw "Tagrendering has a 'mappings'-object, but expected a list (" + context + ')';
       }
 
       this.mappings = json.mappings.map((mapping, i) => {
@@ -124,45 +108,29 @@ export default class TagRenderingConfig {
         if (mapping.if === undefined) {
           throw `${context}.mapping[${i}]: Invalid mapping: "if" is not defined, but the tagrendering is not a multianswer`;
         }
-        if (
-          typeof mapping.if !== "string" &&
-          mapping.if["length"] !== undefined
-        ) {
+        if (typeof mapping.if !== 'string' && mapping.if['length'] !== undefined) {
           throw `${context}.mapping[${i}]: Invalid mapping: "if" is defined as an array. Use {"and": <your conditions>} or {"or": <your conditions>} instead`;
         }
 
         let hideInAnswer: boolean | TagsFilter = false;
-        if (typeof mapping.hideInAnswer === "boolean") {
+        if (typeof mapping.hideInAnswer === 'boolean') {
           hideInAnswer = mapping.hideInAnswer;
         } else if (mapping.hideInAnswer !== undefined) {
-          hideInAnswer = FromJSON.Tag(
-            mapping.hideInAnswer,
-            `${context}.mapping[${i}].hideInAnswer`
-          );
+          hideInAnswer = FromJSON.Tag(mapping.hideInAnswer, `${context}.mapping[${i}].hideInAnswer`);
         }
         const mappingContext = `${context}.mapping[${i}]`;
         const mp = {
           if: FromJSON.Tag(mapping.if, `${mappingContext}.if`),
-          ifnot:
-            mapping.ifnot !== undefined
-              ? FromJSON.Tag(mapping.ifnot, `${mappingContext}.ifnot`)
-              : undefined,
+          ifnot: mapping.ifnot !== undefined ? FromJSON.Tag(mapping.ifnot, `${mappingContext}.ifnot`) : undefined,
           then: Translations.T(mapping.then, `{mappingContext}.then`),
-          hideInAnswer: hideInAnswer,
+          hideInAnswer: hideInAnswer
         };
         if (this.question) {
-          if (
-            hideInAnswer !== true &&
-            mp.if !== undefined &&
-            !mp.if.isUsableAsAnswer()
-          ) {
+          if (hideInAnswer !== true && mp.if !== undefined && !mp.if.isUsableAsAnswer()) {
             throw `${context}.mapping[${i}].if: This value cannot be used to answer a question, probably because it contains a regex or an OR. Either change it or set 'hideInAnswer'`;
           }
 
-          if (
-            hideInAnswer !== true &&
-            !(mp.ifnot?.isUsableAsAnswer() ?? true)
-          ) {
+          if (hideInAnswer !== true && !(mp.ifnot?.isUsableAsAnswer() ?? true)) {
             throw `${context}.mapping[${i}].ifnot: This value cannot be used to answer a question, probably because it contains a regex or an OR. Either change it or set 'hideInAnswer'`;
           }
         }
@@ -171,11 +139,7 @@ export default class TagRenderingConfig {
       });
     }
 
-    if (
-      this.question &&
-      this.freeform?.key === undefined &&
-      this.mappings === undefined
-    ) {
+    if (this.question && this.freeform?.key === undefined && this.mappings === undefined) {
       throw `${context}: A question is defined, but no mappings nor freeform (key) are. The question is ${this.question.txt} at ${context}`;
     }
 
@@ -187,11 +151,7 @@ export default class TagRenderingConfig {
       throw `${context}: Detected a tagrendering which takes input without freeform key in ${context}; the question is ${this.question.txt}`;
     }
 
-    if (
-      !json.multiAnswer &&
-      this.mappings !== undefined &&
-      this.question !== undefined
-    ) {
+    if (!json.multiAnswer && this.mappings !== undefined && this.question !== undefined) {
       let keys = [];
       for (let i = 0; i < this.mappings.length; i++) {
         const mapping = this.mappings[i];
@@ -211,7 +171,7 @@ export default class TagRenderingConfig {
         for (const expectedKey of keys) {
           if (usedKeys.indexOf(expectedKey) < 0) {
             const msg = `${context}.mappings[${i}]: This mapping only defines values for ${usedKeys.join(
-              ", "
+              ', '
             )}, but it should also give a value for ${expectedKey}`;
             this.configuration_warnings.push(msg);
           }
@@ -359,10 +319,7 @@ export default class TagRenderingConfig {
    * Note: this might be hidden by conditions
    */
   public hasMinimap(): boolean {
-    const translations: Translation[] = Utils.NoNull([
-      this.render,
-      ...(this.mappings ?? []).map((m) => m.then),
-    ]);
+    const translations: Translation[] = Utils.NoNull([this.render, ...(this.mappings ?? []).map((m) => m.then)]);
     for (const translation of translations) {
       for (const key in translation.translations) {
         if (!translation.translations.hasOwnProperty(key)) {
@@ -372,7 +329,7 @@ export default class TagRenderingConfig {
         const parts = SubstitutedTranslation.ExtractSpecialComponents(template);
         const hasMiniMap = parts
           .filter((part) => part.special !== undefined)
-          .some((special) => special.special.func.funcName === "minimap");
+          .some((special) => special.special.func.funcName === 'minimap');
         if (hasMiniMap) {
           return true;
         }

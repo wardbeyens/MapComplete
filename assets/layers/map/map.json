@@ -135,11 +135,7 @@
         }
       ],
       "condition": {
-        "or": [
-          "map_source~(O|)pen(S|s)treet(M|m)ap",
-          "map_source=osm",
-          "map_source=OSM"
-        ]
+        "or": ["map_source~(O|)pen(S|s)treet(M|m)ap", "map_source=osm", "map_source=OSM"]
       }
     }
   ],

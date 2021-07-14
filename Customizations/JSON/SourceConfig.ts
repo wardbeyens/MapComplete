@@ -1,4 +1,4 @@
-import { TagsFilter } from "../../Logic/Tags/TagsFilter";
+import { TagsFilter } from '../../Logic/Tags/TagsFilter';
 
 export default class SourceConfig {
   osmTags?: TagsFilter;
@@ -28,9 +28,7 @@ export default class SourceConfig {
       defined++;
     }
     if (defined == 0) {
-      throw `Source: nothing correct defined in the source (in ${context}) (the params are ${JSON.stringify(
-        params
-      )})`;
+      throw `Source: nothing correct defined in the source (in ${context}) (the params are ${JSON.stringify(params)})`;
     }
     if (params.isOsmCache && params.geojsonSource == undefined) {
       console.error(params);

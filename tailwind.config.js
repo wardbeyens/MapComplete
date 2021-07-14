@@ -10,23 +10,20 @@ module.exports = {
     extend: {
       maxHeight: {
         '65vh': '65vh',
-        '20vh': '20vh',
-      },
-    },
+        '20vh': '20vh'
+      }
+    }
   },
   variants: {
     extend: {
-      ringColor: ['hover'],
-    },
+      ringColor: ['hover']
+    }
   },
   plugins: [
     plugin(({ addVariant, e }) => {
       addVariant('landscape', ({ modifySelectors, separator }) => {
-        modifySelectors(
-          ({ className }) =>
-            `.${e(`landscape${separator}${className}`)}:landscape`
-        );
+        modifySelectors(({ className }) => `.${e(`landscape${separator}${className}`)}:landscape`);
       });
-    }),
-  ],
+    })
+  ]
 };

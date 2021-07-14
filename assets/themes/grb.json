@@ -31,9 +31,7 @@
           "and": ["fixme~*", "building~*"]
         }
       },
-      "calculatedTags": [
-        "_grbNumber=(feat.properties.fixme?.match(/GRB thinks that this has number ([^;]+)/ ) ?? ['','none']) [1]"
-      ],
+      "calculatedTags": ["_grbNumber=(feat.properties.fixme?.match(/GRB thinks that this has number ([^;]+)/ ) ?? ['','none']) [1]"],
       "title": {
         "render": {
           "nl": "{addr:street} {addr:housenumber}"
@@ -83,11 +81,7 @@
             },
             {
               "if": {
-                "and": [
-                  "addr:housenumber:=",
-                  "not:addr:housenumber=yes",
-                  "fixme="
-                ]
+                "and": ["addr:housenumber:=", "not:addr:housenumber=yes", "fixme="]
               },
               "then": "Dit gebouw heeft geen nummer, net zoals in het GRB",
               "hideInAnswer": "_grbNumber!=no number"

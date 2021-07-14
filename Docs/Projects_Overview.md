@@ -2,7 +2,6 @@
 
 In this document, you'll find a short overview of which (paid) projects have been completed with MapComplete
 
-
 ## Buurtnatuur
 
 Commisioned by Groen (the Belgian Green Party): "a project to crowdsource data about parks, nature reserve and forests"
@@ -18,5 +17,3 @@ Playgrounds, play forests and village green in the southern part of the Province
 ## Natuurpunt Map (planned)
 
 Nature reserves of Natuurpunt for their website, during OSOC 2021
-
-

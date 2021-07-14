@@ -138,13 +138,7 @@
         "mappings": [
           {
             "if": {
-              "or": [
-                "access=destination",
-                "highway=living_street",
-                "highway=pedestrian",
-                "motor_vehicle=no",
-                "motor_vehicle=destination"
-              ]
+              "or": ["access=destination", "highway=living_street", "highway=pedestrian", "motor_vehicle=no", "motor_vehicle=destination"]
             },
             "then": "lightgrey"
           },
@@ -154,10 +148,7 @@
           },
           {
             "if": {
-              "and": [
-                "_width:difference!~-.*",
-                "_width:difference:no_pedestrians~-.*"
-              ]
+              "and": ["_width:difference!~-.*", "_width:difference:no_pedestrians~-.*"]
             },
             "then": "orange"
           },

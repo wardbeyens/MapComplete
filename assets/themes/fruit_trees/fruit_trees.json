@@ -52,10 +52,7 @@
       },
       "presets": [
         {
-          "tags": [
-            "landuse=orchard",
-            "fixme=Added with mapcomplete - geometry still to draw"
-          ],
+          "tags": ["landuse=orchard", "fixme=Added with mapcomplete - geometry still to draw"],
           "title": {
             "nl": "Boomgaard"
           },

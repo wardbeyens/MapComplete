@@ -3,8 +3,6 @@
     "authors": ["Fabián Alexis"],
     "path": "monitoring_station.svg",
     "license": "CC-BY-SA 3.0",
-    "sources": [
-      "https://commons.wikimedia.org/wiki/File:Antu_chronometer-reset.svg"
-    ]
+    "sources": ["https://commons.wikimedia.org/wiki/File:Antu_chronometer-reset.svg"]
   }
 ]

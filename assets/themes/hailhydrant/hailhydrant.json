@@ -421,10 +421,7 @@
           "mappings": [
             {
               "if": {
-                "and": [
-                  "operator=Bureau of Fire Protection",
-                  "operator:type=government"
-                ]
+                "and": ["operator=Bureau of Fire Protection", "operator:type=government"]
               },
               "then": {
                 "en": "Bureau of Fire Protection",

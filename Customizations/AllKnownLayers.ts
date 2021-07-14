@@ -1,13 +1,11 @@
-import LayerConfig from "./JSON/LayerConfig";
-import * as known_layers from "../assets/generated/known_layers_and_themes.json";
-import { Utils } from "../Utils";
+import LayerConfig from './JSON/LayerConfig';
+import * as known_layers from '../assets/generated/known_layers_and_themes.json';
+import { Utils } from '../Utils';
 
 export default class AllKnownLayers {
   // Must be below the list...
-  public static sharedLayers: Map<string, LayerConfig> =
-    AllKnownLayers.getSharedLayers();
-  public static sharedLayersJson: Map<string, any> =
-    AllKnownLayers.getSharedLayersJson();
+  public static sharedLayers: Map<string, LayerConfig> = AllKnownLayers.getSharedLayers();
+  public static sharedLayersJson: Map<string, any> = AllKnownLayers.getSharedLayersJson();
 
   public static sharedUnits: any[] = [];
 
@@ -15,28 +13,19 @@ export default class AllKnownLayers {
     const sharedLayers = new Map<string, LayerConfig>();
     for (const layer of known_layers.layers) {
       try {
-        const parsed = new LayerConfig(
-          layer,
-          AllKnownLayers.sharedUnits,
-          "shared_layers"
-        );
+        const parsed = new LayerConfig(layer, AllKnownLayers.sharedUnits, 'shared_layers');
         sharedLayers.set(layer.id, parsed);
         sharedLayers[layer.id] = parsed;
       } catch (e) {
         if (!Utils.runningFromConsole) {
-          console.error(
-            "CRITICAL: Could not parse a layer configuration!",
-            layer.id,
-            " due to",
-            e
-          );
+          console.error('CRITICAL: Could not parse a layer configuration!', layer.id, ' due to', e);
         }
       }
     }
 
     for (const layout of known_layers.themes) {
       for (const layer of layout.layers) {
-        if (typeof layer === "string") {
+        if (typeof layer === 'string') {
           continue;
         }
         if (layer.builtin !== undefined) {
@@ -44,21 +33,12 @@ export default class AllKnownLayers {
           continue;
         }
         try {
-          const parsed = new LayerConfig(
-            layer,
-            AllKnownLayers.sharedUnits,
-            "shared_layer_in_theme"
-          );
+          const parsed = new LayerConfig(layer, AllKnownLayers.sharedUnits, 'shared_layer_in_theme');
           sharedLayers.set(layer.id, parsed);
           sharedLayers[layer.id] = parsed;
         } catch (e) {
           if (!Utils.runningFromConsole) {
-            console.error(
-              "Could not parse a layer in theme ",
-              layout.id,
-              "due to",
-              e
-            );
+            console.error('Could not parse a layer in theme ', layout.id, 'due to', e);
           }
         }
       }

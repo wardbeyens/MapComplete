@@ -3,10 +3,7 @@
     "authors": ["OpenStreetMap", " Pieter Vander Vennet", " M!dgard"],
     "path": "map-stickered.svg",
     "license": "CC-BY-SA",
-    "sources": [
-      "https://OpenStreetMap.org",
-      " https://wiki.openstreetmap.org/wiki/Logos"
-    ]
+    "sources": ["https://OpenStreetMap.org", " https://wiki.openstreetmap.org/wiki/Logos"]
   },
   {
     "authors": [],

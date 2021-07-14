@@ -26,21 +26,7 @@
     "ja": "オープン アートワーク マップへようこそ。世界中の銅像や胸像、壁の落書きなどのアートワークの地図です",
     "zh_Hant": "歡迎來到開放藝術品地圖，這份地圖會顯示全世界的雕像、半身像、塗鴉以及其他類型的藝術品"
   },
-  "language": [
-    "en",
-    "nl",
-    "fr",
-    "de",
-    "hu",
-    "id",
-    "it",
-    "ru",
-    "ja",
-    "zh_Hant",
-    "sv",
-    "es",
-    "nb_NO"
-  ],
+  "language": ["en", "nl", "fr", "de", "hu", "id", "it", "ru", "ja", "zh_Hant", "sv", "es", "nb_NO"],
   "icon": "./assets/themes/artwork/artwork.svg",
   "maintainer": "MapComplete",
   "startZoom": 12,
@@ -165,9 +151,7 @@
           },
           "freeform": {
             "key": "artwork_type",
-            "addExtraTags": [
-              "fixme=Artowrk type was added with the freeform, might need another check"
-            ]
+            "addExtraTags": ["fixme=Artowrk type was added with the freeform, might need another check"]
           },
           "mappings": [
             {

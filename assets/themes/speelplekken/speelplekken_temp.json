@@ -33,9 +33,7 @@
         "icon": "./assets/themes/speelplekken/speelbos.svg",
         "minzoom": 12
       },
-      "calculatedTags": [
-        "_is_shadowed=feat.overlapWith('shadow').length > 0 ? 'yes': ''"
-      ]
+      "calculatedTags": ["_is_shadowed=feat.overlapWith('shadow').length > 0 ? 'yes': ''"]
     },
     {
       "builtin": "playground",
@@ -48,9 +46,7 @@
           "geoJsonZoomLevel": 14,
           "isOsmCache": true
         },
-        "calculatedTags": [
-          "_is_shadowed=feat.overlapWith('shadow').length > 0 ? 'yes': ''"
-        ]
+        "calculatedTags": ["_is_shadowed=feat.overlapWith('shadow').length > 0 ? 'yes': ''"]
       }
     },
     {
@@ -64,9 +60,7 @@
           "geoJsonZoomLevel": 14,
           "isOsmCache": true
         },
-        "calculatedTags": [
-          "_is_shadowed=feat.overlapWith('shadow').length > 0 ? 'yes': ''"
-        ]
+        "calculatedTags": ["_is_shadowed=feat.overlapWith('shadow').length > 0 ? 'yes': ''"]
       }
     },
     {
@@ -80,9 +74,7 @@
           "geoJsonZoomLevel": 14,
           "isOsmCache": true
         },
-        "calculatedTags": [
-          "_is_shadowed=feat.overlapWith('shadow').length > 0 ? 'yes': ''"
-        ]
+        "calculatedTags": ["_is_shadowed=feat.overlapWith('shadow').length > 0 ? 'yes': ''"]
       }
     },
     {
@@ -95,9 +87,7 @@
           "geoJsonZoomLevel": 14,
           "isOsmCache": true
         },
-        "calculatedTags": [
-          "_is_shadowed=feat.overlapWith('shadow').length > 0 ? 'yes': ''"
-        ]
+        "calculatedTags": ["_is_shadowed=feat.overlapWith('shadow').length > 0 ? 'yes': ''"]
       }
     },
     {

@@ -26,10 +26,7 @@
     "mappings": [
       {
         "if": {
-          "or": [
-            "service:bicycle:pump=no",
-            "service:bicycle:pump:operational_status=broken"
-          ]
+          "or": ["service:bicycle:pump=no", "service:bicycle:pump:operational_status=broken"]
         },
         "then": {
           "en": "Bike repair station",
@@ -73,11 +70,7 @@
       },
       {
         "if": {
-          "and": [
-            "service:bicycle:pump=yes",
-            "service:bicycle:tools=no",
-            "name~*"
-          ]
+          "and": ["service:bicycle:pump=yes", "service:bicycle:tools=no", "name~*"]
         },
         "then": {
           "en": "Bicycle pump <i>{name}</i>",
@@ -358,9 +351,7 @@
         "ru": "Этот насос поддерживает следующие клапаны: {valves}"
       },
       "freeform": {
-        "#addExtraTags": [
-          "fixme=Freeform 'valves'-tag used: possibly a wrong value"
-        ],
+        "#addExtraTags": ["fixme=Freeform 'valves'-tag used: possibly a wrong value"],
         "key": "valves"
       },
       "multiAnswer": true,
@@ -500,10 +491,7 @@
     "mappings": [
       {
         "if": {
-          "and": [
-            "service:bicycle:pump=no",
-            "service:bicycle:pump:operational_status=broken"
-          ]
+          "and": ["service:bicycle:pump=no", "service:bicycle:pump:operational_status=broken"]
         },
         "then": "./assets/layers/bike_repair_station/repair_station.svg"
       },
@@ -515,10 +503,7 @@
       },
       {
         "if": {
-          "and": [
-            "service:bicycle:pump:operational_status=broken",
-            "service:bicycle:tools=no"
-          ]
+          "and": ["service:bicycle:pump:operational_status=broken", "service:bicycle:tools=no"]
         },
         "then": "./assets/layers/bike_repair_station/broken_pump_2.svg"
       },
@@ -564,11 +549,7 @@
         "ru": "Велосипедный насос",
         "fi": "Pyöräpumppu"
       },
-      "tags": [
-        "amenity=bicycle_repair_station",
-        "service:bicycle:tools=no",
-        "service:bicycle:pump=yes"
-      ],
+      "tags": ["amenity=bicycle_repair_station", "service:bicycle:tools=no", "service:bicycle:pump=yes"],
       "description": {
         "en": "A device to inflate your tires on a fixed location in the public space.<h3>Examples of bicycle pumps</h3><div style='width: 100%; display: flex; align-items: stretch;'><img src='./assets/layers/bike_repair_station/pump_example_manual.jpg' style='height: 200px; width: auto;'/><img src='./assets/layers/bike_repair_station/pump_example.png' style='height: 200px; width: auto;'/><img src='./assets/layers/bike_repair_station/pump_example_round.jpg' style='height: 200px; width: auto;'/></div>",
         "nl": "Een apparaat waar je je fietsbanden kan oppompen, beschikbaar in de publieke ruimte. De fietspomp in je kelder telt dus niet.<h3>Voorbeelden</h3><h3>Examples of bicycle pumps</h3><div style='width: 100%; display: flex; align-items: stretch;'><img src='./assets/layers/bike_repair_station/pump_example_manual.jpg' style='height: 200px; width: auto;'/><img src='./assets/layers/bike_repair_station/pump_example.png' style='height: 200px; width: auto;'/><img src='./assets/layers/bike_repair_station/pump_example_round.jpg' style='height: 200px; width: auto;'/></div>",
@@ -586,11 +567,7 @@
         "de": "Fahrrad-Reparaturstation und Pumpe",
         "it": "Stazione di riparazione bici e pompa"
       },
-      "tags": [
-        "amenity=bicycle_repair_station",
-        "service:bicycle:tools=yes",
-        "service:bicycle:pump=yes"
-      ],
+      "tags": ["amenity=bicycle_repair_station", "service:bicycle:tools=yes", "service:bicycle:pump=yes"],
       "description": {
         "en": "A device with tools to repair your bike combined with a pump at a fixed location. The tools are often secured with chains against theft.<h3>Example</h3><img src='./assets/layers/bike_repair_station/repair_station_example.jpg' height='200'/>",
         "nl": "Een apparaat met zowel gereedschap om je fiets te herstellen, met een pomp. Deze zijn op een vastgemaakt op een plaats in de publieke ruimte, bv. aan een paal.<h3>Voorbeeld</h3><img src='./assets/layers/bike_repair_station/repair_station_example.jpg' height='200'/>",
@@ -608,11 +585,7 @@
         "de": "Fahrrad-Reparaturstation ohne Pumpe",
         "it": "Stazione di riparazione bici senza pompa"
       },
-      "tags": [
-        "amenity=bicycle_repair_station",
-        "service:bicycle:tools=yes",
-        "service:bicycle:pump=no"
-      ]
+      "tags": ["amenity=bicycle_repair_station", "service:bicycle:tools=yes", "service:bicycle:pump=no"]
     }
   ]
 }

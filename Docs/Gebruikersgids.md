@@ -1,5 +1,4 @@
-Gebruikersgids MapComplete
-==========================
+# Gebruikersgids MapComplete
 
 MapComplete is een website waar geodata op basis van [OpenStreetMap](https://osm.org), [Wikidata](https://wikidata.org) en andere open bronnen wordt gevisualiseerd en aangevuld.
 
@@ -15,17 +14,15 @@ Daarnaast verwachten we ook dat je op een vriendelijke en correcte manier omgaat
 
 Als je bijdragen grote fouten bevatten, kunnen je wijzigingen ongedaan gemaakt worden door andere leden van OpenStreetMap. Dit is echter erg uitzonderlijk. Bij herhaaldelijke grote fouten, (vermoeden van) kwaad opzet of vandalisme kan je account geblokkeerd worden. Merk op dat MapComplete is opgezet om (grote) vergissingen te vermijden, dus dit is bijna onmogelijk.
 
-Data hergebruiken
------------------
+## Data hergebruiken
 
 De getoonde data (locaties van POI, ...) mogen vrij en gratis hergebruikt worden voor alle doeleinden (ook commercieel), mits de vermelding `Data van OpenStreetMap, vrij beschikbaar onder ODBL` of een gelijkaardige zin. Hiervoor hoef je geen toestemming te vragen.
 
 Let op: aanpassingen aan de data worden ook als open data beschouwd. Let ook op wanneer je OpenStreetMap-data gaat mengen uit andere databronnen waar copyright op rust; vaak mag dit niet. Voor meer informatie, zie de [volledige copyrightnotice](https://osm.org/copyright).
 
-Om de data als computerbestand op te vragen, bestaan er [verschillende opties](https://learnosm.org/en/osm-data/getting-data/). 
+Om de data als computerbestand op te vragen, bestaan er [verschillende opties](https://learnosm.org/en/osm-data/getting-data/).
 
-Privacy
--------
+## Privacy
 
 ### Zonder account
 
@@ -44,4 +41,3 @@ Je kan opteren om een _pseudoniem_ te gebruiken - je gebruikersnaam hoeft niet j
 Wanneer je gegevens aanvult via MapComplete, zal je wijziging **publiek zichtbaar** zijn voor iedereen ter wereld. Dit betekent dus dat iedereen weet dat _gebruikersnaam_ op een bepaalde plaats op een bepaald uur aanwezig was.
 
 **Ben je minderjarig?** Vraag toestemming aan je ouders voordat je een account aanmaakt en kies ervoor om je echte naam _niet_ te gebruiken.
-

@@ -166,13 +166,7 @@
 
 .ohviz-today .ohviz-day-off {
   display: block;
-  background: repeating-linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 0) 10px,
-    rgb(153, 231, 255) 10px,
-    #99e7ff 20px
-  );
+  background: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 10px, rgb(153, 231, 255) 10px, #99e7ff 20px);
   position: absolute;
   left: 0;
   top: 0;

@@ -63,19 +63,13 @@
     "authors": ["Github"],
     "path": "bug.svg",
     "license": "MIT",
-    "sources": [
-      "https://commons.wikimedia.org/wiki/File:Octicons-bug.svg",
-      " https://github.com/primer/octicons"
-    ]
+    "sources": ["https://commons.wikimedia.org/wiki/File:Octicons-bug.svg", " https://github.com/primer/octicons"]
   },
   {
     "path": "camera-plus.svg",
     "license": "CC-BY-SA 3.0",
     "authors": ["Dave Gandy", "Pieter Vander Vennet"],
-    "sources": [
-      "https://fontawesome.com/",
-      "https://commons.wikimedia.org/wiki/File:Camera_font_awesome.svg"
-    ]
+    "sources": ["https://fontawesome.com/", "https://commons.wikimedia.org/wiki/File:Camera_font_awesome.svg"]
   },
   {
     "authors": ["Pieter Vander Vennet"],
@@ -135,9 +129,7 @@
     "authors": ["Dave Gandy"],
     "path": "delete_icon.svg",
     "license": "CC-BY-SA",
-    "sources": [
-      "https://commons.wikimedia.org/wiki/File:Trash_font_awesome.svg\rT"
-    ]
+    "sources": ["https://commons.wikimedia.org/wiki/File:Trash_font_awesome.svg\rT"]
   },
   {
     "authors": [],
@@ -167,10 +159,7 @@
     "authors": ["The Tango Desktop Project"],
     "path": "floppy.svg",
     "license": "CC0",
-    "sources": [
-      "https://commons.wikimedia.org/wiki/File:Media-floppy.svg",
-      " http://tango.freedesktop.org/Tango_Desktop_Project"
-    ]
+    "sources": ["https://commons.wikimedia.org/wiki/File:Media-floppy.svg", " http://tango.freedesktop.org/Tango_Desktop_Project"]
   },
   {
     "authors": [],
@@ -200,10 +189,7 @@
     "authors": ["JOSM Team"],
     "path": "josm_logo.svg",
     "license": "CC0",
-    "sources": [
-      "https://wiki.openstreetmap.org/wiki/File:JOSM_Logotype_2019.svg",
-      " https://josm.openstreetmap.de/"
-    ]
+    "sources": ["https://wiki.openstreetmap.org/wiki/File:JOSM_Logotype_2019.svg", " https://josm.openstreetmap.de/"]
   },
   {
     "authors": [],
@@ -221,57 +207,43 @@
     "path": "Ornament-Horiz-0.svg",
     "license": "CC-BY",
     "authors": ["Nightwolfdezines"],
-    "sources": [
-      "https://www.vecteezy.com/vector-art/226361-ornaments-and-flourishes"
-    ]
+    "sources": ["https://www.vecteezy.com/vector-art/226361-ornaments-and-flourishes"]
   },
   {
     "path": "Ornament-Horiz-1.svg",
     "license": "CC-BY",
     "authors": ["Nightwolfdezines"],
-    "sources": [
-      "https://www.vecteezy.com/vector-art/226361-ornaments-and-flourishes"
-    ]
+    "sources": ["https://www.vecteezy.com/vector-art/226361-ornaments-and-flourishes"]
   },
   {
     "path": "Ornament-Horiz-2.svg",
     "license": "CC-BY",
     "authors": ["Nightwolfdezines"],
-    "sources": [
-      "https://www.vecteezy.com/vector-art/226361-ornaments-and-flourishes"
-    ]
+    "sources": ["https://www.vecteezy.com/vector-art/226361-ornaments-and-flourishes"]
   },
   {
     "path": "Ornament-Horiz-3.svg",
     "license": "CC-BY",
     "authors": ["Nightwolfdezines"],
-    "sources": [
-      "https://www.vecteezy.com/vector-art/226361-ornaments-and-flourishes"
-    ]
+    "sources": ["https://www.vecteezy.com/vector-art/226361-ornaments-and-flourishes"]
   },
   {
     "path": "Ornament-Horiz-4.svg",
     "license": "CC-BY",
     "authors": ["Nightwolfdezines"],
-    "sources": [
-      "https://www.vecteezy.com/vector-art/226361-ornaments-and-flourishes"
-    ]
+    "sources": ["https://www.vecteezy.com/vector-art/226361-ornaments-and-flourishes"]
   },
   {
     "path": "Ornament-Horiz-5.svg",
     "license": "CC-BY",
     "authors": ["Nightwolfdezines"],
-    "sources": [
-      "https://www.vecteezy.com/vector-art/226361-ornaments-and-flourishes"
-    ]
+    "sources": ["https://www.vecteezy.com/vector-art/226361-ornaments-and-flourishes"]
   },
   {
     "path": "Ornament-Horiz-6.svg",
     "license": "CC-BY",
     "authors": ["Nightwolfdezines"],
-    "sources": [
-      "https://www.vecteezy.com/vector-art/226361-ornaments-and-flourishes"
-    ]
+    "sources": ["https://www.vecteezy.com/vector-art/226361-ornaments-and-flourishes"]
   },
   {
     "authors": [],
@@ -361,10 +333,7 @@
     "authors": ["GitHub Octicons"],
     "path": "pencil.svg",
     "license": "MIT",
-    "sources": [
-      "https://github.com/primer/octicons",
-      " https://commons.wikimedia.org/wiki/File:Octicons-pencil.svg"
-    ]
+    "sources": ["https://github.com/primer/octicons", " https://commons.wikimedia.org/wiki/File:Octicons-pencil.svg"]
   },
   {
     "authors": ["@ tyskrat"],
@@ -439,9 +408,7 @@
     "authors": ["MGalloway (WMF)"],
     "path": "translate.svg",
     "license": "CC-BY-SA 3.0",
-    "sources": [
-      "https://commons.wikimedia.org/wiki/File:OOjs_UI_icon_language-ltr.svg"
-    ]
+    "sources": ["https://commons.wikimedia.org/wiki/File:OOjs_UI_icon_language-ltr.svg"]
   },
   {
     "authors": [],

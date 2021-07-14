@@ -1,43 +1,39 @@
-import {InputElement} from "./InputElement";
-import {UIEventSource} from "../../Logic/UIEventSource";
+import { InputElement } from './InputElement';
+import { UIEventSource } from '../../Logic/UIEventSource';
 
 export default class ColorPicker extends InputElement<string> {
+  private readonly value: UIEventSource<string>;
+  private readonly _element: HTMLElement;
+  constructor(value: UIEventSource<string> = new UIEventSource<string>(undefined)) {
+    super();
+    this.value = value;
 
-    private readonly value: UIEventSource<string>
-private readonly _element : HTMLElement
-    constructor(
-        value: UIEventSource<string> = new UIEventSource<string>(undefined)
-    ) {
-        super();
-        this.value = value ;
-        
-        const el = document.createElement("input")
-        this._element = el;
-        
-        el.type = "color"
-        
-        this.value.addCallbackAndRunD(v => {
-           el.value =v
-        });
-        
-        el.oninput = () => {
-            const hex = el.value;
-            value.setData(hex);
-        }
-    }
+    const el = document.createElement('input');
+    this._element = el;
 
-    protected InnerConstructElement(): HTMLElement {
-        return this._element;
-    }
+    el.type = 'color';
 
-    GetValue(): UIEventSource<string> {
-        return this.value;
-    }
+    this.value.addCallbackAndRunD((v) => {
+      el.value = v;
+    });
 
-    IsSelected: UIEventSource<boolean> = new UIEventSource<boolean>(false);
+    el.oninput = () => {
+      const hex = el.value;
+      value.setData(hex);
+    };
+  }
 
-    IsValid(t: string): boolean {
-        return false;
-    }
+  protected InnerConstructElement(): HTMLElement {
+    return this._element;
+  }
 
+  GetValue(): UIEventSource<string> {
+    return this.value;
+  }
+
+  IsSelected: UIEventSource<boolean> = new UIEventSource<boolean>(false);
+
+  IsValid(t: string): boolean {
+    return false;
+  }
 }

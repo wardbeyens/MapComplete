@@ -1,7 +1,7 @@
 {
-    "undefined": {
-        "phone": {
-            "question": "Vad är telefonnumret till {name}?"
-        }
+  "undefined": {
+    "phone": {
+      "question": "Vad är telefonnumret till {name}?"
     }
+  }
 }

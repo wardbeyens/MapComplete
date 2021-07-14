@@ -1,5 +1,4 @@
-What is MapComplete?
-====================
+# What is MapComplete?
 
 MapComplete is a website where people can see a map of Points of Interest (POI) on a specific subject or theme.
 

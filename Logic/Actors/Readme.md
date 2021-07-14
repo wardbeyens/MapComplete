@@ -1,5 +1,4 @@
-Actors
-======
+# Actors
 
 An **actor** is a module which converts one UIEventSource into another while performing logic.
 

@@ -20,9 +20,7 @@ import ShowDataLayer from './UI/ShowDataLayer';
 import * as L from 'leaflet';
 
 // Workaround for a stupid crash: inject some functions which would give stupid circular dependencies or crash the other nodejs scripts
-SimpleMetaTagger.coder = new CountryCoder(
-  'https://pietervdvn.github.io/latlon2country/'
-);
+SimpleMetaTagger.coder = new CountryCoder('https://pietervdvn.github.io/latlon2country/');
 DirectionInput.constructMinimap = (options) => new Minimap(options);
 SpecialVisualizations.constructMiniMap = (options) => new Minimap(options);
 SpecialVisualizations.constructShowDataLayer = (
@@ -31,14 +29,7 @@ SpecialVisualizations.constructShowDataLayer = (
   layoutToUse: UIEventSource<LayoutConfig>,
   enablePopups = true,
   zoomToFeatures = false
-) =>
-  new ShowDataLayer(
-    features,
-    leafletMap,
-    layoutToUse,
-    enablePopups,
-    zoomToFeatures
-  );
+) => new ShowDataLayer(features, leafletMap, layoutToUse, enablePopups, zoomToFeatures);
 
 let defaultLayout = '';
 // --------------------- Special actions based on the parameters -----------------
@@ -77,14 +68,8 @@ if (path !== 'index.html' && path !== '') {
   }
   console.log('Using layout', defaultLayout);
 }
-defaultLayout = QueryParameters.GetQueryParameter(
-  'layout',
-  defaultLayout,
-  'The layout to load into MapComplete'
-).data;
-let layoutToUse: LayoutConfig = AllKnownLayouts.allKnownLayouts.get(
-  defaultLayout.toLowerCase()
-);
+defaultLayout = QueryParameters.GetQueryParameter('layout', defaultLayout, 'The layout to load into MapComplete').data;
+let layoutToUse: LayoutConfig = AllKnownLayouts.allKnownLayouts.get(defaultLayout.toLowerCase());
 
 const userLayoutParam = QueryParameters.GetQueryParameter(
   'userlayout',
@@ -94,36 +79,15 @@ const userLayoutParam = QueryParameters.GetQueryParameter(
 
 // Workaround/legacy to keep the old paramters working as I renamed some of them
 if (layoutToUse?.id === 'cyclofix') {
-  const legacy = QueryParameters.GetQueryParameter(
-    'layer-bike_shops',
-    'true',
-    'Legacy - keep De Fietsambassade working'
-  );
-  const correct = QueryParameters.GetQueryParameter(
-    'layer-bike_shop',
-    'true',
-    'Legacy - keep De Fietsambassade working'
-  );
+  const legacy = QueryParameters.GetQueryParameter('layer-bike_shops', 'true', 'Legacy - keep De Fietsambassade working');
+  const correct = QueryParameters.GetQueryParameter('layer-bike_shop', 'true', 'Legacy - keep De Fietsambassade working');
   if (legacy.data !== 'true') {
     correct.setData(legacy.data);
   }
-  console.log(
-    'layer-bike_shop toggles: legacy:',
-    legacy.data,
-    'new:',
-    correct.data
-  );
+  console.log('layer-bike_shop toggles: legacy:', legacy.data, 'new:', correct.data);
 
-  const legacyCafe = QueryParameters.GetQueryParameter(
-    'layer-bike_cafes',
-    'true',
-    'Legacy - keep De Fietsambassade working'
-  );
-  const correctCafe = QueryParameters.GetQueryParameter(
-    'layer-bike_cafe',
-    'true',
-    'Legacy - keep De Fietsambassade working'
-  );
+  const legacyCafe = QueryParameters.GetQueryParameter('layer-bike_cafes', 'true', 'Legacy - keep De Fietsambassade working');
+  const correctCafe = QueryParameters.GetQueryParameter('layer-bike_cafe', 'true', 'Legacy - keep De Fietsambassade working');
   if (legacyCafe.data !== 'true') {
     correctCafe.setData(legacy.data);
   }
@@ -133,23 +97,19 @@ const layoutFromBase64 = decodeURIComponent(userLayoutParam.data);
 
 new Combine([
   'Initializing... <br/>',
-  new FixedUiElement(
-    '<a>If this message persist, something went wrong - click here to try again</a>'
-  )
+  new FixedUiElement('<a>If this message persist, something went wrong - click here to try again</a>')
     .SetClass('link-underline small')
     .onClick(() => {
       localStorage.clear();
       window.location.reload(true);
-    }),
+    })
 ]).AttachTo('centermessage'); // Add an initialization and reset button if something goes wrong
 document.getElementById('decoration-desktop').remove();
 
 if (layoutFromBase64.startsWith('http')) {
   const link = layoutFromBase64;
   console.log('Downloading map theme from ', link);
-  new FixedUiElement(
-    `Downloading the theme from the <a href="${link}">link</a>...`
-  ).AttachTo('centermessage');
+  new FixedUiElement(`Downloading the theme from the <a href="${link}">link</a>...`).AttachTo('centermessage');
 
   $.ajax({
     url: link,
@@ -165,23 +125,15 @@ if (layoutFromBase64.startsWith('http')) {
         // Overwrite the id to the wiki:value
         parsed.id = link;
         const layout = new LayoutConfig(parsed, false).patchImages(link, data);
-        InitUiElements.InitAll(
-          layout,
-          layoutFromBase64,
-          testing,
-          layoutFromBase64,
-          btoa(data)
-        );
+        InitUiElements.InitAll(layout, layoutFromBase64, testing, layoutFromBase64, btoa(data));
       } catch (e) {
-        new FixedUiElement(
-          `<a href="${link}">${link}</a> is invalid:<br/>${e}<br/> <a href='https://${window.location.host}/'>Go back</a>`
-        )
+        new FixedUiElement(`<a href="${link}">${link}</a> is invalid:<br/>${e}<br/> <a href='https://${window.location.host}/'>Go back</a>`)
           .SetClass('clickable')
           .AttachTo('centermessage');
         console.error('Could not parse the text', data);
         throw e;
       }
-    },
+    }
   }).fail((_, textstatus, error) => {
     console.error('Could not download the wiki theme:', textstatus, error);
     new FixedUiElement(
@@ -193,15 +145,8 @@ if (layoutFromBase64.startsWith('http')) {
       .AttachTo('centermessage');
   });
 } else if (layoutFromBase64 !== 'false') {
-  let [layoutToUse, encoded] =
-    InitUiElements.LoadLayoutFromHash(userLayoutParam);
-  InitUiElements.InitAll(
-    layoutToUse,
-    layoutFromBase64,
-    testing,
-    defaultLayout,
-    encoded
-  );
+  let [layoutToUse, encoded] = InitUiElements.LoadLayoutFromHash(userLayoutParam);
+  InitUiElements.InitAll(layoutToUse, layoutFromBase64, testing, defaultLayout, encoded);
 } else if (layoutToUse !== undefined) {
   // This is the default case: a builtin theme
   InitUiElements.InitAll(layoutToUse, layoutFromBase64, testing, defaultLayout);
@@ -209,10 +154,7 @@ if (layoutFromBase64.startsWith('http')) {
   // We fall through: no theme loaded: just show an overview of layouts
   new FixedUiElement('').AttachTo('centermessage');
   State.state = new State(undefined);
-  new Combine([
-    new MoreScreen(true),
-    Translations.t.general.aboutMapcomplete.SetClass('link-underline'),
-  ])
+  new Combine([new MoreScreen(true), Translations.t.general.aboutMapcomplete.SetClass('link-underline')])
     .SetClass('block m-5 lg:w-3/4 lg:ml-40')
     .SetStyle('pointer-events: all;')
     .AttachTo('topleft-tools');

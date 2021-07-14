@@ -26,19 +26,7 @@
     "ja": "登山地図はもともと <a href='https://utopicode.de/en/?ref=kletterspots' target='_blank'>Christian Neumann</a> によって作成されたものです。フィードバックや質問がありましたら、<a href='https://utopicode.de/en/contact/?project=kletterspots&ref=kletterspots' target='blank'>ご連絡</a>ください。</p><p>このプロジェクトでは、<a href='https://www.openstreetmap.org/' target='_blank'>OpenStreetMap</a>プロジェクトのデータを使用します。</p>",
     "zh_Hant": "攀爬地圖最初由 <a href='https://utopicode.de/en/?ref=kletterspots' target='_blank'>Christian Neumann</a> 製作。如果你有回饋意見或問題請到Please <a href='https://utopicode.de/en/contact/?project=kletterspots&ref=kletterspots' target='blank'>這邊反應</a>。</p><p>這專案使用來自<a href='https://www.openstreetmap.org/' target='_blank'>開放街圖</a>專案的資料。</p>"
   },
-  "language": [
-    "nl",
-    "de",
-    "en",
-    "ru",
-    "ja",
-    "zh_Hant",
-    "nb_NO",
-    "it",
-    "ca",
-    "fr",
-    "id"
-  ],
+  "language": ["nl", "de", "en", "ru", "ja", "zh_Hant", "nb_NO", "it", "ca", "fr", "id"],
   "maintainer": "Christian Neumann <christian@utopicode.de>",
   "icon": "./assets/themes/climbing/climbing_icon.svg",
   "version": "0",
@@ -483,13 +471,7 @@
       "minzoom": 10,
       "source": {
         "osmTags": {
-          "and": [
-            "sport=climbing",
-            "climbing!~route",
-            "leisure!~sports_centre",
-            "climbing!=route_top",
-            "climbing!=route_bottom"
-          ]
+          "and": ["sport=climbing", "climbing!~route", "leisure!~sports_centre", "climbing!=route_top", "climbing!=route_bottom"]
         }
       },
       "title": {
@@ -712,14 +694,7 @@
         "osmTags": {
           "and": [
             {
-              "or": [
-                "leisure=sports_centre",
-                "barrier=wall",
-                "barrier=retaining_wall",
-                "natural=cliff",
-                "natural=rock",
-                "natural=stone"
-              ]
+              "or": ["leisure=sports_centre", "barrier=wall", "barrier=retaining_wall", "natural=cliff", "natural=rock", "natural=stone"]
             },
             "climbing="
           ]
@@ -816,11 +791,7 @@
   ],
   "units": [
     {
-      "appliesToKey": [
-        "climbing:length",
-        "climbing:length:min",
-        "climbing:length:max"
-      ],
+      "appliesToKey": ["climbing:length", "climbing:length:min", "climbing:length:max"],
       "applicableUnits": [
         {
           "canonicalDenomination": "",
@@ -967,12 +938,7 @@
           "club=",
           "climbing:toprope!=no",
           {
-            "or": [
-              "sport=climbing",
-              "climbing:sport=yes",
-              "climbing=traditional",
-              "climbing=gym"
-            ]
+            "or": ["sport=climbing", "climbing:sport=yes", "climbing=traditional", "climbing=gym"]
           }
         ]
       },

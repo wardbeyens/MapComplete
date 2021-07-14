@@ -1,6 +1,6 @@
-import { LayerConfigJson } from "./LayerConfigJson";
-import { TagRenderingConfigJson } from "./TagRenderingConfigJson";
-import UnitConfigJson from "./UnitConfigJson";
+import { LayerConfigJson } from './LayerConfigJson';
+import { TagRenderingConfigJson } from './TagRenderingConfigJson';
+import UnitConfigJson from './UnitConfigJson';
 
 /**
  * Defines the entire theme.
@@ -213,11 +213,7 @@ export interface LayoutConfigJson {
    * }
    *```
    */
-  layers: (
-    | LayerConfigJson
-    | string
-    | { builtin: string | string[]; override: any }
-  )[];
+  layers: (LayerConfigJson | string | { builtin: string | string[]; override: any })[];
 
   /**
    * In some cases, a value is represented in a certain unit (such as meters for heigt/distance/..., km/h for speed, ...)

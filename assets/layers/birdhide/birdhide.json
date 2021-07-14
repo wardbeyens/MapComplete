@@ -181,12 +181,7 @@
   },
   "presets": [
     {
-      "tags": [
-        "leisure=bird_hide",
-        "building=yes",
-        "shelter=yes",
-        "amenity=shelter"
-      ],
+      "tags": ["leisure=bird_hide", "building=yes", "shelter=yes", "amenity=shelter"],
       "title": {
         "nl": "Vogelkijkhut"
       },

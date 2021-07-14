@@ -1,4 +1,4 @@
-import { AndOrTagConfigJson } from "./TagConfigJson";
+import { AndOrTagConfigJson } from './TagConfigJson';
 
 /**
  * A TagRenderingConfigJson is a single piece of code which converts one ore more tags into a HTML-snippet.

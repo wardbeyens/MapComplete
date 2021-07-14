@@ -13,7 +13,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v1.2.0
         env:
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: "true"
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
 
       - name: install deps
         run: npm ci
@@ -64,5 +64,5 @@ jobs:
         if: >-
           env.VALIDATION_FAILED == 'true'
         with:
-          message: "cat layer_report.txt missing_licenses.txt"
+          message: 'cat layer_report.txt missing_licenses.txt'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

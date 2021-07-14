@@ -1,11 +1,11 @@
-import * as L from "leaflet";
-import { UIEventSource } from "../UIEventSource";
-import { Utils } from "../../Utils";
-import Svg from "../../Svg";
-import Img from "../../UI/Base/Img";
-import { LocalStorageSource } from "../Web/LocalStorageSource";
-import LayoutConfig from "../../Customizations/JSON/LayoutConfig";
-import { VariableUiElement } from "../../UI/Base/VariableUIElement";
+import * as L from 'leaflet';
+import { UIEventSource } from '../UIEventSource';
+import { Utils } from '../../Utils';
+import Svg from '../../Svg';
+import Img from '../../UI/Base/Img';
+import { LocalStorageSource } from '../Web/LocalStorageSource';
+import LayoutConfig from '../../Customizations/JSON/LayoutConfig';
+import { VariableUiElement } from '../../UI/Base/VariableUIElement';
 
 export default class GeoLocationHandler extends VariableUiElement {
   /**
@@ -65,12 +65,8 @@ export default class GeoLocationHandler extends VariableUiElement {
     leafletMap: UIEventSource<L.Map>,
     layoutToUse: UIEventSource<LayoutConfig>
   ) {
-    const hasLocation = currentGPSLocation.map(
-      (location) => location !== undefined
-    );
-    const previousLocationGrant = LocalStorageSource.Get(
-      "geolocation-permissions"
-    );
+    const hasLocation = currentGPSLocation.map((location) => location !== undefined);
+    const previousLocationGrant = LocalStorageSource.Get('geolocation-permissions');
     const isActive = new UIEventSource<boolean>(false);
     const isLocked = new UIEventSource<boolean>(false);
 
@@ -92,7 +88,7 @@ export default class GeoLocationHandler extends VariableUiElement {
     );
     this._isActive = isActive;
     this._isLocked = isLocked;
-    this._permission = new UIEventSource<string>("");
+    this._permission = new UIEventSource<string>('');
     this._previousLocationGrant = previousLocationGrant;
     this._currentGPSLocation = currentGPSLocation;
     this._leafletMap = leafletMap;
@@ -103,9 +99,9 @@ export default class GeoLocationHandler extends VariableUiElement {
     const currentPointer = this._isActive.map(
       (isActive) => {
         if (isActive && !self._hasLocation.data) {
-          return "cursor-wait";
+          return 'cursor-wait';
         }
-        return "cursor-pointer";
+        return 'cursor-pointer';
       },
       [this._hasLocation]
     );
@@ -122,28 +118,25 @@ export default class GeoLocationHandler extends VariableUiElement {
     this.init(false);
 
     this._currentGPSLocation.addCallback((location) => {
-      self._previousLocationGrant.setData("granted");
+      self._previousLocationGrant.setData('granted');
 
-      const timeSinceRequest =
-        (new Date().getTime() - (self._lastUserRequest?.getTime() ?? 0)) / 1000;
+      const timeSinceRequest = (new Date().getTime() - (self._lastUserRequest?.getTime() ?? 0)) / 1000;
       if (timeSinceRequest < 30) {
         self.MoveToCurrentLoction(16);
       } else if (self._isLocked.data) {
         self.MoveToCurrentLoction();
       }
 
-      let color = "#1111cc";
+      let color = '#1111cc';
       try {
-        color = getComputedStyle(document.body).getPropertyValue(
-          "--catch-detail-color"
-        );
+        color = getComputedStyle(document.body).getPropertyValue('--catch-detail-color');
       } catch (e) {
         console.error(e);
       }
       const icon = L.icon({
         iconUrl: Img.AsData(Svg.crosshair.replace(/#000000/g, color)),
         iconSize: [40, 40], // size of the icon
-        iconAnchor: [20, 20], // point of the icon which will correspond to marker's location
+        iconAnchor: [20, 20] // point of the icon which will correspond to marker's location
       });
 
       const map = self._leafletMap.data;
@@ -167,26 +160,24 @@ export default class GeoLocationHandler extends VariableUiElement {
     }
 
     try {
-      navigator?.permissions
-        ?.query({ name: "geolocation" })
-        ?.then(function (status) {
-          console.log("Geolocation is already", status);
-          if (status.state === "granted") {
-            self.StartGeolocating(false);
-          }
+      navigator?.permissions?.query({ name: 'geolocation' })?.then(function (status) {
+        console.log('Geolocation is already', status);
+        if (status.state === 'granted') {
+          self.StartGeolocating(false);
+        }
+        self._permission.setData(status.state);
+        status.onchange = function () {
           self._permission.setData(status.state);
-          status.onchange = function () {
-            self._permission.setData(status.state);
-          };
-        });
+        };
+      });
     } catch (e) {
       console.error(e);
     }
 
     if (askPermission) {
       self.StartGeolocating(true);
-    } else if (this._previousLocationGrant.data === "granted") {
-      this._previousLocationGrant.setData("");
+    } else if (this._previousLocationGrant.data === 'granted') {
+      this._previousLocationGrant.setData('');
       self.StartGeolocating(false);
     }
   }
@@ -195,11 +186,8 @@ export default class GeoLocationHandler extends VariableUiElement {
     const location = this._currentGPSLocation.data;
     this._lastUserRequest = undefined;
 
-    if (
-      this._currentGPSLocation.data.latlng[0] === 0 &&
-      this._currentGPSLocation.data.latlng[1] === 0
-    ) {
-      console.debug("Not moving to GPS-location: it is null island");
+    if (this._currentGPSLocation.data.latlng[0] === 0 && this._currentGPSLocation.data.latlng[1] === 0) {
+      console.debug('Not moving to GPS-location: it is null island');
       return;
     }
 
@@ -210,18 +198,11 @@ export default class GeoLocationHandler extends VariableUiElement {
       if (b !== true) {
         // B is an array with our locklocation
         inRange =
-          b[0][0] <= location.latlng[0] &&
-          location.latlng[0] <= b[1][0] &&
-          b[0][1] <= location.latlng[1] &&
-          location.latlng[1] <= b[1][1];
+          b[0][0] <= location.latlng[0] && location.latlng[0] <= b[1][0] && b[0][1] <= location.latlng[1] && location.latlng[1] <= b[1][1];
       }
     }
     if (!inRange) {
-      console.log(
-        "Not zooming to GPS location: out of bounds",
-        b,
-        location.latlng
-      );
+      console.log('Not zooming to GPS location: out of bounds', b, location.latlng);
     } else {
       this._leafletMap.data.setView(location.latlng, targetZoom);
     }
@@ -229,18 +210,18 @@ export default class GeoLocationHandler extends VariableUiElement {
 
   private StartGeolocating(zoomToGPS = true) {
     const self = this;
-    console.log("Starting geolocation");
+    console.log('Starting geolocation');
 
     this._lastUserRequest = zoomToGPS ? new Date() : new Date(0);
-    if (self._permission.data === "denied") {
-      self._previousLocationGrant.setData("");
-      return "";
+    if (self._permission.data === 'denied') {
+      self._previousLocationGrant.setData('');
+      return '';
     }
     if (this._currentGPSLocation.data !== undefined) {
       this.MoveToCurrentLoction(16);
     }
 
-    console.log("Searching location using GPS");
+    console.log('Searching location using GPS');
 
     if (self._isActive.data) {
       return;
@@ -251,11 +232,11 @@ export default class GeoLocationHandler extends VariableUiElement {
       function (position) {
         self._currentGPSLocation.setData({
           latlng: [position.coords.latitude, position.coords.longitude],
-          accuracy: position.coords.accuracy,
+          accuracy: position.coords.accuracy
         });
       },
       function () {
-        console.warn("Could not get location with navigator.geolocation");
+        console.warn('Could not get location with navigator.geolocation');
       }
     );
   }

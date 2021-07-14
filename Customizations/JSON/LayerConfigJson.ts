@@ -1,6 +1,6 @@
-import { TagRenderingConfigJson } from "./TagRenderingConfigJson";
-import { AndOrTagConfigJson } from "./TagConfigJson";
-import { DeleteConfigJson } from "./DeleteConfigJson";
+import { TagRenderingConfigJson } from './TagRenderingConfigJson';
+import { AndOrTagConfigJson } from './TagConfigJson';
+import { DeleteConfigJson } from './DeleteConfigJson';
 
 /**
  * Configuration for a single layer

@@ -40,11 +40,7 @@
     "mappings": [
       {
         "if": {
-          "or": [
-            "public_transport=platform",
-            "railway=platform",
-            "highway=bus_stop"
-          ]
+          "or": ["public_transport=platform", "railway=platform", "highway=bus_stop"]
         },
         "then": {
           "en": "Bench at public transport stop",

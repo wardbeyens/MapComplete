@@ -32,22 +32,7 @@
     "zh_Hant": "在這份地圖上，你可以找到與標記附近的除顫器",
     "sv": "På denna karta kan man hitta och markera närliggande defibrillatorer"
   },
-  "language": [
-    "en",
-    "ca",
-    "es",
-    "fr",
-    "nl",
-    "de",
-    "hu",
-    "id",
-    "it",
-    "ru",
-    "ja",
-    "zh_Hant",
-    "nb_NO",
-    "sv"
-  ],
+  "language": ["en", "ca", "es", "fr", "nl", "de", "hu", "id", "it", "ru", "ja", "zh_Hant", "nb_NO", "sv"],
   "version": "2020-08-29",
   "startLat": 0,
   "startLon": 0,

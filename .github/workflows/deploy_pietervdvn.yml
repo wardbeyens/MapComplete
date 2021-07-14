@@ -10,9 +10,9 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v1.2.0
         with:
-          node-version: "15"
+          node-version: '15'
         env:
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: "true"
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
 
       - name: install deps
         run: npm ci
@@ -36,7 +36,7 @@ jobs:
           git clone --depth 1 --single-branch --branch master "https://x-access-token:$DEPLOY_KEY_PIETERVDVN@github.com/pietervdvn/pietervdvn.github.io.git"
           echo "Destination repo is cloned"
 
-      - name: "Copying files"
+      - name: 'Copying files'
         run: |
           echo "Deploying"
           TARGET=${GITHUB_REF:11}

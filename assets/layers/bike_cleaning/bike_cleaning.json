@@ -37,11 +37,7 @@
   "iconSize": "50,50,bottom",
   "source": {
     "osmTags": {
-      "or": [
-        "service:bicycle:cleaning=yes",
-        "service:bicycle:cleaning=diy",
-        "amenity=bicycle_wash"
-      ]
+      "or": ["service:bicycle:cleaning=yes", "service:bicycle:cleaning=diy", "amenity=bicycle_wash"]
     }
   },
   "minzoom": 13,

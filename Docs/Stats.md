@@ -1,10 +1,8 @@
-Statistics
-==========
+# Statistics
 
-There are some fancy statistics available about MapComplete use. The most important once are listed below, some more graphs (and the scripts to generate them) are [in the tools directory](Tools/) 
+There are some fancy statistics available about MapComplete use. The most important once are listed below, some more graphs (and the scripts to generate them) are [in the tools directory](Tools/)
 
-All Time usage
---------------
+## All Time usage
 
 ![](Tools/CumulativeContributors.png)
 ![](Tools/Cumulative%20changesets%20per%20contributor.png)
@@ -14,16 +12,14 @@ Note: in 2020, MapComplete would still make one changeset per answered question.
 ![](Tools/Cumulative%20changesets%20per%20theme.png)
 ![](Tools/Theme%20distribution.png)
 
-2020
-----
+## 2020
 
 ![](Tools/CumulativeContributors%20in%202020.png)
 ![](Tools/Cumulative%20changesets%20per%20contributor%20in%202020.png)
 ![](Tools/Cumulative%20changesets%20per%20theme%20in%202020.png)
 ![](Tools/Theme%20distribution%20in%202020.png)
 
-2021
-----
+## 2021
 
 ![](Tools/CumulativeContributors%20in%202021.png)
 ![](Tools/Cumulative%20changesets%20per%20contributor%20in%202021.png)

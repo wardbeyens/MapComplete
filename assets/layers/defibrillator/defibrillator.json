@@ -119,9 +119,7 @@
       },
       "freeform": {
         "key": "access",
-        "addExtraTags": [
-          "fixme=Freeform field used for access - doublecheck the value"
-        ]
+        "addExtraTags": ["fixme=Freeform field used for access - doublecheck the value"]
       },
       "mappings": [
         {

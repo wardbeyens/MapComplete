@@ -1,4 +1,3 @@
-
 # MapComplete
 
 > Let a thousand flowers bloom
@@ -18,7 +17,6 @@ The basic functionality is to download some map features from Overpass and then 
 Furthermore, it shows images present in the `image` tag or, if a `wikidata` or `wikimedia_commons`-tag is present, it follows those to get these images too.
 
 An explicit non-goal of MapComplete is to modify geometries of ways. Although adding a point to a way or splitting a way in two parts might be added one day.
-
 
 # Creating your own theme
 
@@ -45,21 +43,21 @@ A typical user journey would be:
 
 0. Oh, this is a cool map of _my specific interest_! There is a lot of data already...
 
-    * The user might discover the explanation about OSM in the second tab
-    * The user might share the map and/or embed it in the third tab
-    * The user might discover the other themes in the last tab
-    
+   - The user might discover the explanation about OSM in the second tab
+   - The user might share the map and/or embed it in the third tab
+   - The user might discover the other themes in the last tab
+
 1. The user clicks that big tempting button 'login' in order to answer questions - there's enough of these login buttons... The user creates an account.
 
-2. The user answers a question! Hooray! The user transformed into a __contributor__ now.
-    
-    * When at least one question is answered (aka: having one changeset on OSM), adding a new point is unlocked
-    
+2. The user answers a question! Hooray! The user transformed into a **contributor** now.
+
+   - When at least one question is answered (aka: having one changeset on OSM), adding a new point is unlocked
+
 3. The user adds a new POI somewhere
 
-    * Note that _all messages_ must be read before being able to add a point.
-    * In other words, sending a message to a misbehaving MapComplete user acts as having a **zero-day-block**. This is added deliberately to make sure new users _have_ to read feedback from the community.
-    
+   - Note that _all messages_ must be read before being able to add a point.
+   - In other words, sending a message to a misbehaving MapComplete user acts as having a **zero-day-block**. This is added deliberately to make sure new users _have_ to read feedback from the community.
+
 4. At 50 changesets, the [personal layout](https://pietervdvn.github.io/MapComplete/personal.html) is advertised. The personal theme is a theme where contributors can pick layers from all the official themes. Note that the personal theme is always available.
 
 5. At 200 changesets, the tags become visible when answering questions and when adding a new point from a preset. This is to give more control to power users and to teach new users the tagging scheme
@@ -68,17 +66,15 @@ A typical user journey would be:
 
 7. At 500 changesets, I expect contributors to be power users and to be comfortable with tagging scheme and such. The custom theme generator is unlocked.
 
-
 ## License
 
 GPLv3.0 + recommended pingback.
 
-I love it to see where the project ends up. You are free to reuse the software (under GPL) but, when you have made your own change and are using it, I would like to know about it. Drop me a line, give a pingback in the issues,...  
+I love it to see where the project ends up. You are free to reuse the software (under GPL) but, when you have made your own change and are using it, I would like to know about it. Drop me a line, give a pingback in the issues,...
 
 ## Dev
 
 To develop or deploy a version of MapComplete, have a look [to the guide](Docs/Development_deployment.md).
-
 
 ## Translating MapComplete
 
@@ -88,20 +84,18 @@ You can easily make an account and start translating in their web-environment - 
 [![Translation status](https://hosted.weblate.org/widgets/mapcomplete/-/multi-blue.svg)](https://hosted.weblate.org/engage/mapcomplete/)
 [![Translation status](https://hosted.weblate.org/widgets/mapcomplete/-/multi-blue.svg)](https://hosted.weblate.org/engage/mapcomplete/)
 
-
 ## Architecture
 
 ### High-level overview
 
 The website is purely static. This means that there is no database here, nor one is needed as all the data is kept in OpenStreetMap, Wikimedia (for images), Imgur. Settings are saved in the preferences-space of the OSM-website, amended by some local-storage if the user is not logged-in.
 
-When viewing, the data is loaded from overpass. The data is then converted (in the browser) to geojson, which is rendered by Leaflet. 
+When viewing, the data is loaded from overpass. The data is then converted (in the browser) to geojson, which is rendered by Leaflet.
 
 When a map feature is clicked, a popup shows the information, images and questions that are relevant for that object.
-The answers given by the user are sent (after a few seconds) to OpenStreetMap directly - if the user is logged in. If not logged in, the user is prompted to do so. 
+The answers given by the user are sent (after a few seconds) to OpenStreetMap directly - if the user is logged in. If not logged in, the user is prompted to do so.
 
 The UI-event-source is a class where the entire system is built upon, it acts as an observable object: another object can register for changes to update when needed.
-
 
 ### Searching images
 
@@ -123,7 +117,7 @@ In order to avoid lots of small changesets, a changeset is opened and kept open.
 
 Whenever a change is made -even adding a single tag - the change is uploaded into this changeset. If that fails, the changeset is probably closed and we open a new changeset.
 
-Note that changesets are closed automatically after one hour of inactivity, so we don't have to worry about closing them. 
+Note that changesets are closed automatically after one hour of inactivity, so we don't have to worry about closing them.
 
 # Documentation
 
@@ -136,7 +130,6 @@ All major personal information is handled by OSM.
 Geolocation is available on mobile only through the device's GPS location (so no geolocation is sent of to Google).
 
 TODO: erase cookies of third party websites and API's
-
 
 # Attribution and Copyright
 

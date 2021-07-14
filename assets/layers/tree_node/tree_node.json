@@ -378,11 +378,7 @@
         "type": "wikidata"
       },
       "condition": {
-        "or": [
-          "denotation=landmark",
-          "denotation=natural_monument",
-          "wikidata~*"
-        ]
+        "or": ["denotation=landmark", "denotation=natural_monument", "wikidata~*"]
       }
     }
   ],

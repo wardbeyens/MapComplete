@@ -1,10 +1,8 @@
-Making your own theme
-=====================
+# Making your own theme
 
 In MapComplete, it is relatively simple to make your own theme. This guide will give some information on how you can do this.
 
-Requirements
-------------
+## Requirements
 
 Before you start, you should have the following qualifications:
 
@@ -16,8 +14,7 @@ Before you start, you should have the following qualifications:
 If you do not have those qualifications, reach out to the MapComplete community channel on [Telegram](https://t.me/MapComplete)
 or [Matrix](https://app.element.io/#/room/#MapComplete:matrix.org).
 
-The custom theme generator
---------------------------
+## The custom theme generator
 
 The custom theme generator is a special page of MapComplete, where one can create their own theme. It makes it easier to get started.
 
@@ -25,8 +22,7 @@ However, the custom theme generator is extremely buggy and built before some upd
 
 [A quick tutorial for the custom theme generator can be found here](https://www.youtube.com/watch?v=nVbFrNVPxPw).
 
-Loading your theme
-------------------
+## Loading your theme
 
 If you have your .json file, there are three ways to distribute your theme:
 
@@ -40,38 +36,37 @@ Did you make an awesome theme that you want to share with the OpenStreetMap comm
 
 Your theme has to be:
 
-0) Make sure the theme has an English version. This makes it easier for me to understand what is going on. The more other languages, the better of course!
-1) Make sure your theme has good tagging
-3) Make sure there are somewhat decent icons. Note that there is _no_ styleguide at the moment though.
+0. Make sure the theme has an English version. This makes it easier for me to understand what is going on. The more other languages, the better of course!
+1. Make sure your theme has good tagging
+2. Make sure there are somewhat decent icons. Note that there is _no_ styleguide at the moment though.
 
 The preferred way to add your theme is via a Pull Request. A Pull Request is less work for the maintainer (which makes it really easy and for me to add it) and your name will be included in the git history (so you'll be listed as contributor). If that is not possible, send the .Json-file and assets, e.g. as a zip in an issue, per email, ...
 
-*Via a pull request:*
+_Via a pull request:_
 
-1) Fork this repository
-2) Go to `assets/themes` and create a new directory `yourtheme`
-3) Create a new file `yourtheme.json`, paste the theme configuration in there. You can find your theme configuration in the customThemeBuilder (the tab with the *Floppy disk* icon)
-4) Copy all the images into this new directory. **No external sources are allowed!** External image sources leak privacy or can break.
-    - Make sure the license is suitable, preferable a Creative Commons license or CC0-license.
-    - If an SVG version is available, use the SVG version
-    - Make sure all the links in `yourtheme.json` are updated. You can use `./assets/themes/yourtheme/yourimage.svg` instead of the HTML link
-    - Create a file `license_info.json` in the theme directory, which contains metadata on every artwork source 
- 5) Add your theme to the code base: add it into "assets/themes" and make sure all the images are there too. Running 'ts-node scripts/fixTheme <path to your theme>' will help downloading the images and attempts to get the licenses if on wikimedia.
- 6) Add some finishing touches, such as a social image. See [this blog post](https://www.h3xed.com/web-and-internet/how-to-use-og-image-meta-tag-facebook-reddit) for some hints
- 7) Test your theme: run the project as described in [development_deployment](Development_deployment.md)
- 8) Happy with your theme? Time to open a Pull Request!
- 9) Thanks a lot for improving MapComplete!
- 
- 
- The .JSON-format
- ----------------
- 
+1. Fork this repository
+2. Go to `assets/themes` and create a new directory `yourtheme`
+3. Create a new file `yourtheme.json`, paste the theme configuration in there. You can find your theme configuration in the customThemeBuilder (the tab with the _Floppy disk_ icon)
+4. Copy all the images into this new directory. **No external sources are allowed!** External image sources leak privacy or can break.
+   - Make sure the license is suitable, preferable a Creative Commons license or CC0-license.
+   - If an SVG version is available, use the SVG version
+   - Make sure all the links in `yourtheme.json` are updated. You can use `./assets/themes/yourtheme/yourimage.svg` instead of the HTML link
+   - Create a file `license_info.json` in the theme directory, which contains metadata on every artwork source
+5. Add your theme to the code base: add it into "assets/themes" and make sure all the images are there too. Running 'ts-node scripts/fixTheme <path to your theme>' will help downloading the images and attempts to get the licenses if on wikimedia.
+6. Add some finishing touches, such as a social image. See [this blog post](https://www.h3xed.com/web-and-internet/how-to-use-og-image-meta-tag-facebook-reddit) for some hints
+7. Test your theme: run the project as described in [development_deployment](Development_deployment.md)
+8. Happy with your theme? Time to open a Pull Request!
+9. Thanks a lot for improving MapComplete!
+
+The .JSON-format
+
+---
+
 There are three important levels in the .JSON-file:
 
 - The toplevel describes the metadata of the entire theme. It contains the `title`, `description`, `icon`... of the theme. The most important object is `layers`, which is a list of objects describing layers.
 - A `layer` describes a layer. It contains the `name`, `icon`, `tags of objects to download from overpass`, and especially the `icon` and a way to ask dynamically render tags and ask questions. A lot of those fields (`icon`, `title`, ...) are actually a `TagRendering`
 - A `TagRendering` is an object describing a relationship between what should be shown on screen and the OSM-tagging. It works in two ways: if the correct tag is known, the appropriate text will be shown. If the tag is missing (and a question is defined), the question will be shown.
-
 
 Every field is documented in the source code itself - you can find them here:
 
@@ -84,20 +79,18 @@ Every field is documented in the source code itself - you can find them here:
 
 There are few tags available that are calculated for convenience - e.g. the country an object is located at. [An overview of all these metatags is available here](Docs/CalculatedTags.md)
 
- Some hints
-------------
+## Some hints
 
 ### Everything is HTML
 
-All the texts are actually *HTML*-snippets, so you can use `<b>` to add bold, or `<img src=...>` to add images to mappings or tagrenderings. 
+All the texts are actually _HTML_-snippets, so you can use `<b>` to add bold, or `<img src=...>` to add images to mappings or tagrenderings.
 
-Some remarks: 
+Some remarks:
 
 - links are disabled when answering a question (e.g. a link in a mapping) as it should trigger the answer - not trigger to open the link.
-- If you include images, e.g. to clarify a type, make sure these are _icons_ or _diagrams_ - not actual pictures! If users see a picture, they think it is a picture of _that actual object_, not a type to clarify the type. An icon is however perceived as something more abstract. 
+- If you include images, e.g. to clarify a type, make sure these are _icons_ or _diagrams_ - not actual pictures! If users see a picture, they think it is a picture of _that actual object_, not a type to clarify the type. An icon is however perceived as something more abstract.
 
- Some pitfalls
----------------
+## Some pitfalls
 
 ### Not publishing
 
@@ -113,7 +106,7 @@ One has to think first in terms of _what is shown to the user if it is known_, o
 
 ### Forgetting the casual/noob mapper
 
-MapComplete is in the first place a tool to help *non-technical* people visualize their interest and contribute to it. In order to maximize contribution:
+MapComplete is in the first place a tool to help _non-technical_ people visualize their interest and contribute to it. In order to maximize contribution:
 
 1. Use simple language. Avoid difficult words and explain jargon
 2. Put the simple questions first and the difficult ones on the back. The contributor can then stop at a difficult point and go to the next POI

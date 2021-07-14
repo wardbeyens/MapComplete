@@ -18,12 +18,6 @@
   "startZoom": 12,
   "widenFactor": 0.05,
   "socialImage": "",
-  "layers": [
-    "drinking_water",
-    "birdhide",
-    "map",
-    "information_board",
-    "nature_reserve"
-  ],
+  "layers": ["drinking_water", "birdhide", "map", "information_board", "nature_reserve"],
   "roamingRenderings": []
 }
