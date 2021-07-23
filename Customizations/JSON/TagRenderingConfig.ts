@@ -28,7 +28,8 @@ export default class TagRenderingConfig implements TagRenderingProperties {
         readonly type: string,
         readonly addExtraTags: TagsFilter[];
         readonly inline: boolean,
-        readonly default?: string
+        readonly default?: string,
+        readonly helperArgs?: (string | number | boolean)[]
     };
 
     public readonly multiAnswer: boolean;
@@ -76,8 +77,8 @@ export default class TagRenderingConfig implements TagRenderingProperties {
                 addExtraTags: json.freeform.addExtraTags?.map((tg, i) =>
                     FromJSON.Tag(tg, `${context}.freeform.extratag[${i}]`)) ?? [],
                 inline: json.freeform.inline ?? false,
-                default: json.freeform.default
-
+                default: json.freeform.default,
+                helperArgs: json.freeform.helperArgs
 
             }
             if (json.freeform["extraTags"] !== undefined) {

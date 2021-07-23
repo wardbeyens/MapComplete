@@ -29,9 +29,10 @@ export class Changes implements FeatureSource {
 
     /**
      * All the pending new objects to upload
-     * @private
      */
     private readonly newObjects = LocalStorageSource.GetParsed<{ id: number, lat: number, lon: number }[]>("newObjects", [])
+
+    private readonly isUploading = new UIEventSource(false);
 
     /**
      * Adds a change to the pending changes
@@ -187,9 +188,17 @@ export class Changes implements FeatureSource {
             }
         }
         if (changedElements.length == 0 && newElements.length == 0) {
-            console.log("No changes in any object");
+            console.log("No changes in any object - clearing");
+            this.pending.setData([])
+            this.newObjects.setData([])
             return;
         }
+        const self = this;
+
+        if (this.isUploading.data) {
+            return;
+        }
+        this.isUploading.setData(true)
 
         console.log("Beginning upload...");
         // At last, we build the changeset and upload
@@ -235,9 +244,12 @@ export class Changes implements FeatureSource {
             },
             () => {
                 console.log("Upload successfull!")
-                this.newObjects.setData([])
-                this.pending.setData([]);
-            });
+                self.newObjects.setData([])
+                self.pending.setData([]);
+                self.isUploading.setData(false)
+            },
+            () => self.isUploading.setData(false)
+        );
     };
 
 

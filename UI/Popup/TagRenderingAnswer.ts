@@ -46,7 +46,7 @@ export default class TagRenderingAnswer extends VariableUiElement {
             return undefined;
         }).map((element: BaseUIElement) => element?.SetClass(options.contentClasses)?.SetStyle(options.contentStyle)))
 
-        this.SetClass("flex items-center flex-row text-lg link-underline tag-renering-answer")
+        this.SetClass("flex items-center flex-row text-lg link-underline")
         this.SetStyle("word-wrap: anywhere;");
     }
 
