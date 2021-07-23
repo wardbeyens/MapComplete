@@ -28,7 +28,11 @@ export default class Minimap extends BaseUIElement {
         super()
         options = options ?? {}
         this._background = options?.background ?? new UIEventSource<BaseLayer>(AvailableBaseLayers.osmCarto)
-        this._location = options?.location ?? new UIEventSource<Loc>(undefined)
+        this._location = options?.location ?? new UIEventSource<Loc>({
+            zoom: 1,
+            lat: 0,
+            lon: 0
+        })
         this._id = "minimap" + Minimap._nextId;
         this._allowMoving = options.allowMoving ?? true;
         this._leafletoptions = options.leafletOptions ?? {}
@@ -76,7 +80,7 @@ export default class Minimap extends BaseUIElement {
 
         let currentLayer = this._background.data.layer()
         const options = {
-            center: <[number, number]> [location.data?.lat ?? 0, location.data?.lon ?? 0],
+            center: <[number, number]>[location.data?.lat ?? 0, location.data?.lon ?? 0],
             zoom: location.data?.zoom ?? 2,
             layers: [currentLayer],
             zoomControl: false,
@@ -89,9 +93,9 @@ export default class Minimap extends BaseUIElement {
             // Disabling this breaks the geojson layer - don't ask me why!  zoomAnimation: this._allowMoving,
             fadeAnimation: this._allowMoving
         }
-        
+
         Utils.Merge(this._leafletoptions, options)
-        
+
         const map = L.map(this._id, options);
 
         map.setMaxBounds(
@@ -138,7 +142,7 @@ export default class Minimap extends BaseUIElement {
             map.setView([loc.lat, loc.lon], loc.zoom)
         })
 
-        location.map(loc => loc.zoom)
+        location.map(loc => loc?.zoom ?? 1)
             .addCallback(zoom => {
                 if (Math.abs(map.getZoom() - zoom) > 0.1) {
                     map.setZoom(zoom, {});

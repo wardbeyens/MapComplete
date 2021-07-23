@@ -3,7 +3,6 @@ import {UIEventSource} from "../../Logic/UIEventSource";
 import Loc from "../../Models/Loc";
 import BaseLayer from "../../Models/BaseLayer";
 import BaseUIElement from "../BaseUIElement";
-import {FixedUiElement} from "../Base/FixedUiElement";
 
 export class Basemap {
 
