@@ -28,7 +28,7 @@ SpecialVisualizations.constructShowDataLayer = (features: UIEventSource<{ featur
                                                  leafletMap: UIEventSource<L.Map>,
                                                  layoutToUse: UIEventSource<LayoutConfig>,
                                                  enablePopups = true,
-                                                 zoomToFeatures = false) => new ShowDataLayer(features, leafletMap, layoutToUse, enablePopups, zoomToFeatures)
+                                                 zoomToFeatures = false, options? ) => new ShowDataLayer(features, leafletMap, layoutToUse, enablePopups, zoomToFeatures, options)
 
 let defaultLayout = ""
 // --------------------- Special actions based on the parameters -----------------

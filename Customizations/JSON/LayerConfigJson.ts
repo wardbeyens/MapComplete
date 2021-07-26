@@ -291,4 +291,20 @@ export interface LayerConfigJson {
      */
     deletion?: boolean | DeleteConfigJson
 
+    /**
+     * IF set, a 'split this road' button is shown
+     */
+    allowSplit?: boolean
+
+    /**
+     * Show :left and :right attributes as two seperate roads on the map. This allows you to edit the :left and :right data seperately.
+     * Each element here is an osm filter on which to sperate between left and right (e.g. cycleway=track (used in the cycle_infra theme))
+     * track
+     *
+     * This will search for :left, :right or :both (or nothing) added in the key of the osm tags (e.g. cycleway:left=yes, cycleway:left:surface=paved, ...)
+     * This will allow you to edit the left and right side of the attributes seperately.
+     * When searching for the value of a given property prop, it will first look for prop:left or prop:right, then for prop:both and finally for prop. Note that the :left will be added
+     * Note, the :left/:right/:both will be added after the first word, e.g. if you have cycleway:surface, this will look for cycleway:left:surface
+     */
+    leftRightDistinctions?: AndOrTagConfigJson | string
 }

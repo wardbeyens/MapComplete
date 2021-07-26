@@ -5,6 +5,7 @@ import Loc from "../../Models/Loc";
 import BaseLayer from "../../Models/BaseLayer";
 import AvailableBaseLayers from "../../Logic/Actors/AvailableBaseLayers";
 import {Map} from "leaflet";
+import 'leaflet-polylineoffset';
 
 export default class Minimap extends BaseUIElement {
 
@@ -25,7 +26,7 @@ export default class Minimap extends BaseUIElement {
         super()
         options = options ?? {}
         this._background = options?.background ?? new UIEventSource<BaseLayer>(AvailableBaseLayers.osmCarto)
-        this._location = options?.location ?? new UIEventSource<Loc>(undefined)
+        this._location = options?.location ?? new UIEventSource<Loc>({lat: 0, lon: 0, zoom: 1})
         this._id = "minimap" + Minimap._nextId;
         this._allowMoving = options.allowMoving ?? true;
         Minimap._nextId++
@@ -136,7 +137,6 @@ export default class Minimap extends BaseUIElement {
                     map.setZoom(zoom, {});
                 }
             })
-
 
         this.leafletMap.setData(map)
     }

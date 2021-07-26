@@ -13,6 +13,7 @@ import SharedTagRenderings from "../../Customizations/SharedTagRenderings";
 import BaseUIElement from "../BaseUIElement";
 import {VariableUiElement} from "../Base/VariableUIElement";
 import DeleteWizard from "./DeleteWizard";
+import {Utils} from "../../Utils";
 
 export default class FeatureInfoBox extends ScrollableFullScreen {
 
@@ -45,16 +46,16 @@ export default class FeatureInfoBox extends ScrollableFullScreen {
         ])
     }
 
-    private static GenerateContent(tags: UIEventSource<any>,
-                                   layerConfig: LayerConfig): BaseUIElement {
+    private static getQuestionBox(tags: UIEventSource<any>, layerConfig: LayerConfig, tagRenderings: TagRenderingConfig[]) {
         let questionBox: BaseUIElement = undefined;
 
+        // fs-userbadge = false as GET parameter means view-only mode, so a Questionbox doesn't have to be generated
         if (State.state.featureSwitchUserbadge.data) {
-            questionBox = new QuestionBox(tags, layerConfig.tagRenderings, layerConfig.units);
+            questionBox = new QuestionBox(tags, tagRenderings, layerConfig.units);
         }
 
         let questionBoxIsUsed = false;
-        const renderings: BaseUIElement[] = layerConfig.tagRenderings.map(tr => {
+        const renderings: BaseUIElement[] = tagRenderings.map(tr => {
             if (tr.question === null) {
                 // This is the question box!
                 questionBoxIsUsed = true;
@@ -65,10 +66,48 @@ export default class FeatureInfoBox extends ScrollableFullScreen {
         if (!questionBoxIsUsed) {
             renderings.push(questionBox);
         }
+        return renderings;
+    }
 
-        const hasMinimap = layerConfig.tagRenderings.some(tr => tr.hasMinimap())
-        if (!hasMinimap) {
-            renderings.push(new TagRenderingAnswer(tags, SharedTagRenderings.SharedTagRendering.get("minimap")))
+    private static GenerateContent(tags: UIEventSource<any>,
+                                   layerConfig: LayerConfig): BaseUIElement {
+
+        const leftRightDistinct = layerConfig.leftRightDistinctions.matchesProperties(tags.data);
+
+        function getMapAndQuestions(tags: UIEventSource<any>, layerConfig: LayerConfig, options? : {left? : boolean, right? : boolean}){
+
+            const defaults = {left: false, right: false};
+            options = Utils.setDefaults(options, defaults);
+
+            const tagRenderings = layerConfig.tagRenderings;
+
+            // Should be either left, right or none, not both -> Maybe this should be an enum?
+            console.assert(!(options.left && options.right));
+
+            const renderings = FeatureInfoBox.getQuestionBox(tags, layerConfig, tagRenderings);
+
+            function getMinimap(left = false, right = false) {
+                let mapType = left? "minimap_left" : right? "minimap_right" : "minimap";
+                return new TagRenderingAnswer(tags, SharedTagRenderings.SharedTagRendering.get(mapType))
+            }
+
+            const hasMinimap = layerConfig.tagRenderings.some(tr => tr.hasMinimap())
+            if (!hasMinimap) {
+                renderings.push(getMinimap(options.left, options.right));
+            }
+
+            return renderings;
+        }
+
+        let renderings = [];
+        if (!leftRightDistinct) {
+            renderings = getMapAndQuestions(tags, layerConfig);
+        } else {
+            // tags opsplitsen linkervragen en rechtervragen
+            // tags.map(allProperties => )// :both op :left and right mappen
+            const leftMapQuestions = getMapAndQuestions(tags, layerConfig, {left: true});
+            const rightMapQuestions = getMapAndQuestions(tags, layerConfig, {right: true});
+            renderings = leftMapQuestions.concat(rightMapQuestions);
         }
 
         if (layerConfig.deletion) {

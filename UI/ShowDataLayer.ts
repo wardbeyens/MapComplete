@@ -16,16 +16,19 @@ export default class ShowDataLayer {
     private readonly _leafletMap: UIEventSource<L.Map>;
     private _cleanCount = 0;
     private readonly _enablePopups: boolean;
-    private readonly _features: UIEventSource<{ feature: any, freshness: Date }[]>
+    private readonly _features: UIEventSource<{ feature: any, freshness: Date }[]>;
+    private readonly _options;
 
     constructor(features: UIEventSource<{ feature: any, freshness: Date }[]>,
                 leafletMap: UIEventSource<L.Map>,
                 layoutToUse: UIEventSource<LayoutConfig>,
                 enablePopups = true,
-                zoomToFeatures = false) {
+                zoomToFeatures = false,
+                options? : {left?: boolean, right? : boolean}) {
         this._leafletMap = leafletMap;
         this._enablePopups = enablePopups;
         this._features = features;
+        options = options? options : {};
         const self = this;
         self._layerDict = {};
 
@@ -61,12 +64,47 @@ export default class ShowDataLayer {
 
             const allFeats = features.data.map(ff => ff.feature);
             geoLayer = self.CreateGeojsonLayer();
+            console.log("Options: ", options)
             for (const feat of allFeats) {
                 if (feat === undefined) {
                     continue
                 }
                 // @ts-ignore
                 geoLayer.addData(feat);
+
+                // Display the left or right side of the road if it's asked
+                if ((options.left || options.right) && feat.geometry.type == "LineString") {
+                    const newCoords = L.GeoJSON.coordsToLatLngs(feat.geometry.coordinates)
+
+                    const smallLineWeight = 2;
+                    const thickLineWeight = 8;
+
+                    const mainColor = '#0f0';
+                    const otherColor = '#f00';
+
+                    const opacity = 0.5;
+                    const offset = 10;
+
+                    const leftWeight = options.left? thickLineWeight : smallLineWeight;
+                    const rightWeight = options.right? thickLineWeight : smallLineWeight;
+
+                    const leftLine = L.polyline(newCoords, {
+                        color: options.left? mainColor : otherColor,
+                        opacity: opacity,
+                        weight: leftWeight,
+                        offset: -offset // TODO: is negative offset actually the left side?
+                    });
+                    const rightLine = L.polyline(newCoords, {
+                        color: options.right? mainColor : otherColor,
+                        opacity: opacity,
+                        weight: rightWeight,
+                        offset: offset
+                    });
+                    leftLine.addTo(geoLayer);
+                    rightLine.addTo(geoLayer);
+
+                }
+
             }
             if (layoutToUse.data.clustering.minNeededElements <= allFeats.length) {
                 // Activate clustering if it wasn't already activated
@@ -163,7 +201,7 @@ export default class ShowDataLayer {
            
             if (infobox === undefined) {
                 const tags = State.state.allElements.getEventSourceById(feature.properties.id);
-                infobox = new FeatureInfoBox(tags, layer);
+                infobox = new FeatureInfoBox(tags, layer); // Arnodeceuninck
 
                 infobox.isShown.addCallback(isShown => {
                     if (!isShown) {

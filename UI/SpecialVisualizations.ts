@@ -41,7 +41,7 @@ export default class SpecialVisualizations {
         location?: UIEventSource<Loc>,
         allowMoving?: boolean
     }) => BaseUIElement;
-    static constructShowDataLayer: (features: UIEventSource<{ feature: any; freshness: Date }[]>, leafletMap: UIEventSource<any>, layoutToUse: UIEventSource<any>, enablePopups?: boolean, zoomToFeatures?: boolean) => any;
+    static constructShowDataLayer: (features: UIEventSource<{ feature: any; freshness: Date }[]>, leafletMap: UIEventSource<any>, layoutToUse: UIEventSource<any>, enablePopups?: boolean, zoomToFeatures?: boolean, options? : {left?: boolean, right?: boolean}) => any;
     public static specialVisualizations: SpecialVisualization[] =
         [
             {
@@ -113,6 +113,11 @@ export default class SpecialVisualizations {
                 ],
                 example: "`{minimap()}`, `{minimap(17, id, _list_of_embedded_feature_ids_calculated_by_calculated_tag):height:10rem; border: 2px solid black}`",
                 constr: (state, tagSource, args) => {
+                    console.log("Constructing minimap: ")
+                    console.log(state);
+                    console.log(tagSource);
+                    console.log(args);
+                    console.log("Done")
 
                     const keys = [...args]
                     keys.splice(0, 1)
@@ -164,12 +169,17 @@ export default class SpecialVisualizations {
                         }
                     })
 
+                    // Warning: args[3] may contain id's!!! (only used in climbint theme), todo
+                    const options = args[3] ? {left: args[3] === "left", right: args[3] === "right"} : {}
+
+                    console.log("FeaturesToShow: ", featuresToShow)
                     SpecialVisualizations.constructShowDataLayer(
                         featuresToShow,
                         minimap["leafletMap"],
                         State.state.layoutToUse,
                         false,
-                        true
+                        true,
+                        options
                     )
 
 

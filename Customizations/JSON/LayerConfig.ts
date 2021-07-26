@@ -59,6 +59,8 @@ export default class LayerConfig {
 
     tagRenderings: TagRenderingConfig [];
 
+    leftRightDistinctions: TagsFilter;
+
     constructor(json: LayerConfigJson,
                 units?:Unit[],
                 context?: string,
@@ -258,6 +260,10 @@ export default class LayerConfig {
         }
         if(json.deletion !== undefined && json.deletion !== false){
             this.deletion = new DeleteConfig(json.deletion, `${context}.deletion`)
+        }
+
+        if (json["leftRightDistinctions"] !== undefined) {
+            this.leftRightDistinctions = FromJSON.Tag(json["leftRightDistinctions"], context + ".leftRightDistinctions");
         }
 
 

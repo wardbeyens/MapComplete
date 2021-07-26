@@ -8,6 +8,12 @@
   "minimap": {
     "render": "{minimap(18, id): width:100%; height:8rem; border-radius:2rem; overflow: hidden; pointer-events: none;}"
   },
+  "minimap_right": {
+    "render": "{minimap(18, id, [], right): width:100%; height:8rem; border-radius:2rem; overflow: hidden; pointer-events: none;}"
+  },
+  "minimap_left": {
+    "render": "{minimap(18, id, [], left): width:100%; height:8rem; border-radius:2rem; overflow: hidden; pointer-events: none;}"
+  },
   "phone": {
     "question": {
       "en": "What is the phone number of {name}?",

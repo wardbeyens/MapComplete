@@ -450,6 +450,7 @@ export class Utils {
     }
 
     public static setDefaults(options, defaults){
+        if (!(options)) return defaults;
         for (let key in defaults){
             if (!(key in options)) options[key] = defaults[key];
         }

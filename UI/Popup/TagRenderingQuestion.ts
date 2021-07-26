@@ -42,6 +42,8 @@ export default class TagRenderingQuestion extends Combine {
                     bottomText?: (src: UIEventSource<TagsFilter>) => BaseUIElement
                 }
     ) {
+        console.log("tags: ", tags)
+        console.log("config: ", configuration)
         if (configuration === undefined) {
             throw "A question is needed for a question visualization"
         }
