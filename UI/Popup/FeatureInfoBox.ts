@@ -14,6 +14,9 @@ import BaseUIElement from "../BaseUIElement";
 import {VariableUiElement} from "../Base/VariableUIElement";
 import DeleteWizard from "./DeleteWizard";
 import {Utils} from "../../Utils";
+import {tag} from "@turf/turf";
+import Title from "../Base/Title";
+import Translations from "../i18n/Translations";
 
 export default class FeatureInfoBox extends ScrollableFullScreen {
 
@@ -72,14 +75,23 @@ export default class FeatureInfoBox extends ScrollableFullScreen {
     private static GenerateContent(tags: UIEventSource<any>,
                                    layerConfig: LayerConfig): BaseUIElement {
 
-        const leftRightDistinct = layerConfig.leftRightDistinctions.matchesProperties(tags.data);
+        const tagRenderings = layerConfig.tagRenderings;
 
-        function getMapAndQuestions(tags: UIEventSource<any>, layerConfig: LayerConfig, options? : {left? : boolean, right? : boolean}){
+        // Some questions are general, some must be asked seperately on the left side of the road and on the right side of the road
+        const leftRightDistinctions = layerConfig.leftRightDistinctions;
+        console.log("Arggggghhh", tags)
+        const generalTagRenderings = tagRenderings.filter(tagRendering => !(tagRendering.shouldSplit(leftRightDistinctions)))
+        const splittedTagRenderings = tagRenderings.filter(tagRendering => tagRendering.shouldSplit(leftRightDistinctions))
+
+        const leftTagRenderings = splittedTagRenderings.map(tagRendering => tagRendering.makeLeftRight(leftRightDistinctions,"left"))
+        const rightTagRenderings = splittedTagRenderings.map(tagRendering => tagRendering.makeLeftRight(leftRightDistinctions, "right"))
+
+        const leftRightDistinct = leftTagRenderings.length != 0 || rightTagRenderings.length != 0;
+        function getMapAndQuestions(tags: UIEventSource<any>, layerConfig: LayerConfig, tagRenderings, options? : {left? : boolean, right? : boolean}){
 
             const defaults = {left: false, right: false};
             options = Utils.setDefaults(options, defaults);
 
-            const tagRenderings = layerConfig.tagRenderings;
 
             // Should be either left, right or none, not both -> Maybe this should be an enum?
             console.assert(!(options.left && options.right));
@@ -99,16 +111,26 @@ export default class FeatureInfoBox extends ScrollableFullScreen {
             return renderings;
         }
 
-        let renderings = [];
+        let renderings;
         if (!leftRightDistinct) {
-            renderings = getMapAndQuestions(tags, layerConfig);
+            renderings = getMapAndQuestions(tags, layerConfig, tagRenderings);
         } else {
-            // tags opsplitsen linkervragen en rechtervragen
-            // tags.map(allProperties => )// :both op :left and right mappen
-            const leftMapQuestions = getMapAndQuestions(tags, layerConfig, {left: true});
-            const rightMapQuestions = getMapAndQuestions(tags, layerConfig, {right: true});
-            renderings = leftMapQuestions.concat(rightMapQuestions);
+            // TODO: Why won't the translations work? :(
+            const generalTitle = new Title(Translations.t.roadside.general);
+            const generalMapQuestions = getMapAndQuestions(tags, layerConfig, generalTagRenderings);
+            generalMapQuestions.unshift(generalTitle)
+
+            const leftTitle = new Title(Translations.t.roadside.left)
+            const leftMapQuestions = getMapAndQuestions(tags, layerConfig, leftTagRenderings, {left: true});
+            leftMapQuestions.unshift(leftTitle)
+
+            const rightTitle = new Title(Translations.t.roadside.right)
+            const rightMapQuestions = getMapAndQuestions(tags, layerConfig, rightTagRenderings, {right: true});
+            rightMapQuestions.unshift(rightTitle)
+
+            renderings = generalMapQuestions.concat(leftMapQuestions, rightMapQuestions)
         }
+
 
         if (layerConfig.deletion) {
             renderings.push(

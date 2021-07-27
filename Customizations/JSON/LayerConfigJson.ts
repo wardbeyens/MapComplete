@@ -306,5 +306,5 @@ export interface LayerConfigJson {
      * When searching for the value of a given property prop, it will first look for prop:left or prop:right, then for prop:both and finally for prop. Note that the :left will be added
      * Note, the :left/:right/:both will be added after the first word, e.g. if you have cycleway:surface, this will look for cycleway:left:surface
      */
-    leftRightDistinctions?: AndOrTagConfigJson | string
+    leftRightDistinctions?: string[]
 }

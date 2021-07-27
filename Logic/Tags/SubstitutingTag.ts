@@ -64,4 +64,8 @@ export default class SubstitutingTag implements TagsFilter {
         }
         return [{k: this._key, v: v}];
     }
+
+    getLeftRightFilter(leftRightDistinctions, side: "left" | "right") {
+        return {"TODO": ":("}
+    }
 }

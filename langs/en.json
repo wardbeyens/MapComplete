@@ -210,5 +210,10 @@
     "tos": "If you create a review, you agree to <a href='https://mangrove.reviews/terms' target='_blank'>the TOS and privacy policy of Mangrove.reviews</a>",
     "attribution": "Reviews are powered by <a href='https://mangrove.reviews/' target='_blank'>Mangrove Reviews</a> and are available under <a href='https://mangrove.reviews/terms#8-licensing-of-content' target='_blank'>CC-BY 4.0</a>.",
     "plz_login": "Login to leave a review"
+  },
+  "roadside": {
+    "general": "This info is about both sides of the road",
+    "left": "This info is about the left side of the road",
+    "right": "This info is about the right side of the road"
   }
 }

@@ -116,4 +116,16 @@ export class And extends TagsFilter {
         }
         return result;
     }
+
+    getLeftRightFilter(leftRightDistinctions, side: "left" | "right") {
+        const json = []
+        for (const tagsFilter of this.and) {
+            json.push(tagsFilter.getLeftRightFilter(leftRightDistinctions, side))
+        }
+        if (json.length === 0) {
+            console.warn("Weird: ", this)
+        }
+        console.log(json)
+        return {"and": json};
+    }
 }

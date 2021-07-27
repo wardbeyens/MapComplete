@@ -109,5 +109,6 @@ export class FromJSON {
         if (json.or !== undefined) {
             return new Or(json.or.map(t => FromJSON.Tag(t, context)));
         }
+        throw `Could not parse the tag ${json} in context ${context}`
     }
 }

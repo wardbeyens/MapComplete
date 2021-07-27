@@ -107,7 +107,7 @@ export default class TagRenderingConfig {
                 throw "Tagrendering has a 'mappings'-object, but expected a list (" + context + ")"
             }
 
-            this.mappings = json.mappings.map((mapping, i) => {
+            this.mappings = json.mappings.map((mapping , i) => {
 
 
                 if (mapping.then === undefined) {
@@ -351,5 +351,144 @@ export default class TagRenderingConfig {
             }
         }
         return false;
-    } 
+    }
+
+    /**
+     * Returns a set of all keys on which this TagRendering depends
+     */
+    public getKeyDependencies(): Set<string> {
+
+        const allKeyDependencies = []
+
+        /**
+         * Returns a set of all keys on which the renderstrings depend
+         */
+        function getTranslationDependencies(render) {
+            let allKeyDependencies = []
+            const findKeysInCurlyBraces = /{([^}]+)}/g
+            // iterate over all languages
+            if (render === undefined || render.translations === undefined) return [];
+            for (let translation of render.translations) {
+                const renderStr = render.translations[translation]
+                const matches = renderStr.match(findKeysInCurlyBraces);
+                const keyDependencies = matches.map(match => match.slice(1, -1)); // remove the curly brackets
+                allKeyDependencies = allKeyDependencies.concat(keyDependencies); // TODO? Special keys e.g. image_carousel()
+            }
+            return allKeyDependencies;
+        }
+
+        function getTagsFilterDependencies(tagsFilter: TagsFilter): string[] {
+            if (tagsFilter === undefined) return [];
+            return tagsFilter.usedKeys();
+        }
+
+        function getMappingsDependencies(mappings){
+            if (mappings === undefined) return [];
+
+            const allDependencies: string[] = [];
+            for (let mapping of mappings){
+                allDependencies.push(...getTagsFilterDependencies(mapping.if));
+                allDependencies.push(...getTagsFilterDependencies(mapping.ifnot));
+                allDependencies.push(...getTranslationDependencies(mapping.then));
+                if (mapping.hideInAnswer instanceof TagsFilter) allDependencies.push(...getTagsFilterDependencies(mapping.then))
+            }
+
+            return allDependencies;
+        }
+
+        allKeyDependencies.push(...getTranslationDependencies(this.render));
+        allKeyDependencies.push(...getTagsFilterDependencies(this.condition));
+        allKeyDependencies.push(...getMappingsDependencies(this.mappings));
+
+        return new Set([...allKeyDependencies]);
+    }
+
+    /**
+     * Returns true if this tag rendering must be added seperately on the right side of the road and on the left side of the road
+     * (and false if it's a general question of which the answer applies for both sides of the road)
+     * @param leftRightDistinctions The osm keys on which to seperate between a left question and a right question, can be specified in the layerconfig
+     */
+    public shouldSplit(leftRightDistinctions): boolean {
+        if (leftRightDistinctions === undefined) return false;
+        const keysDependencies = this.getKeyDependencies();
+        return leftRightDistinctions.some(splitKey => keysDependencies.has(splitKey)); // TODO: momenteel moeten de keys exact hetzelfde zijn, mss moet er gewoon gecheckt worden of het linkerdeel voor de eerste dubbelpunt matcht?
+    }
+
+    public makeLeftRight(leftRightDistinctions, side: ("left" | "right")) {
+        // JSON opbouwen en dan tagrenderingsconfig van json
+        // Returns a new tagrenderin
+        // return new TagRenderingConfig()
+        function getLeftRightTagsFilter(tagsFilter: TagsFilter) {
+            return tagsFilter.getLeftRightFilter(leftRightDistinctions, side)
+        }
+
+        function getLeftRightMappings(mappings) {
+            if (mappings === undefined) return undefined;
+            const mappingsJson = []
+            for (let mapping of mappings){
+                const mappingJson = {}
+
+                mappingJson["if"] = getLeftRight(mapping.if);
+                mappingJson["ifnot"] = getLeftRight(mapping.ifnot);
+                mappingJson["then"] = getLeftRight(mapping.then);
+                if (mapping.hideInAnswer instanceof TagsFilter) {
+                    mappingJson["hideInAnswer"] = getLeftRight(mapping.hideInAnswer)
+                } else {
+                    mappingsJson["hideInAnswer"] = mapping.hideInAnswer;
+                }
+
+                mappingsJson.push(mappingJson)
+            }
+            return mappingsJson
+        }
+
+        function getLeftRightFreeform(freeform) {
+            if (freeform === undefined) return undefined;
+            const freeformJson = {};
+            freeformJson["key"] = freeform.key; // TODO: Should this be different between left and right?
+            freeformJson["type"] = freeform.type;
+            freeformJson["addExtraTags"] = getLeftRight(freeform.addExtraTags);
+            freeformJson["inline"] = freeform.inline;
+            freeformJson["default"] = freeform.default;
+            return freeformJson
+        }
+
+        function getLeftRightTranslation(translation: Translation) {
+            // TODO: Make left right
+            return translation.translations;
+        }
+
+        function getLeftRight(object) {
+            if (object instanceof TagsFilter){
+                return getLeftRightTagsFilter(object);
+            } else if (object instanceof Translation) {
+                return getLeftRightTranslation(object);
+            } else if (object instanceof Array) {
+                return object.map(el => getLeftRight(el))
+            } else if (object === undefined) {
+                return undefined;
+            } else {
+                console.warn("Left right of unknown object: ", object)
+                return object;
+            }
+
+        }
+
+        const configJson = {};
+
+        configJson["render"] = getLeftRight(this.render)
+        configJson["question"] = getLeftRight(this.question)
+        configJson["condition"] = getLeftRight(this.condition)
+        configJson["configuration_warnings"] = this.configuration_warnings;
+        configJson["freeform"] = getLeftRightFreeform(this.freeform);
+        configJson["multiAnswer"] = this.multiAnswer
+
+        const newMappings = getLeftRightMappings(this.mappings);
+        if (newMappings !== undefined) configJson["mappings"] = newMappings;
+
+        configJson["roaming"] = this.roaming;
+
+        // conditionIfRoaming is already part of condition
+        return new TagRenderingConfig(configJson, undefined, "spltting left/right");
+    }
 }

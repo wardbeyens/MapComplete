@@ -19,5 +19,6 @@ export abstract class TagsFilter {
      * Note: properties are the already existing tags-object. It is only used in the substituting tag
      */
     abstract asChange(properties:any): {k: string, v:string}[]
-    
+
+    abstract getLeftRightFilter(leftRightDistinctions, side: "left" | "right")
 }

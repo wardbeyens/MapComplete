@@ -84,7 +84,7 @@ export interface TagRenderingConfigJson {
          * In some cases, multiple taggings exist (e.g. a default assumption, or a commonly mapped abbreviation and a fully written variation).
          * 
          * In the latter case, a correct text should be shown, but only a single, canonical tagging should be selectable by the user.
-         * In this case, one of the mappings can be hiden by setting this flag.
+         * In this case, one of the mappings can be hidden by setting this flag.
          * 
          * To demonstrate an example making a default assumption:
          * 

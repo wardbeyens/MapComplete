@@ -85,4 +85,15 @@ export class Tag extends TagsFilter {
     asChange(properties: any): { k: string; v: string }[] {
         return [{k: this.key,  v: this.value}];
     }
+
+    getLeftRightFilter(leftRightDistinctions: string[], side: "left" | "right") {
+        const tags = this.key.split(":")
+        if(leftRightDistinctions.includes(tags[0]) &&
+            !(tags[1] === "left" || tags[1] === "right")) {
+            // append the direction after the first element
+            tags.splice(1, 0, side)
+        }
+        const newKey = tags.join(":");
+        return `${newKey}=${this.value}`
+    }
 }

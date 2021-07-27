@@ -67,6 +67,14 @@ export class Or extends TagsFilter {
         }
         return result;
     }
+
+    getLeftRightFilter(leftRightDistinctions, side: "left" | "right") {
+        const json = []
+        for (const tagsFilter of this.or) {
+            json.push(tagsFilter.getLeftRightFilter(leftRightDistinctions, side))
+        }
+        return {"or": json};
+    }
 }
 
 

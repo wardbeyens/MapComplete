@@ -101,4 +101,8 @@ export class RegexTag extends TagsFilter {
         console.error("Cannot export regex tag to asChange; ", this.key, this.value)
         return []
     }
+
+    getLeftRightFilter(leftRightDistinctions, side: "left" | "right") {
+        return this.asHumanString();
+    }
 }

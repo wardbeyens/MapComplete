@@ -42,13 +42,12 @@ export default class TagRenderingQuestion extends Combine {
                     bottomText?: (src: UIEventSource<TagsFilter>) => BaseUIElement
                 }
     ) {
-        console.log("tags: ", tags)
-        console.log("config: ", configuration)
         if (configuration === undefined) {
             throw "A question is needed for a question visualization"
         }
         options = options ?? {}
         const applicableUnit = (options.units ?? []).filter(unit => unit.isApplicableToKey(configuration.freeform?.key))[0];
+        console.log("Substituting translation", configuration.question, tags)
         const question = new SubstitutedTranslation(configuration.question, tags)
             .SetClass("question-text");
 
